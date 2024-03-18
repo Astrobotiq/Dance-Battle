@@ -4,21 +4,36 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CardHolder : MonoBehaviour
+public class PlayArea : MonoBehaviour
 {
     //array initialize edilmemiþ
     //play arealarin olduðu colliderlar isTrigger olacak
     //Card'in isTriggerini deðiþtir
-    public ArrayList arrayList;
+    Card puttedCard;
+
+    private void Awake()
+    {
+        puttedCard = null;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag=="Card")
         {
-            Vector3 temp = gameObject.transform.position;
-            other.gameObject.transform.position= temp;
-            arrayList.Add(other.gameObject);
-            Debug.Log("added to arraylist and transformed to center");
+            Debug.Log(other.gameObject.name);
+            Debug.Log(transform.position);
+            GameObject otherGO = other.gameObject;
+            otherGO.GetComponent<KartMovement>().enabled = false;
+            puttedCard = otherGO.GetComponent<Card>();
+            otherGO.transform.position = transform.position;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Card")
+        {
+            puttedCard = null;
         }
     }
 }

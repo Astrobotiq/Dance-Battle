@@ -2,21 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShuffleHolder : _CardHolder
+public abstract class _CardHolder : MonoBehaviour
 {
+    protected List<Card> _cards;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public override Card Draw(Card card)
+    public Card Draw(Card card)
     {
         if (_cards.Contains(card))
         {
@@ -29,12 +19,14 @@ public class ShuffleHolder : _CardHolder
         }
     }
 
-    public override void Add(Card card)
+    public abstract Card Draw();
+
+    public void Add(Card card)
     {
         _cards.Add(card);
     }
 
-    public override void Remove(Card card)
+    public void Remove(Card card)
     {
         if (!_cards.Contains(card))
         {
@@ -46,5 +38,15 @@ public class ShuffleHolder : _CardHolder
         }
     }
 
-
+    public void shuffle()
+    {
+        List<Card> list = new List<Card>();
+        while (_cards.Count > 0)
+        {
+            int randomNum = Random.Range(0, _cards.Count);
+            list.Add(_cards[randomNum]);
+            _cards.RemoveAt(randomNum);
+        }
+        _cards = list;
+    } 
 }
