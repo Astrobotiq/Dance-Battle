@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShuffleHolder : _CardHolder
 {
+    [SerializeField]
+    private DiscardHolder discardHolder;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +23,10 @@ public class ShuffleHolder : _CardHolder
         Card tempCard = _cards[0];
         Remove(tempCard);
         return tempCard;
+    }
+
+    public void getAllCards()
+    {
+        _cards = discardHolder.giveAllCards();
     }
 }
