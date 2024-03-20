@@ -23,7 +23,7 @@ public class DiscardHolder : _CardHolder
 
     public List<Card> giveAllCards()
     {
-        shuffle();
+        Shuffle();
         List<Card> temp = _cards;
         _cards.Clear();
         return temp;
