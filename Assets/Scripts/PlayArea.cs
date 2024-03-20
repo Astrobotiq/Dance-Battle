@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayArea : MonoBehaviour
+public class PlayArea : MonoBehaviour //Class diagram eklenmedi bu script
 {
-    //array initialize edilmemiþ
-    //play arealarin olduðu colliderlar isTrigger olacak
-    //Card'in isTriggerini deðiþtir
+    //array initialize edilmemiï¿½
+    //play arealarin olduï¿½u colliderlar isTrigger olacak
+    //Card'in isTriggerini deï¿½iï¿½tir
     Card puttedCard;
 
     private void Awake()

@@ -38,7 +38,7 @@ public abstract class _CardHolder : MonoBehaviour
         }
     }
 
-    public void shuffle()
+    public void Shuffle()
     {
         List<Card> list = new List<Card>();
         while (_cards.Count > 0)

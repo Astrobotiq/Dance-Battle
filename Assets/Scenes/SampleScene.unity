@@ -253,10 +253,10 @@ GameObject:
   - component: {fileID: 310255047}
   - component: {fileID: 310255046}
   - component: {fileID: 310255045}
-  - component: {fileID: 310255044}
   - component: {fileID: 310255049}
+  - component: {fileID: 310255044}
   - component: {fileID: 310255050}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Ge\xE7ici_Kart"
   m_TagString: Card
   m_Icon: {fileID: 0}
@@ -276,9 +276,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mousePos: {x: 0, y: 0, z: 0}
-  mask:
+  layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
+  selectedObject: {fileID: 0}
+  _float: 2.61
 --- !u!135 &310255045
 SphereCollider:
   m_ObjectHideFlags: 0
