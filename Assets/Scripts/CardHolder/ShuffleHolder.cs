@@ -18,9 +18,9 @@ public class ShuffleHolder : _CardHolder
         
     }
 
-    public override Card Draw()
+    public override CardInfo Draw()
     {
-        Card tempCard = _cards[0];
+        CardInfo tempCard = _cards[0];
         Remove(tempCard);
         return tempCard;
     }

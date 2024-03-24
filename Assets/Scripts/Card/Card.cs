@@ -7,10 +7,10 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     //public EffectClass effect;        Effect class eklenince commentden çıkarırız
-    public String name;
-    public String danceType;
+    private CardInfo cardInfo;
     public Boolean isInBox = false; // kutu içinde dışında kontrol edip general ınput yollamak için
     public GameObject forBox; // collide eden kutunun referansını yollamak için
+    public CardInfoDisplayer cardDisplayer;
 
     public void Animate(){ } //şuanlık boş gerekince doldur
 
@@ -27,6 +27,19 @@ public class Card : MonoBehaviour
     {
         isInBox = false;
     }
+
+    public void setCardInfo(CardInfo card)
+    {
+        if (cardInfo != null)
+        {
+            cardInfo = card;
+        }
+
+        cardDisplayer.display(card.CardName, card.CardType);
+        
+    }
+
     
+
     //tamamlanacak
 }

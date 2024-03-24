@@ -4,9 +4,10 @@ using UnityEngine;
 
 public abstract class _CardHolder : MonoBehaviour
 {
-    protected List<Card> _cards;
+    [SerializeField]
+    protected List<CardInfo> _cards;
     // Start is called before the first frame update
-    public Card Draw(Card card)
+    public CardInfo Draw(CardInfo card)
     {
         if (_cards.Contains(card))
         {
@@ -19,14 +20,14 @@ public abstract class _CardHolder : MonoBehaviour
         }
     }
 
-    public abstract Card Draw();
+    public abstract CardInfo Draw();
 
-    public void Add(Card card)
+    public void Add(CardInfo card)
     {
         _cards.Add(card);
     }
 
-    public void Remove(Card card)
+    public void Remove(CardInfo card)
     {
         if (!_cards.Contains(card))
         {
@@ -40,7 +41,7 @@ public abstract class _CardHolder : MonoBehaviour
 
     public void Shuffle()
     {
-        List<Card> list = new List<Card>();
+        List<CardInfo> list = new List<CardInfo>();
         while (_cards.Count > 0)
         {
             int randomNum = Random.Range(0, _cards.Count);

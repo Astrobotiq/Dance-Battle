@@ -16,15 +16,15 @@ public class DiscardHolder : _CardHolder
         
     }
 
-    public override Card Draw()
+    public override CardInfo Draw()
     {
         throw new System.NotImplementedException();
     }
 
-    public List<Card> giveAllCards()
+    public List<CardInfo> giveAllCards()
     {
         Shuffle();
-        List<Card> temp = _cards;
+        List<CardInfo> temp = _cards;
         _cards.Clear();
         return temp;
     }
