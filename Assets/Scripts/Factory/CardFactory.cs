@@ -11,6 +11,9 @@ public class CardFactory : MonoBehaviour
     private GameObject cardPrefab;
     [SerializeField]
     private ShuffleHolder shuffleHolder;
+    [SerializeField]
+    private HandHolder handHolder;
+    public Transform BornPos;
 
     private void Awake()
     {
@@ -20,12 +23,43 @@ public class CardFactory : MonoBehaviour
         }
     }
 
-    public void build(CardInfo card)
+    /*public void build(CardInfo card)
     {
+        Debug.Log("Build has been entered");
         if (card != null && cardPrefab != null)
         {
-            cardPrefab.GetComponent<Card>().setCardInfo(card);
-            Instantiate(cardPrefab);
+            Debug.Log("if has been entered");
+            GameObject cardObject= cardPrefab;
+            if (cardObject != null)
+            {
+                Debug.Log("Card Name" + card.CardName + " Card Type: " + card.CardType);
+                cardObject.AddComponent<Card>().setCardInfo(card);
+            }
+            Debug.Log("if has been exited");
+            Instantiate(cardObject,BornPos);
+            //handHolder.Add(cardPrefab.GetComponent<Card>());
+        }
+    }*/
+
+    public void build(CardInfo card)
+    {
+        Debug.Log("Build has been entered");
+        if (card != null && cardPrefab != null)
+        {
+            Debug.Log("if has been entered");
+
+            // Instantiate a new GameObject based on the cardPrefab
+            GameObject cardObject = Instantiate(cardPrefab, BornPos.position, Quaternion.identity);
+
+            if (cardObject != null)
+            {
+                Debug.Log("Card Name: " + card.CardName + " Card Type: " + card.CardType);
+                cardObject.AddComponent<Card>().setCardInfo(card);
+            }
+
+            Debug.Log("if has been exited");
+            
+            handHolder.Add(cardObject.GetComponent<Card>());
         }
     }
 
@@ -34,6 +68,7 @@ public class CardFactory : MonoBehaviour
         CardInfo card = shuffleHolder.Draw();
         if (card != null)
         {
+            Debug.Log("Card taken");
             build(card);
         }
     }

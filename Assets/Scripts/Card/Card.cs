@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,12 +33,20 @@ public class Card : MonoBehaviour
     {
         if (cardInfo != null)
         {
+            Debug.Log("Card's info shown");
             cardInfo = card;
         }
 
         cardDisplayer.display(card.CardName, card.CardType);
         
     }
+
+    public CardInfo GetCardInfo()
+    {
+        return cardInfo;
+    }
+
+    
 
     
 

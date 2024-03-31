@@ -22,7 +22,7 @@ public abstract class _CardHolder : MonoBehaviour
 
     public abstract CardInfo Draw();
 
-    public void Add(CardInfo card)
+    public virtual void Add(CardInfo card)
     {
         _cards.Add(card);
     }
