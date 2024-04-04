@@ -169,8 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ad3fda039870674badd55b52185cad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastCardPos: {fileID: 0}
-  firstCardPos: {fileID: 0}
+  lastCardPos: {fileID: 629289714}
+  firstCardPos: {fileID: 1938796274}
+  scale: {x: 0, y: 0, z: 0}
 --- !u!1 &252520061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1285,8 @@ MonoBehaviour:
   _cards:
   - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
   - {fileID: 11400000, guid: 22d4bae09c84ecb4da6bda60c0646362, type: 2}
+  - {fileID: 11400000, guid: ad900c70fcf442d4c9ce0b568d241f31, type: 2}
+  - {fileID: 11400000, guid: ad900c70fcf442d4c9ce0b568d241f31, type: 2}
   - {fileID: 11400000, guid: ad900c70fcf442d4c9ce0b568d241f31, type: 2}
   discardHolder: {fileID: 1778957041}
 --- !u!4 &1778957043

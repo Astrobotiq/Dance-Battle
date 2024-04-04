@@ -12,8 +12,15 @@ public class GeneralInput : MonoBehaviour
     private RaycastHit[] _raycastHits;
     private Boolean isDragging;
     public float correctDistanceForZ = 2.61f;
+    private GameObject lastHoveredCard;
+    private bool isHovered;
 
     public GameObject box_ref; //tamamen her seferinde getcomponent ile almayalim diye
+
+    private void Start()
+    {
+        isHovered = false;
+    }
     private void Update()
     {
         
@@ -26,24 +33,17 @@ public class GeneralInput : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin,15 * ray.direction,Color.green);
+
+        _raycastHits = Physics.RaycastAll(ray.origin, ray.direction, Mathf.Infinity, layerMask);
+
         
-        if(Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0) & _raycastHits.Length>0 & _raycastHits[0].transform.gameObject.CompareTag("Card")) 
         {   //mouse sol tık basılıyor.Basılırken eğer kutu içinde olursa da kutu referansı box_ref içine kayıt ediliyor
-            _raycastHits = Physics.RaycastAll(ray.origin, ray.direction, Mathf.Infinity, layerMask);
-            //selectedObject = _raycastHits[0].transform.gameObject;
-            //Debug.Log(selectedObject.tag);
-
-            if (_raycastHits[0].collider != null)
-            {
-                selectedObject = _raycastHits[0].transform.gameObject;
-                Debug.Log(selectedObject.name);
-                isDragging = true;
-                box_ref = selectedObject.gameObject.GetComponent<Card>().forBox;
-            }
-
-        }
-        
-        if (Input.GetMouseButtonUp(0)) 
+             selectedObject = _raycastHits[0].transform.gameObject;
+             Debug.Log(selectedObject.name);
+             isDragging = true;
+             box_ref = selectedObject.gameObject.GetComponent<Card>().forBox;
+        }else if (Input.GetMouseButtonUp(0) & isDragging) 
         {           //mouse sol tık bırakılıyor.
             isDragging = false;
             if (selectedObject.gameObject.GetComponent<Card>().isInBox)
@@ -54,6 +54,18 @@ public class GeneralInput : MonoBehaviour
             {
                 box_ref = null;
             }
+        }else if (_raycastHits[0].transform.gameObject.CompareTag("Card"))
+        {
+            GameObject card = _raycastHits[0].transform.gameObject;
+            if (card != lastHoveredCard)
+            {
+                lastHoveredCard.GetComponent<CardAnimator>().unHover();
+                card.GetComponent<CardAnimator>().hover();
+                isHovered = true;
+                lastHoveredCard = card;
+            }
+            
+            //Hover methodunu çağır
         }
         
         Debug.Log("temp card icin " + box_ref);

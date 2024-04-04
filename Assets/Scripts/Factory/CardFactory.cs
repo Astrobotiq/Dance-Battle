@@ -23,42 +23,17 @@ public class CardFactory : MonoBehaviour
         }
     }
 
-    /*public void build(CardInfo card)
-    {
-        Debug.Log("Build has been entered");
-        if (card != null && cardPrefab != null)
-        {
-            Debug.Log("if has been entered");
-            GameObject cardObject= cardPrefab;
-            if (cardObject != null)
-            {
-                Debug.Log("Card Name" + card.CardName + " Card Type: " + card.CardType);
-                cardObject.AddComponent<Card>().setCardInfo(card);
-            }
-            Debug.Log("if has been exited");
-            Instantiate(cardObject,BornPos);
-            //handHolder.Add(cardPrefab.GetComponent<Card>());
-        }
-    }*/
-
     public void build(CardInfo card)
     {
-        Debug.Log("Build has been entered");
         if (card != null && cardPrefab != null)
         {
-            Debug.Log("if has been entered");
-
-            // Instantiate a new GameObject based on the cardPrefab
             GameObject cardObject = Instantiate(cardPrefab, BornPos.position, Quaternion.identity);
+            cardObject.transform.localEulerAngles = new Vector3(-90,0,0);
 
             if (cardObject != null)
             {
-                Debug.Log("Card Name: " + card.CardName + " Card Type: " + card.CardType);
-                cardObject.AddComponent<Card>().setCardInfo(card);
+                cardObject.GetComponent<Card>().setCardInfo(card);
             }
-
-            Debug.Log("if has been exited");
-            
             handHolder.Add(cardObject.GetComponent<Card>());
         }
     }

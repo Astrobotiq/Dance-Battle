@@ -31,13 +31,10 @@ public class Card : MonoBehaviour
 
     public void setCardInfo(CardInfo card)
     {
-        if (cardInfo != null)
-        {
-            Debug.Log("Card's info shown");
-            cardInfo = card;
-        }
+        
+        cardInfo= card;
 
-        cardDisplayer.display(card.CardName, card.CardType);
+        cardDisplayer.display(cardInfo.CardName, cardInfo.CardType);
         
     }
 

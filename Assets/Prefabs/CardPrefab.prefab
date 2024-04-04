@@ -356,13 +356,6 @@ GameObject:
   - component: {fileID: 2790283986386670952}
   - component: {fileID: 8615225539102466683}
   - component: {fileID: 544089272303944312}
-  - component: {fileID: -262596191869441691}
-  - component: {fileID: -51664802751531706}
-  - component: {fileID: 1006370576826673595}
-  - component: {fileID: 1946398949540250927}
-  - component: {fileID: -5514650464329322853}
-  - component: {fileID: 5897156049367040182}
-  - component: {fileID: -4324658782855651104}
   - component: {fileID: -8594625840775609693}
   m_Layer: 7
   m_Name: CardPrefab
@@ -486,111 +479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b7c64ef012108049abe45217af1d041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-262596191869441691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745666847732854965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c7d2a4095f86d43ab1f0d2d9f0c0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInBox: 0
-  forBox: {fileID: 0}
-  cardDisplayer: {fileID: 0}
---- !u!114 &-51664802751531706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745666847732854965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c7d2a4095f86d43ab1f0d2d9f0c0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInBox: 0
-  forBox: {fileID: 0}
-  cardDisplayer: {fileID: 0}
---- !u!114 &1006370576826673595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745666847732854965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c7d2a4095f86d43ab1f0d2d9f0c0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInBox: 0
-  forBox: {fileID: 0}
-  cardDisplayer: {fileID: 0}
---- !u!114 &1946398949540250927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745666847732854965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c7d2a4095f86d43ab1f0d2d9f0c0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInBox: 0
-  forBox: {fileID: 0}
-  cardDisplayer: {fileID: 0}
---- !u!114 &-5514650464329322853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745666847732854965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c7d2a4095f86d43ab1f0d2d9f0c0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInBox: 0
-  forBox: {fileID: 0}
-  cardDisplayer: {fileID: 0}
---- !u!114 &5897156049367040182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745666847732854965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c7d2a4095f86d43ab1f0d2d9f0c0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInBox: 0
-  forBox: {fileID: 0}
-  cardDisplayer: {fileID: 0}
---- !u!114 &-4324658782855651104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2745666847732854965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c7d2a4095f86d43ab1f0d2d9f0c0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInBox: 0
-  forBox: {fileID: 0}
-  cardDisplayer: {fileID: 0}
 --- !u!114 &-8594625840775609693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,4 +493,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInBox: 0
   forBox: {fileID: 0}
-  cardDisplayer: {fileID: 0}
+  cardDisplayer: {fileID: 8615225539102466683}
