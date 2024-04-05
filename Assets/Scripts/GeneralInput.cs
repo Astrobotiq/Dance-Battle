@@ -20,6 +20,7 @@ public class GeneralInput : MonoBehaviour
     private void Start()
     {
         isHovered = false;
+        isDragging = false;
     }
     private void Update()
     {
@@ -32,19 +33,24 @@ public class GeneralInput : MonoBehaviour
         }*/
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin,15 * ray.direction,Color.green);
 
         _raycastHits = Physics.RaycastAll(ray.origin, ray.direction, Mathf.Infinity, layerMask);
 
         
-        if (Input.GetMouseButtonDown(0) & _raycastHits.Length>0 & _raycastHits[0].transform.gameObject.CompareTag("Card")) 
+        if (Input.GetMouseButton(0)) 
         {   //mouse sol tık basılıyor.Basılırken eğer kutu içinde olursa da kutu referansı box_ref içine kayıt ediliyor
-             selectedObject = _raycastHits[0].transform.gameObject;
-             Debug.Log(selectedObject.name);
-             isDragging = true;
-             box_ref = selectedObject.gameObject.GetComponent<Card>().forBox;
+            Debug.Log("1");
+            if (_raycastHits.Length > 0 & _raycastHits[0].transform.gameObject.CompareTag("Card"))
+            {
+
+                selectedObject = _raycastHits[0].transform.gameObject;
+                isDragging = true;
+                box_ref = selectedObject.gameObject.GetComponent<Card>().forBox;
+            }
+             
         }else if (Input.GetMouseButtonUp(0) & isDragging) 
         {           //mouse sol tık bırakılıyor.
+            Debug.Log("2");
             isDragging = false;
             if (selectedObject.gameObject.GetComponent<Card>().isInBox)
             {
@@ -54,12 +60,22 @@ public class GeneralInput : MonoBehaviour
             {
                 box_ref = null;
             }
-        }else if (_raycastHits[0].transform.gameObject.CompareTag("Card"))
+        }else if (_raycastHits.Length > 0 & _raycastHits[0].transform.gameObject.CompareTag("Card"))
         {
+            Debug.Log("3");
             GameObject card = _raycastHits[0].transform.gameObject;
+            if (lastHoveredCard==null)
+            {
+                card.GetComponent<CardAnimator>().hover();
+                isHovered = true;
+                lastHoveredCard = card;
+            }
             if (card != lastHoveredCard)
             {
-                lastHoveredCard.GetComponent<CardAnimator>().unHover();
+                if (lastHoveredCard != null)
+                {
+                    lastHoveredCard.GetComponent<CardAnimator>().unHover();
+                }
                 card.GetComponent<CardAnimator>().hover();
                 isHovered = true;
                 lastHoveredCard = card;
@@ -67,9 +83,14 @@ public class GeneralInput : MonoBehaviour
             
             //Hover methodunu çağır
         }
+        else //if (!_raycastHits[0].transform.gameObject.CompareTag("Card"))
+        {
+            Debug.Log("Unhoverlıcam");
+            lastHoveredCard.GetComponent<CardAnimator>().unHover();
+            lastHoveredCard = null;
+        }
         
-        Debug.Log("temp card icin " + box_ref);
-        if (selectedObject.gameObject.GetComponent<Card>().isInBox && isDragging==false) 
+        if (selectedObject.gameObject.GetComponent<Card>().isInBox && !isDragging) 
         {           //mouse sol click bırakılmış ve kutu içindeyse ortala
             selectedObject.transform.position = box_ref.transform.position;
         }

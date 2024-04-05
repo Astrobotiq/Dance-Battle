@@ -13,6 +13,7 @@ public class CardAnimator : MonoBehaviour
 
     public void MoveAndScaleObject(Vector3 targetPosition, Vector3 targetScale)
     {
+        StartCoroutine(disableCollider());
         StartCoroutine(MoveObjectCoroutine( targetPosition));
         StartCoroutine(ScaleObjectCoroutine(targetScale));
     }
@@ -49,6 +50,13 @@ public class CardAnimator : MonoBehaviour
     public void unHover()
     {
         MoveAndScaleObject(unHoverPosition,unHoverScale);
+    }
+
+    IEnumerator disableCollider()
+    {
+        GetComponent<MeshCollider>().enabled = false;
+        yield return new  WaitForSeconds(1f);
+        GetComponent<MeshCollider>().enabled = true;
     }
 
 }

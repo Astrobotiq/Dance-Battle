@@ -48,7 +48,9 @@ public class HandHolder : MonoBehaviour
             lastCardPos.position = transform.position;
             firstCardPos.position = transform.position;
             GameObject card = cards[0].gameObject;
+            
             card.GetComponent<CardAnimator>().MoveAndScaleObject(firstCardPos.position, scale);
+
             lastIndex = cardNum;
         }
         else if(cardNum == 2)
