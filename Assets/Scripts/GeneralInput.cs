@@ -60,36 +60,31 @@ public class GeneralInput : MonoBehaviour
             {
                 box_ref = null;
             }
-        }else if (_raycastHits.Length > 0 & _raycastHits[0].transform.gameObject.CompareTag("Card"))
+        }
+        else if (_raycastHits.Length > 0 & _raycastHits[0].transform.gameObject.CompareTag("Card"))
         {
             Debug.Log("3");
             GameObject card = _raycastHits[0].transform.gameObject;
-            if (lastHoveredCard==null)
-            {
-                card.GetComponent<CardAnimator>().hover();
-                isHovered = true;
-                lastHoveredCard = card;
-            }
-            if (card != lastHoveredCard)
-            {
-                if (lastHoveredCard != null)
-                {
-                    lastHoveredCard.GetComponent<CardAnimator>().unHover();
-                }
-                card.GetComponent<CardAnimator>().hover();
-                isHovered = true;
-                lastHoveredCard = card;
-            }
             
-            //Hover methodunu çağır
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                card.GetComponent<CardAnimator>().hover();
+                isHovered = true;
+                lastHoveredCard = card;
+            }
+            else if (Input.GetKey(KeyCode.LeftControl))
+            {
+                
+            }
+            else
+            {
+                lastHoveredCard.GetComponent<CardAnimator>().unHover();
+                isHovered = false;
+                lastHoveredCard = null;
+            }
         }
-        else //if (!_raycastHits[0].transform.gameObject.CompareTag("Card"))
-        {
-            Debug.Log("Unhoverlıcam");
-            lastHoveredCard.GetComponent<CardAnimator>().unHover();
-            lastHoveredCard = null;
-        }
-        
+
+        //Debug.Log(selectedObject.GetComponent<Card>().isInBox);
         if (selectedObject.gameObject.GetComponent<Card>().isInBox && !isDragging) 
         {           //mouse sol click bırakılmış ve kutu içindeyse ortala
             selectedObject.transform.position = box_ref.transform.position;
@@ -104,3 +99,53 @@ public class GeneralInput : MonoBehaviour
         
     } 
 }
+/*
+if (Input.GetKeyDown(KeyCode.LeftControl))
+{
+    card.GetComponent<CardAnimator>().hover();
+    isHovered = true;
+    lastHoveredCard = card;
+}
+else if (Input.GetKey(KeyCode.LeftControl))
+{
+                
+}
+else
+{
+    lastHoveredCard.GetComponent<CardAnimator>().unHover();
+    isHovered = false;
+    lastHoveredCard = null;
+}*/
+
+/*
+ * else if (_raycastHits.Length > 0 & _raycastHits[0].transform.gameObject.CompareTag("Card"))
+        {
+            Debug.Log("3");
+            GameObject card = _raycastHits[0].transform.gameObject;
+            if (lastHoveredCard==null)
+            {
+                card.GetComponent<CardAnimator>().hover();
+                isHovered = true;
+                lastHoveredCard = card;
+            }
+            if (card != lastHoveredCard)
+            {
+                lastHoveredCard.GetComponent<CardAnimator>().unHover(); 
+                /*if (lastHoveredCard != null)
+                {
+                    lastHoveredCard.GetComponent<CardAnimator>().unHover();
+                }* /
+                card.GetComponent<CardAnimator>().hover();
+                isHovered = true;
+                lastHoveredCard = card;
+            }
+            
+            //Hover methodunu çağır
+        }
+        else //if (!_raycastHits[0].transform.gameObject.CompareTag("Card"))
+        {
+            Debug.Log("Unhoverlıcam");
+            lastHoveredCard.GetComponent<CardAnimator>().unHover();
+            lastHoveredCard = null;
+        }
+ */
