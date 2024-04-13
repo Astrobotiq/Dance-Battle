@@ -11,7 +11,9 @@ public class FinishTurn : MonoBehaviour
 
     private Boolean isAllFilled = true;
     // Start is called before the first frame update
-
+    
+    //silinecek effect calisma test etmek icin ekledim
+    public GameObject sonradanSil;
     public void Start()
     {
         if (refCardHolder == null)
@@ -41,10 +43,12 @@ public class FinishTurn : MonoBehaviour
                 GameObject tempCard = cardBox.GetComponent<CardBoxOnScreen>().getTheCardInBox();
                 //Debug.Log(tempCard.name);
                 refCardHolder.GetComponent<DiscardHolder>().Add(tempCard.GetComponent<Card>().GetCardInfo());
+                sonradanSil.GetComponent<ForCheckEffects>().AddToCards(tempCard.GetComponent<Card>().GetCardInfo());
                 Destroy(tempCard);
                 //şuan boş anımate functıon içi ondan şimdilik adını çıkarıyor debug ekranına
                 //cardBox.GetComponent<CardBoxOnScreen>().getTheCardInBox().GetComponent<Card>().Animate();
             }
+            sonradanSil.GetComponent<ForCheckEffects>().PlayStoredEffects();
         }
         else
         {
