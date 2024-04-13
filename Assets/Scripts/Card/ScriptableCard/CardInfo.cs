@@ -7,6 +7,7 @@ public class CardInfo : ScriptableObject
 {
     public string CardName;
     public string CardType;
+    public AnimationClip animation;
     //Effect effect; this will be implemented
     // Start is called before the first frame update
     
