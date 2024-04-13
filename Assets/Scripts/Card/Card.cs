@@ -43,15 +43,6 @@ public class Card : MonoBehaviour
         return cardInfo;
     }
 
-    public AnimationClip getAnimationClip()
-    {
-        if(cardInfo != null)
-        {
-            return cardInfo.animation;
-        }
-            
-        return null;
-    }
     
 
     

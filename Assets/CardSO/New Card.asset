@@ -14,4 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: HipHop 1
   CardType: 
-  animation: {fileID: 7400000, guid: 9c84cc137d5b3f948ba3c25009bcc4af, type: 2}
