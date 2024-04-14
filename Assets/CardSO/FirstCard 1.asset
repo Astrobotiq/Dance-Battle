@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: Second Card
   CardType: Disco
+  animation: {fileID: 7400000, guid: 08ca365239a72014eb8be3bc2d696fca, type: 2}

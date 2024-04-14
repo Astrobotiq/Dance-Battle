@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: Third Card
   CardType: Fiesta
+  animation: {fileID: 7400000, guid: 4669c4145d6d96c4c8505c05784e6cc3, type: 2}

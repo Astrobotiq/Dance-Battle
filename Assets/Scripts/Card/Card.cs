@@ -43,6 +43,11 @@ public class Card : MonoBehaviour
         return cardInfo;
     }
 
+    public AnimationClip GetAnimationClip()
+    {
+        return cardInfo.getAnimation();
+    }
+
     
 
     
