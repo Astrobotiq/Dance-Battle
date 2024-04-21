@@ -8,6 +8,7 @@ public class FinishTurn : MonoBehaviour
 {
     [SerializeField] private List<GameObject> cardBoxes;
     [SerializeField] private GameObject refCardHolder;
+    [SerializeField] private GameObject refHandHolder;
 
     private Boolean isAllFilled = true;
     // Start is called before the first frame update
@@ -43,6 +44,10 @@ public class FinishTurn : MonoBehaviour
                 GameObject tempCard = cardBox.GetComponent<CardBoxOnScreen>().getTheCardInBox();
                 //Debug.Log(tempCard.name);
                 refCardHolder.GetComponent<DiscardHolder>().Add(tempCard.GetComponent<Card>().GetCardInfo());
+                
+                //ONEMLI
+                //alinan refHandHolder objesinin icindeki HandHolder scripte bakip oradan da kari silmesi lazim
+                
                 sonradanSil.GetComponent<ForCheckEffects>().AddToCards(tempCard.GetComponent<Card>().GetCardInfo());
                 Destroy(tempCard);
                 //şuan boş anımate functıon içi ondan şimdilik adını çıkarıyor debug ekranına

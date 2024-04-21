@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class x2_DamageEffect : _Effect
 {
-    x2_DamageEffect()
+    [SerializeField] private GameObject theMainScoreLogicGameObject;
+    public x2_DamageEffect()
     {
         description = "Multiply damage by 2";
         crowdPoint = 1f;
         crowdMultiplier = 2f;
-        type = "Multiplier";
+        turnCounter = 0; //counter sifir iken effect oynatilmasina bakan script logic effecti oynatir.
+                         //0 dan farkli ise de bir azaltir ve depolandi[i yerde tutar
+    }
+
+    public override void PlayEffect()
+    {
+        //ornek bir implementasyon
+        /*
+        var component_ref = theMainScoreLogicGameObject.GetComponent<Score>();
+        float temp = component_ref.getScore();
+        component_ref.setScore(temp * crowdMultiplier);
+        */
     }
 }
