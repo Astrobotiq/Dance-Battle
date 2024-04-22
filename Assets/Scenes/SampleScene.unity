@@ -427,6 +427,7 @@ MonoBehaviour:
   lastCardPos: {fileID: 629289714}
   firstCardPos: {fileID: 1938796274}
   scale: {x: 0, y: 0, z: 0}
+  cards: []
 --- !u!1 &201324804 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6385ae82d536ff7499d2f04a03e983e8, type: 3}
@@ -643,6 +644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playAreaHandler: {fileID: 520517050}
   index: 0
+  handHolder: {fileID: 196120955}
 --- !u!1 &287303963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,6 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88cedd38ed37cd4fb7e04fda0d528f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animations: []
   animationHandler: {fileID: 157943552}
 --- !u!4 &520517051
 Transform:
@@ -1760,6 +1763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playAreaHandler: {fileID: 520517050}
   index: 2
+  handHolder: {fileID: 196120955}
 --- !u!1 &947059115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,6 +2279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playAreaHandler: {fileID: 520517050}
   index: 1
+  handHolder: {fileID: 196120955}
 --- !u!1 &1433100571
 GameObject:
   m_ObjectHideFlags: 0
@@ -2644,6 +2649,7 @@ MonoBehaviour:
   - {fileID: 1367604308}
   - {fileID: 906262622}
   refCardHolder: {fileID: 0}
+  refHandHolder: {fileID: 0}
   sonradanSil: {fileID: 1803322177}
 --- !u!4 &1608022714
 Transform:

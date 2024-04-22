@@ -11,11 +11,12 @@ public class x2_DamageEffect : _Effect
         crowdPoint = 1f;
         crowdMultiplier = 2f;
         turnCounter = 0; //counter sifir iken effect oynatilmasina bakan script logic effecti oynatir.
-                         //0 dan farkli ise de bir azaltir ve depolandi[i yerde tutar
+                         //0 dan farkli ise de bir azaltir ve depolandigi yerde tutar
     }
 
     public override void PlayEffect()
     {
+
         //ornek bir implementasyon
         /*
         var component_ref = theMainScoreLogicGameObject.GetComponent<Score>();

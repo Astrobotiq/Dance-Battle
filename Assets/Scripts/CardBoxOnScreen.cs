@@ -10,22 +10,28 @@ public class CardBoxOnScreen : MonoBehaviour
     private PlayAreaHandler playAreaHandler;
     [SerializeField]
     private int index;
+    public HandHolder handHolder;
     private void OnTriggerEnter(Collider other)
     {
         theCardInBox = other.gameObject;
         Card card = theCardInBox.GetComponent<Card>();
 
-        if(playAreaHandler != null & card != null)
+        if(playAreaHandler != null && card != null)
         {
+            handHolder.Remove(card);
             playAreaHandler.addAnim(card.GetAnimationClip(),index);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(playAreaHandler != null)
+        theCardInBox = other.gameObject;
+        Card card = theCardInBox.GetComponent<Card>();
+
+        if (playAreaHandler != null && card != null)
         {
-            playAreaHandler.removeAnim(index);
+            playAreaHandler.removeAnim(card.GetAnimationClip());
+            handHolder.Add(card);
         }
         theCardInBox = null;
     }

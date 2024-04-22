@@ -13,7 +13,8 @@ public class HandHolder : MonoBehaviour
     [SerializeField]
     Vector3 scale;
     private int lastIndex;
-    List<Card> cards;
+    [SerializeField]
+    private List<Card> cards;
 
     
 
@@ -31,10 +32,12 @@ public class HandHolder : MonoBehaviour
         calculatePos();
     }
 
-    public Card Remove(int index)
+    public Card Remove(Card card)
     {
-        Card card = cards[index];
-        cards.RemoveAt(index);
+        if (cards.Contains(card))
+        {
+            cards.Remove(card);
+        }
         calculatePos() ;
         return card;
     }
