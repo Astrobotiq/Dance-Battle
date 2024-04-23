@@ -8,23 +8,25 @@ public class AnimationHandler : MonoBehaviour
     AnimatorOverrideController controller;
     public Animator animator;
     public AnimationClipOverrides clipOverrides;
+    private GameBrain gameBrain;
     // Start is called before the first frame update
     void Start()
     {
         animations = new List<AnimationClip>();
         controller = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = controller;
-
         clipOverrides = new AnimationClipOverrides(controller.overridesCount);
         controller.GetOverrides(clipOverrides);
+
+        GameObject ob = GameObject.FindGameObjectWithTag("GameBrain");
+        if (ob != null)
+        {
+            gameBrain = ob.GetComponent<GameBrain>();
+            Debug.Log("GameBrain found");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-     
-        
-    }
+    
 
     public void addAnimation( List<AnimationClip> animationClips)
     {
@@ -46,6 +48,17 @@ public class AnimationHandler : MonoBehaviour
     void playAnim()
     {
         animator.SetTrigger("isDancing");
+    }
+
+    public void playInstantAnim(AnimationClip clip)
+    {
+        clipOverrides["Instant"] = clip;
+        animator.SetTrigger("Instant");
+    }
+
+    public void endTurn()
+    {
+        gameBrain.setBattleState();
     }
 
     

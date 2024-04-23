@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Card
   - CardBox
+  - GameBrain
   layers:
   - Default
   - TransparentFX
