@@ -12,10 +12,14 @@ public class HandHolder : MonoBehaviour
     Transform firstCardPos;
     [SerializeField]
     Vector3 scale;
+    [SerializeField]
+    CardFactory cardFactory;
     private int lastIndex;
     [SerializeField]
     private List<Card> cards;
     private int maxCard;
+
+    
 
     public int getMaxCard()
     {
@@ -38,10 +42,28 @@ public class HandHolder : MonoBehaviour
         scale = new Vector3(0.05f, 1, 0.075f);
     }
 
+    private void OnEnable()
+    {
+        SpecialTurn.onEnterSpecial += drawCard;
+    }
+
+    private void OnDisable()
+    {
+        SpecialTurn.onEnterSpecial -= drawCard;
+    }
+
     public void Add(Card card)
     {
         cards.Add(card);
         calculatePos();
+    }
+
+    public void drawCard()
+    {
+        while (cards.Count < maxCard)
+        {
+            cardFactory.getCard();
+        }
     }
 
     public Card Remove(Card card)

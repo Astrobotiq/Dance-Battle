@@ -12,11 +12,18 @@ public class PlayAreaHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        animations = new List<AnimationClip>();
+    }
+
+    private void OnEnable()
+    {
         PlayerTurnState.onPlayerTurnStart += enablePlayerTurnCardArea;
         PlayerTurnState.onPlayerTurnEnd += disablePlayerTurnCardArea;
+        SpecialTurn.onEnterSpecial += enableEnemyTurnCardArea;
+        SpecialTurn.onExitSpecial += disableEnemyTurnCardArea;
         EnemyTurnState.onEnemyTurnStart += enableEnemyTurnCardArea;
         EnemyTurnState.onEnemyTurnEnd += disableEnemyTurnCardArea;
-        animations = new List<AnimationClip>();
     }
 
     // Update is called once per frame

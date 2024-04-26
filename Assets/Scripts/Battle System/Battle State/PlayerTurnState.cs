@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerTurnState : BattleState
 {
+    public PlayerTurnState(float time) : base(time)
+    {
+    }
+
     public static event StateAction onPlayerTurnStart;
     public static event StateAction onPlayerTurnEnd;
     public override void EnterState()
@@ -11,6 +15,7 @@ public class PlayerTurnState : BattleState
         if (onPlayerTurnStart != null)
         {
             onPlayerTurnStart();
+            StartCoroutine(timer());
         }
     }
 
@@ -19,6 +24,7 @@ public class PlayerTurnState : BattleState
         if (onPlayerTurnEnd != null)
         {
             onPlayerTurnEnd();
+            StopCoroutine (timer());
         }
     }
 
@@ -26,4 +32,6 @@ public class PlayerTurnState : BattleState
     {
         
     }
+
+    
 }
