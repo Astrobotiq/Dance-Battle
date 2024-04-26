@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Effect", menuName = "Effects/Score Multiplier Effect")]
 public class Multiply_DamageEffect : _Effect
 {
-    //[SerializeField] private GameObject theMainScoreLogicGameObject;
-    public int damageAmount;
+    [SerializeField] private GameObject ScoreLogic;
+    public int multiplyAmount;
     
 
     public override void PlayEffect()

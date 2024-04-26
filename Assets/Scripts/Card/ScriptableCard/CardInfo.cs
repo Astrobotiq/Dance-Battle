@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,13 @@ public class CardInfo : ScriptableObject
     public string CardType;
     [SerializeField]
     private AnimationClip animation;
+
+    public enum CardStructure
+    {
+        Introduction, Development, Conclusion
+    }
+
+    public CardStructure cardStructure;
 
     public AnimationClip getAnimation()
     {

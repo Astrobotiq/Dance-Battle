@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 771e5fca048fa4f4492c0660d56b3fa2, type: 3}
-  m_Name: Minus2
+  m_Script: {fileID: 11500000, guid: b596ddb9ca404874bab4b6586df5c7b0, type: 3}
+  m_Name: BlockTenDamagePlayerTurn
   m_EditorClassIdentifier: 
-  description: 
-  delay: 2
-  additionAmount: -2
+  description: block ten damage in next turn
+  delay: 1
+  priorityValue: 0
+  ScoreLogic: {fileID: 0}
+  additionAmount: -10

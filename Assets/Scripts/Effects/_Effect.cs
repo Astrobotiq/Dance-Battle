@@ -8,8 +8,15 @@ public abstract class _Effect : ScriptableObject
 {
     public string description;
     public int delay;
-    
 
+    public enum priority
+    {
+        Low,Medium,High,PreTurn
+    }
+    //if priority low it will be played later
+
+    public priority priorityValue;
+    
     public abstract void PlayEffect();
 
     public int getDelay()
