@@ -3,15 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class _Effect : MonoBehaviour
+
+public abstract class _Effect : ScriptableObject
 {
     public string description;
-    public float crowdPoint = 0f;
-    public float crowdMultiplier = 1f;
-    public int turnCounter; //birkac tur sonra oynanacak kartlar icin bir counter olarak kullanilabilir
+    public int delay;
     
 
     public abstract void PlayEffect();
+
+    public int getDelay()
+    {
+        return delay;
+    }
     
 }
 /*

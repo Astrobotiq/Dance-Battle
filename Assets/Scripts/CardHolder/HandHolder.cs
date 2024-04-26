@@ -15,6 +15,17 @@ public class HandHolder : MonoBehaviour
     private int lastIndex;
     [SerializeField]
     private List<Card> cards;
+    private int maxCard;
+
+    public int getMaxCard()
+    {
+        return maxCard;
+    }
+
+    public void setMaxCard(int add)
+    {
+        maxCard += add;
+    }
 
     
 
@@ -23,6 +34,7 @@ public class HandHolder : MonoBehaviour
     {
         cards = new List<Card>();
         lastIndex = 0;
+        maxCard = 6;
         scale = new Vector3(0.05f, 1, 0.075f);
     }
 

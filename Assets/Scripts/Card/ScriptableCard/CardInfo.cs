@@ -14,6 +14,8 @@ public class CardInfo : ScriptableObject
     {
         return animation;
     }
+
+
     //Effect effect; this will be implemented
     // Start is called before the first frame update
     

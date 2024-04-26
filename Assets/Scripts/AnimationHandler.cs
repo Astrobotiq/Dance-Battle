@@ -9,6 +9,7 @@ public class AnimationHandler : MonoBehaviour
     public Animator animator;
     public AnimationClipOverrides clipOverrides;
     private GameBrain gameBrain;
+    float animationTotalLength;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +43,22 @@ public class AnimationHandler : MonoBehaviour
         clipOverrides["Dance 3"] = animations[2];
         controller.ApplyOverrides(clipOverrides);
         Debug.Log("I am at the end of fun");
+        calculateTime();
         playAnim();
+    }
+
+    void calculateTime()
+    {
+        foreach (AnimationClip clip in animations)
+        {
+            animationTotalLength += clip.length;
+        }
     }
 
     void playAnim()
     {
         animator.SetTrigger("isDancing");
+        StartCoroutine(AnimationTimer());
     }
 
     public void playInstantAnim(AnimationClip clip)
@@ -60,6 +71,15 @@ public class AnimationHandler : MonoBehaviour
     {
         gameBrain.setBattleState();
     }
+
+    private IEnumerator AnimationTimer()
+    {
+        yield return new WaitForSeconds(animationTotalLength+2);
+        animationTotalLength = 0;
+        endTurn();
+    }
+
+
 
     
 }
