@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class GameBrain : MonoBehaviour
 {
+    
     BattleSystem battleSystem;
-    List<BattleState> battleStates;
+    public List<BattleState> battleStates;
     int index;
+
+    
 
     private void Start()
     {
         battleSystem = GetComponent<BattleSystem>();
-        battleStates = new List<BattleState>();
         index = 0;
-        battleStates.Add(new PlayerTurnState(60));
-        battleStates.Add(new EnemyTurnState(60));
         setBattleState();
     }
 
     public void setBattleState()
     {
+        Debug.Log("State Baþladý");
         battleSystem.stateTransition(GetState());
         getNextIndex();
     }
@@ -35,6 +36,21 @@ public class GameBrain : MonoBehaviour
         {
             index = 0;
         }
+        else
+        {
+            index++;
+        }
+    }
+
+
+    private void OnEnable()
+    {
+        SpecialTurn.onExitSpecial += setBattleState;
+    }
+
+    private void OnDisable()
+    {
+        SpecialTurn.onExitSpecial -= setBattleState;
     }
 
 

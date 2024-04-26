@@ -11,12 +11,13 @@ public class CardBoxOnScreen : MonoBehaviour
     [SerializeField]
     private int index;
     public HandHolder handHolder;
+    public CardStructure cardStructure;
     private void OnTriggerEnter(Collider other)
     {
         theCardInBox = other.gameObject;
         Card card = theCardInBox.GetComponent<Card>();
 
-        if(playAreaHandler != null && card != null)
+        if(playAreaHandler != null && card != null && cardStructure.Equals(card.GetCardStructure()))
         {
             handHolder.Remove(card);
             playAreaHandler.addAnim(card.GetAnimationClip(),index);

@@ -13,7 +13,7 @@ public class Card : MonoBehaviour
     public GameObject forBox; // collide eden kutunun referansını yollamak için
     public CardInfoDisplayer cardDisplayer;
 
-    public void Animate(){ } //şuanlık boş gerekince doldur
+    public void Animate() { } //şuanlık boş gerekince doldur
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,7 +23,7 @@ public class Card : MonoBehaviour
             forBox = other.gameObject;
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         isInBox = false;
@@ -31,11 +31,11 @@ public class Card : MonoBehaviour
 
     public void setCardInfo(CardInfo card)
     {
-        
-        cardInfo= card;
+
+        cardInfo = card;
 
         cardDisplayer.display(cardInfo.CardName, cardInfo.CardType);
-        
+
     }
 
     public CardInfo GetCardInfo()
@@ -47,6 +47,12 @@ public class Card : MonoBehaviour
     {
         return cardInfo.getAnimation();
     }
+
+    public CardStructure GetCardStructure()
+    {
+        return cardInfo.cardStructure;
+    }
+
 
     
 

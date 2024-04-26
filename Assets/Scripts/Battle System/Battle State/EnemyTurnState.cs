@@ -10,7 +10,7 @@ public class EnemyTurnState : BattleState
     {
         if (onEnemyTurnStart != null)
         {
-            onEnemyTurnStart();
+            onEnemyTurnStart?.Invoke();
         }
     }
 
@@ -18,7 +18,7 @@ public class EnemyTurnState : BattleState
     {
         if (onEnemyTurnEnd != null)
         {
-            onEnemyTurnEnd();
+            onEnemyTurnEnd?.Invoke();
         }
     }
 
@@ -28,7 +28,4 @@ public class EnemyTurnState : BattleState
     }
 
 
-    public EnemyTurnState(float time) : base(time)
-    {
-    }
 }

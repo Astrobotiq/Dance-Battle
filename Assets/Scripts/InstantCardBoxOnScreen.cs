@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InstantCardBoxOnScreen : MonoBehaviour
 {
+    public CardStructure structure;
     private GameObject theCardInBox;
     [SerializeField]
     private PlayAreaHandler playAreaHandler;
@@ -15,7 +16,7 @@ public class InstantCardBoxOnScreen : MonoBehaviour
         theCardInBox = other.gameObject;
         Card card = theCardInBox.GetComponent<Card>();
 
-        if (playAreaHandler != null && card != null)
+        if (playAreaHandler != null && card != null && structure.Equals(card.GetCardStructure()))
         {
             handHolder.Remove(card);
             playAreaHandler.addAnim(card.GetAnimationClip());

@@ -4,28 +4,22 @@ using UnityEngine;
 
 public class SpecialTurn : BattleState
 {
-    public SpecialTurn(float time) : base(time) { }
-   
 
     public static event StateAction onEnterSpecial;
     public static event StateAction onExitSpecial;
 
     public override void EnterState()
     {
-        if (onEnterSpecial != null)
-        {
-            onEnterSpecial.Invoke();
-            StartCoroutine(timer());
-        }
+
+        StartCoroutine(timer());
+        onEnterSpecial?.Invoke();
+        Debug.Log("Timerdan önce");
+        
     }
 
     public override void ExitState()
     {
-        if (onExitSpecial != null)
-        {
-            onExitSpecial.Invoke();
-            StopCoroutine(timer());
-        }
+        onExitSpecial?.Invoke();
     }
 
     public override void updateState()
@@ -33,6 +27,15 @@ public class SpecialTurn : BattleState
         throw new System.NotImplementedException();
     }
 
-    
-    
+    public IEnumerator timer()
+    {
+        for (float time = 10; time >= 0; time -= Time.deltaTime)
+        {
+            //Add UI some timer component
+            //Týmer.setTýme(time);
+            Debug.Log("Time : " + time);
+            yield return null;
+        }
+        ExitState();
+    }
 }

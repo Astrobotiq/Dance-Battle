@@ -11,10 +11,7 @@ public class CardInfo : ScriptableObject
     [SerializeField]
     private AnimationClip animation;
 
-    public enum CardStructure
-    {
-        Introduction, Development, Conclusion
-    }
+    
 
     public CardStructure cardStructure;
 
@@ -27,4 +24,9 @@ public class CardInfo : ScriptableObject
     //Effect effect; this will be implemented
     // Start is called before the first frame update
     
+}
+
+public enum CardStructure
+{
+    Introduction, Development, Conclusion, Instant
 }

@@ -10,6 +10,7 @@ public class BattleSystem : MonoBehaviour
 
     public void enterState()
     {
+        Debug.Log("current state'e giriyom");
         currentState.EnterState();
     }
 
@@ -22,8 +23,10 @@ public class BattleSystem : MonoBehaviour
     {
         if (currentState != null)
         {
+            Debug.Log("current state boþ deðil");
             exitState();
         }
+        Debug.Log("current state boþ " + newState.name);
         currentState = newState;
         enterState();
     }
