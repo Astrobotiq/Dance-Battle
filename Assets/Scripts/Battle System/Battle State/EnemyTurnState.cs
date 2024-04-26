@@ -27,5 +27,8 @@ public class EnemyTurnState : BattleState
         throw new System.NotImplementedException();
     }
 
-    
+
+    public EnemyTurnState(float time) : base(time)
+    {
+    }
 }

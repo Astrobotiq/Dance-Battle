@@ -13,8 +13,8 @@ public class GameBrain : MonoBehaviour
         battleSystem = GetComponent<BattleSystem>();
         battleStates = new List<BattleState>();
         index = 0;
-        battleStates.Add(new PlayerTurnState());
-        battleStates.Add(new EnemyTurnState());
+        battleStates.Add(new PlayerTurnState(60));
+        battleStates.Add(new EnemyTurnState(60));
         setBattleState();
     }
 

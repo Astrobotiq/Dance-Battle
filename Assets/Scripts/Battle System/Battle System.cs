@@ -6,12 +6,7 @@ using UnityEngine;
 public class BattleSystem : MonoBehaviour
 {
     BattleState currentState;
-
-    private void Awake()
-    {
-        currentState = new PlayerTurnState();
-        enterState();
-    }
+    
 
     public void enterState()
     {
