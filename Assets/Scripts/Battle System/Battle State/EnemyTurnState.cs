@@ -27,5 +27,7 @@ public class EnemyTurnState : BattleState
         throw new System.NotImplementedException();
     }
 
+    
+
 
 }

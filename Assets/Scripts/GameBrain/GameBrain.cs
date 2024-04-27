@@ -14,15 +14,15 @@ public class GameBrain : MonoBehaviour
     private void Start()
     {
         battleSystem = GetComponent<BattleSystem>();
-        index = 0;
+        index = -1;
         setBattleState();
     }
 
     public void setBattleState()
     {
         Debug.Log("State Baþladý");
-        battleSystem.stateTransition(GetState());
         getNextIndex();
+        battleSystem.stateTransition(GetState());
     }
 
     BattleState GetState()
@@ -40,6 +40,7 @@ public class GameBrain : MonoBehaviour
         {
             index++;
         }
+        Debug.Log("index: "+index);
     }
 
 

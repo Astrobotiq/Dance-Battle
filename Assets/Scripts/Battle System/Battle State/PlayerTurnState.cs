@@ -9,8 +9,8 @@ public class PlayerTurnState : BattleState
     public static event StateAction onPlayerTurnEnd;
     public override void EnterState()
     {
-        
-            onPlayerTurnStart?.Invoke();
+        Debug.Log("Playerýn turn'ü þimdi");
+        onPlayerTurnStart?.Invoke();
             //UI'da player turn yazar
             //ýþýklar player'a döner
             //Ekrandaki 3 kart oynama noktasý aktive olur
@@ -32,4 +32,6 @@ public class PlayerTurnState : BattleState
     }
 
     
+
+
 }

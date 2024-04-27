@@ -21,11 +21,7 @@ public class BattleSystem : MonoBehaviour
 
     public void stateTransition(BattleState newState)
     {
-        if (currentState != null)
-        {
-            Debug.Log("current state boþ deðil");
-            exitState();
-        }
+        
         Debug.Log("current state boþ " + newState.name);
         currentState = newState;
         enterState();

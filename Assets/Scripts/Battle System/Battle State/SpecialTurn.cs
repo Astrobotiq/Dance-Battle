@@ -10,15 +10,17 @@ public class SpecialTurn : BattleState
 
     public override void EnterState()
     {
-
+       
         StartCoroutine(timer());
         onEnterSpecial?.Invoke();
         Debug.Log("Timerdan önce");
+        
         
     }
 
     public override void ExitState()
     {
+        StopCoroutine(timer());
         onExitSpecial?.Invoke();
     }
 
@@ -29,13 +31,7 @@ public class SpecialTurn : BattleState
 
     public IEnumerator timer()
     {
-        for (float time = 10; time >= 0; time -= Time.deltaTime)
-        {
-            //Add UI some timer component
-            //Týmer.setTýme(time);
-            Debug.Log("Time : " + time);
-            yield return null;
-        }
+        yield return new WaitForSeconds(2);
         ExitState();
     }
 }
