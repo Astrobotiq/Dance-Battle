@@ -8,10 +8,9 @@ public class EnemyTurnState : BattleState
     public static event StateAction onEnemyTurnEnd;
     public override void EnterState()
     {
-        if (onEnemyTurnStart != null)
-        {
-            onEnemyTurnStart?.Invoke();
-        }
+        Debug.Log("Enemy Turn Baþladý. Hurraa");
+        onEnemyTurnStart?.Invoke();
+        
     }
 
     public override void ExitState()

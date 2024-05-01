@@ -18,9 +18,11 @@ public class PlayAreaHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        Debug.Log("On Enable 1");
         SpecialTurn.onExitSpecial += disableEnemyTurnCardArea;
+        Debug.Log("On Enable 2");
         SpecialTurn.onEnterSpecial += enableEnemyTurnCardArea;
+        Debug.Log("On Enable 3");
     }
 
     private void OnDisable()
@@ -58,6 +60,7 @@ public class PlayAreaHandler : MonoBehaviour
 
         Debug.Log("Box deaktive edilecek");
         enemyTurnBox.gameObject.SetActive(false);
+        playerTurnBox.gameObject.SetActive(true);
     }
 
     public void addAnim(AnimationClip clip, int index)

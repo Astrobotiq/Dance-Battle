@@ -13,7 +13,6 @@ public class Card : MonoBehaviour
     public GameObject forBox; // collide eden kutunun referansını yollamak için
     public CardInfoDisplayer cardDisplayer;
 
-    public void Animate() { } //şuanlık boş gerekince doldur
 
     private void OnTriggerEnter(Collider other)
     {

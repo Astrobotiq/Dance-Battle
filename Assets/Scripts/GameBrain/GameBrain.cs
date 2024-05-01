@@ -47,11 +47,13 @@ public class GameBrain : MonoBehaviour
     private void OnEnable()
     {
         SpecialTurn.onExitSpecial += setBattleState;
+        PlayerTurnState.onPlayerTurnEnd += setBattleState;
     }
 
     private void OnDisable()
     {
         SpecialTurn.onExitSpecial -= setBattleState;
+        PlayerTurnState.onPlayerTurnEnd -= setBattleState;
     }
 
 

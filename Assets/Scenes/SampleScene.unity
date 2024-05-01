@@ -618,6 +618,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f15af0b4e457841918c82f90d8762d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onFuckYouEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 520517050}
+        m_TargetAssemblyTypeName: PlayAreaHandler, Assembly-CSharp
+        m_MethodName: enableEnemyTurnCardArea
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 520517050}
+        m_TargetAssemblyTypeName: PlayAreaHandler, Assembly-CSharp
+        m_MethodName: enableEnemyTurnCardArea
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &311791380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,7 +1479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &749616776
 Transform:
   m_ObjectHideFlags: 0

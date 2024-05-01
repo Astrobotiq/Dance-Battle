@@ -6,8 +6,6 @@ using UnityEngine;
 public class BattleSystem : MonoBehaviour
 {
     BattleState currentState;
-    
-
     public void enterState()
     {
         Debug.Log("current state'e giriyom");

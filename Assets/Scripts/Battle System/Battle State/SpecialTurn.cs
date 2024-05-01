@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpecialTurn : BattleState
 {
@@ -13,7 +14,6 @@ public class SpecialTurn : BattleState
        
         StartCoroutine(timer());
         onEnterSpecial?.Invoke();
-        Debug.Log("Timerdan önce");
         
         
     }
@@ -31,7 +31,7 @@ public class SpecialTurn : BattleState
 
     public IEnumerator timer()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(10);
         ExitState();
     }
 }

@@ -60,10 +60,7 @@ public class HandHolder : MonoBehaviour
 
     public void drawCard()
     {
-        while (cards.Count < maxCard)
-        {
-            cardFactory.getCard();
-        }
+        StartCoroutine(drawTimer());
     }
 
     public Card Remove(Card card)
@@ -150,6 +147,15 @@ public class HandHolder : MonoBehaviour
         else
         {
             return 0;
+        }
+    }
+
+    IEnumerator drawTimer()
+    {
+        while (cards.Count < maxCard)
+        {
+            cardFactory.getCard();
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
