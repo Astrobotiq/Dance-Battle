@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,7 @@ public class ScoreManager : MonoBehaviour
 
     public delegate void isNextPlayed(bool isNext);
     public static event isNextPlayed onIsNext;
-    public delegate void sendTotal(int score);
-    public static event sendTotal onSendTotal;
+    public static event Action<int> onSendTotal;
 
     // Start is called before the first frame update
     void Start()

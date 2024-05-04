@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 262063116}
   - component: {fileID: 262063115}
   m_Layer: 0
-  m_Name: Crowd-Normal (1)
+  m_Name: Crowd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,6 +682,7 @@ MonoBehaviour:
   - {fileID: 292369725}
   - {fileID: 292369724}
   - {fileID: 292369723}
+  currentTurn: 0
 --- !u!114 &292369723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,7 +1681,7 @@ GameObject:
   - component: {fileID: 1070979915}
   - component: {fileID: 1070979914}
   m_Layer: 0
-  m_Name: Crowd
+  m_Name: CrowdManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1698,6 +1699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d731a5358a46f4fb3a81fe272b492b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crowds:
+  - {fileID: 2143319675}
+  - {fileID: 262063115}
 --- !u!4 &1070979915
 Transform:
   m_ObjectHideFlags: 0
@@ -2954,7 +2958,7 @@ GameObject:
   - component: {fileID: 2143319676}
   - component: {fileID: 2143319675}
   m_Layer: 0
-  m_Name: Crowd-Normal
+  m_Name: Crowd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

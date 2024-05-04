@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameBrain : MonoBehaviour
@@ -7,6 +8,9 @@ public class GameBrain : MonoBehaviour
     
     BattleSystem battleSystem;
     public List<BattleState> battleStates;
+    [SerializeField]
+    private Dictionary <int,List<_Effect>> effects;
+    public int currentTurn;
     int index;
 
     
@@ -16,6 +20,7 @@ public class GameBrain : MonoBehaviour
         battleSystem = GetComponent<BattleSystem>();
         index = -1;
         setBattleState();
+        currentTurn = 0;
     }
 
     public void setBattleState()
@@ -23,6 +28,25 @@ public class GameBrain : MonoBehaviour
         Debug.Log("State Baþladý");
         getNextIndex();
         battleSystem.stateTransition(GetState());
+    }
+
+    public void startCoroutine()
+    {
+        StartCoroutine(effectSender());
+    }
+
+    IEnumerator effectSender()
+    {
+        List<_Effect> tempEffects = effects[currentTurn];
+
+
+        foreach (var effect in tempEffects)
+        {
+            effect.PlayEffect();
+            yield return new WaitForSeconds(1f);
+        }
+
+        setBattleState();
     }
 
     BattleState GetState()
@@ -47,13 +71,13 @@ public class GameBrain : MonoBehaviour
     private void OnEnable()
     {
         SpecialTurn.onExitSpecial += setBattleState;
-        PlayerTurnState.onPlayerTurnEnd += setBattleState;
+        PlayerTurnState.onPlayerTurnEnd += startCoroutine;
     }
 
     private void OnDisable()
     {
         SpecialTurn.onExitSpecial -= setBattleState;
-        PlayerTurnState.onPlayerTurnEnd -= setBattleState;
+        PlayerTurnState.onPlayerTurnEnd -= startCoroutine;
     }
 
 

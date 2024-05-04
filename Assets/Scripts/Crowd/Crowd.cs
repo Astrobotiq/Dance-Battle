@@ -21,4 +21,6 @@ public class Crowd : MonoBehaviour
     {
         spriteRenderer.sprite = sprites[0];
     }
+
+
 }
