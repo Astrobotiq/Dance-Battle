@@ -37,15 +37,18 @@ public class GameBrain : MonoBehaviour
 
     IEnumerator effectSender()
     {
-        List<_Effect> tempEffects = effects[currentTurn];
-
-
-        foreach (var effect in tempEffects)
+        if (effects != null)
         {
-            effect.PlayEffect();
-            yield return new WaitForSeconds(1f);
-        }
+            List<_Effect> tempEffects = effects[currentTurn];
 
+
+            foreach (var effect in tempEffects)
+            {
+                effect.PlayEffect();
+                yield return new WaitForSeconds(1f);
+            }
+        }
+        Debug.Log("Game Brain içi state transition baþlatýlacak");
         setBattleState();
     }
 
@@ -72,12 +75,14 @@ public class GameBrain : MonoBehaviour
     {
         SpecialTurn.onExitSpecial += setBattleState;
         PlayerTurnState.onPlayerTurnEnd += startCoroutine;
+        CrowdTurnState.onCrowdExit += setBattleState;
     }
 
     private void OnDisable()
     {
         SpecialTurn.onExitSpecial -= setBattleState;
         PlayerTurnState.onPlayerTurnEnd -= startCoroutine;
+        CrowdTurnState.onCrowdExit -= setBattleState;
     }
 
 

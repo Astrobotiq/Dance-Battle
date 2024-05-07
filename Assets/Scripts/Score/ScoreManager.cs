@@ -38,6 +38,7 @@ public class ScoreManager : MonoBehaviour
 
     public void sendTotalPoint()
     {
+        Debug.Log("score:" + score);
         onSendTotal?.Invoke(score);
     }
 
@@ -47,5 +48,15 @@ public class ScoreManager : MonoBehaviour
         nextMultiplier = multiplier;
         onIsNext?.Invoke(isNext);
     }
-    
+
+    private void OnEnable()
+    {
+        CrowdTurnState.onCrowdEnter += sendTotalPoint;
+    }
+
+    private void OnDisable()
+    {
+        CrowdTurnState.onCrowdEnter -= sendTotalPoint;
+    }
+
 }

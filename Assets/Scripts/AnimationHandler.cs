@@ -69,7 +69,7 @@ public class AnimationHandler : MonoBehaviour
 
     public void endTurn()
     {
-        gameBrain.setBattleState();
+        gameBrain.startCoroutine();
     }
 
     private IEnumerator AnimationTimer()
