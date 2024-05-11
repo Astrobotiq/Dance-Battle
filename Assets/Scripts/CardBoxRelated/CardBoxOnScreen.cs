@@ -12,6 +12,7 @@ public class CardBoxOnScreen : MonoBehaviour
     private int index;
     public HandHolder handHolder;
     public CardStructure cardStructure;
+    
     private void OnTriggerEnter(Collider other)
     {
         theCardInBox = other.gameObject;
@@ -20,7 +21,8 @@ public class CardBoxOnScreen : MonoBehaviour
         if(playAreaHandler != null && card != null && cardStructure.Equals(card.GetCardStructure()))
         {
             handHolder.Remove(card);
-            playAreaHandler.addAnim(card.GetAnimationClip(),index);
+            playAreaHandler.addAnim(card.GetAnimationClip(),index);//for animation
+            playAreaHandler.addEffect(card.getEffect(), index); //for effect
         }
     }
 
@@ -31,7 +33,8 @@ public class CardBoxOnScreen : MonoBehaviour
 
         if (playAreaHandler != null && card != null)
         {
-            playAreaHandler.removeAnim(card.GetAnimationClip());
+            playAreaHandler.removeAnim(card.GetAnimationClip()); //for animation
+            playAreaHandler.removeEffect(card.getEffect()); //for effect
             handHolder.Add(card);
         }
         theCardInBox = null;
@@ -41,4 +44,5 @@ public class CardBoxOnScreen : MonoBehaviour
     {
         return theCardInBox;
     }
+    
 }

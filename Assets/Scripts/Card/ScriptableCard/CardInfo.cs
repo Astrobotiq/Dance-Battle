@@ -10,6 +10,8 @@ public class CardInfo : ScriptableObject
     public string CardType;
     [SerializeField]
     private AnimationClip animation;
+    [SerializeField]
+    private List<_Effect> effect;
 
     
 
@@ -20,10 +22,10 @@ public class CardInfo : ScriptableObject
         return animation;
     }
 
-
-    //Effect effect; this will be implemented
-    // Start is called before the first frame update
-    
+    public List<_Effect> getEffect()
+    {
+        return effect;
+    }
 }
 
 public enum CardStructure

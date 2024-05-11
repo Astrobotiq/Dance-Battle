@@ -14,7 +14,6 @@ public class GameBrain : MonoBehaviour
     int index;
 
     
-
     private void Start()
     {
         battleSystem = GetComponent<BattleSystem>();
@@ -25,7 +24,7 @@ public class GameBrain : MonoBehaviour
 
     public void setBattleState()
     {
-        Debug.Log("State Baþladý");
+        Debug.Log("State Baï¿½ladï¿½");
         getNextIndex();
         battleSystem.stateTransition(GetState());
     }
@@ -48,7 +47,7 @@ public class GameBrain : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
         }
-        Debug.Log("Game Brain içi state transition baþlatýlacak");
+        Debug.Log("Game Brain iï¿½i state transition baï¿½latï¿½lacak");
         setBattleState();
     }
 

@@ -52,7 +52,10 @@ public class Card : MonoBehaviour
         return cardInfo.cardStructure;
     }
 
-
+    public List<_Effect> getEffect()
+    {
+        return cardInfo.getEffect();
+    }
     
 
     

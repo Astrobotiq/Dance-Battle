@@ -8,6 +8,7 @@ public class PlayAreaHandler : MonoBehaviour
     public GameObject playerTurnBox;
     public GameObject enemyTurnBox;
     public List<AnimationClip> animations;
+    public List<List<_Effect>> effects;
     [SerializeField] private AnimationHandler animationHandler;
     // Start is called before the first frame update
     void Start()
@@ -87,4 +88,36 @@ public class PlayAreaHandler : MonoBehaviour
         animationHandler.addAnimation(animations);
         animations.Clear();
     }
+
+    public void addEffect(List <_Effect> effect,int index)
+    {
+        effects.Insert(index, effect);
+    }
+
+    public void removeEffect(List<_Effect> effect)
+    {
+        if (effects.Contains(effect))
+        {
+            effects.Remove(effect);
+        }
+    }
+
+    public Boolean CanPlay()
+    {
+        if (effects.Count == 3 && animations.Count == 3)
+        {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public void finishTurn()
+    {
+        if (CanPlay())
+        {
+            
+        }
+    }
+    
 }
