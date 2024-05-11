@@ -9,6 +9,7 @@ TagManager:
   - GameBrain
   - ScoreManager
   - CrowdManager
+  - SoundManager
   layers:
   - Default
   - TransparentFX

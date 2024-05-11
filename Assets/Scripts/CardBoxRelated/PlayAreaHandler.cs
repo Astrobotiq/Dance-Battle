@@ -95,6 +95,7 @@ public class PlayAreaHandler : MonoBehaviour
     {
         Debug.Log("from player area handler " + effect.Count);
         effects.Insert(index, effect);
+        Debug.Log("from player area handler effects len : " + effects.Count);
     }
 
     public void removeEffect(List<_Effect> effect)
@@ -113,6 +114,7 @@ public class PlayAreaHandler : MonoBehaviour
 
     public Boolean CanPlay()
     {
+        Debug.Log("Effects length in Can Play:" + effects.Count);
         if (effects.Count == 3 && animations.Count == 3)
         {
             return true;
