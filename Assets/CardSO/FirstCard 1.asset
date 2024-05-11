@@ -15,4 +15,7 @@ MonoBehaviour:
   CardName: Second Card
   CardType: Disco
   animation: {fileID: 7400000, guid: 08ca365239a72014eb8be3bc2d696fca, type: 2}
+  effect:
+  - {fileID: 11400000, guid: 7b83db652405803439787fc688bb493f, type: 2}
+  - {fileID: 11400000, guid: 6289ccb4152789947ada6b9aa5016976, type: 2}
   cardStructure: 1

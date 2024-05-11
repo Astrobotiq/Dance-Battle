@@ -5,13 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Effect", menuName = "Effects/CrowdEffectingEffect")]
 public class CrowdEffectingEffect : _Effect
 {
-    public GameObject crowdManagerGameObject;
-    private CrowdManager crowdManagerReference;
+    private CrowdManager crowdManager;
     public int expectationIncreaseOrDecreaseValue;
     public override void PlayEffect()
     {
-        crowdManagerGameObject = GameObject.Find("CrowdManager");
-        crowdManagerReference = crowdManagerGameObject.GetComponent<CrowdManager>();
-        crowdManagerReference.setExpectationPoint(crowdManagerReference.getExpectationPoint()+expectationIncreaseOrDecreaseValue);
+        GameObject crowdManagerGO = GameObject.FindWithTag("CrowdManager");
+        crowdManager = crowdManagerGO.GetComponent<CrowdManager>();
+        crowdManager.setExpectationPoint(crowdManager.getExpectationPoint()+expectationIncreaseOrDecreaseValue);
     }
 }

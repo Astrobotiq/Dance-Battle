@@ -15,3 +15,6 @@ MonoBehaviour:
   CardName: First Card
   CardType: Break
   animation: {fileID: 7400000, guid: fc1c8e0e005e72a4b87486bafaccee59, type: 2}
+  effect:
+  - {fileID: 11400000, guid: f7279e86b87b34bbaa1dd12c00cf8f59, type: 2}
+  cardStructure: 0

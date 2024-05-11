@@ -15,5 +15,4 @@ MonoBehaviour:
   description: the negative effect of decreasing it 10  in a turn
   delay: 2
   priorityValue: 2
-  crowdManagerGameObject: {fileID: 0}
-  expectationIncreaseOrDecreaseValue: 0
+  expectationIncreaseOrDecreaseValue: 10

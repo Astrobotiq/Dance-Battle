@@ -5,17 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Effect", menuName = "Effects/Score Effect")]
 public class AdditionToScoreEffect : _Effect
 {
-    [SerializeField] private GameObject ScoreLogic;
+    private ScoreManager scoreManager;
     public int additionAmount;
     
     public override void PlayEffect()
     {
+        GameObject temp = GameObject.FindWithTag("ScoreManager");
+        scoreManager = temp.GetComponent<ScoreManager>();
+        if (scoreManager != null )
+        {
+            scoreManager.addToScore(additionAmount);
+        }
         
-        //theMainScoreLogicGameObject.gameObject.GetComponent<>()
-        /*
-        var component_ref = theMainScoreLogicGameObject.GetComponent<Score>();
-        float temp = component_ref.getScore();
-        component_ref.setScore(temp + crowdPoint);
-        */
     }
 }

@@ -38,7 +38,14 @@ public class ScoreManager : MonoBehaviour
 
     public void sendTotalPoint()
     {
+        if (isAll)
+        {
+            score = (int)(score * allMultiplier);
+            isAll = false;
+            allMultiplier = 1;
+        }
         Debug.Log("score:" + score);
+        scoreList.Add(score);
         onSendTotal?.Invoke(score);
     }
 
@@ -48,6 +55,14 @@ public class ScoreManager : MonoBehaviour
         nextMultiplier = multiplier;
         onIsNext?.Invoke(isNext);
     }
+
+    public void setIsAll(float multiplier)
+    {
+        isAll = true;
+        allMultiplier = multiplier;
+    }
+
+
 
     private void OnEnable()
     {

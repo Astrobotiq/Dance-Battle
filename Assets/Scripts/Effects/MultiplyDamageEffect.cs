@@ -5,18 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Effect", menuName = "Effects/Score Multiplier Effect")]
 public class Multiply_DamageEffect : _Effect
 {
-    [SerializeField] private GameObject ScoreLogic;
-    public int multiplyAmount;
+    private ScoreManager scoreManager;
+    public float multiplyAmount;
     
 
     public override void PlayEffect()
     {
-
-        //ornek bir implementasyon
-        /*
-        var component_ref = theMainScoreLogicGameObject.GetComponent<Score>();
-        float temp = component_ref.getScore();
-        component_ref.setScore(temp * crowdMultiplier);
-        */
+        GameObject temp = GameObject.FindWithTag("ScoreManager");
+        scoreManager = temp.GetComponent<ScoreManager>();
+        if (scoreManager != null)
+        {
+            scoreManager.setIsNext(multiplyAmount);
+        }
     }
 }

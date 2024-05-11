@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MinusTwoCard
   m_EditorClassIdentifier: 
   description: "gelecek seferki ele gelicek kartlar\u0131 2 azalt"
-  delay: 2
-  priority_value: 0
+  delay: 1
+  priorityValue: 0
   additionAmount: -2
