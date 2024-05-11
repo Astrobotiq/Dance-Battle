@@ -22,7 +22,6 @@ public class CardBoxOnScreen : MonoBehaviour
         {
             handHolder.Remove(card);
             playAreaHandler.addAnim(card.GetAnimationClip(),index);//for animation
-            Debug.Log("from cardbox " + card.getEffect().Count);
             playAreaHandler.addEffect(card.getEffect(), index); //for effect
         }
     }

@@ -24,7 +24,6 @@ public class CardInfo : ScriptableObject
 
     public List<_Effect> getEffect()
     {
-        Debug.Log("from card info " + effect.Count + " " + CardName); 
         return effect;
     }
 }

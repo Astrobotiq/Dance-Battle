@@ -595,6 +595,7 @@ MonoBehaviour:
   - {fileID: 292369723}
   - {fileID: 292369726}
   currentTurn: 0
+  howManyTurn: 20
 --- !u!114 &292369723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,7 +656,7 @@ GameObject:
   - component: {fileID: 519445507}
   m_Layer: 0
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: ScoreManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -884,7 +885,7 @@ GameObject:
   - component: {fileID: 568569529}
   - component: {fileID: 568569528}
   m_Layer: 5
-  m_Name: PlayCardsCanvas
+  m_Name: PlayTurnCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

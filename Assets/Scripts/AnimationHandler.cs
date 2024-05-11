@@ -70,6 +70,7 @@ public class AnimationHandler : MonoBehaviour
     public void endTurn()
     {
         gameBrain.startCoroutine();
+        
     }
 
     private IEnumerator AnimationTimer()

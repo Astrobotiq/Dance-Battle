@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     private bool isAll;
     private float nextMultiplier;
     private float allMultiplier;
-    private int score;
+    [SerializeField] private int score;
 
     public delegate void isNextPlayed(bool isNext);
     public static event isNextPlayed onIsNext;
@@ -53,7 +53,7 @@ public class ScoreManager : MonoBehaviour
     {
         isNext = true;
         nextMultiplier = multiplier;
-        onIsNext?.Invoke(isNext);
+        //onIsNext?.Invoke(isNext);
     }
 
     public void setIsAll(float multiplier)

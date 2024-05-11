@@ -15,7 +15,7 @@ public class PlayAreaHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        effects = new List<List<_Effect>>();
         animations = new List<AnimationClip>();
     }
 
@@ -128,8 +128,9 @@ public class PlayAreaHandler : MonoBehaviour
         Debug.Log("can play result" + CanPlay());
         if (CanPlay())
         {
-            sendEffects();
             sendAnim();
+            sendEffects();
+            
         }
     }
     
