@@ -34,6 +34,18 @@ public class GameBrain : MonoBehaviour
         StartCoroutine(effectSender());
     }
 
+    public void addEffects(List<List<_Effect>> effects_input)
+    {
+        foreach (List<_Effect> effectList in effects_input)
+        {
+            foreach (_Effect effect in effectList)
+            {
+                int effect_delay = effect.getDelay();
+                effects[effect_delay + currentTurn].Add(effect);
+            }
+        }
+    }
+
     IEnumerator effectSender()
     {
         if (effects != null)

@@ -54,6 +54,7 @@ public class Card : MonoBehaviour
 
     public List<_Effect> getEffect()
     {
+        Debug.Log("card " + cardInfo.getEffect().Count);
         return cardInfo.getEffect();
     }
     

@@ -10,6 +10,8 @@ public class PlayAreaHandler : MonoBehaviour
     public List<AnimationClip> animations;
     public List<List<_Effect>> effects;
     [SerializeField] private AnimationHandler animationHandler;
+    [SerializeField]
+    private GameBrain gameBrain;
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +93,7 @@ public class PlayAreaHandler : MonoBehaviour
 
     public void addEffect(List <_Effect> effect,int index)
     {
+        Debug.Log("from player area handler " + effect.Count);
         effects.Insert(index, effect);
     }
 
@@ -100,6 +103,12 @@ public class PlayAreaHandler : MonoBehaviour
         {
             effects.Remove(effect);
         }
+    }
+
+    public void sendEffects()
+    {
+        gameBrain.addEffects(effects);
+        effects.Clear();
     }
 
     public Boolean CanPlay()
@@ -114,9 +123,11 @@ public class PlayAreaHandler : MonoBehaviour
     
     public void finishTurn()
     {
+        Debug.Log("can play result" + CanPlay());
         if (CanPlay())
         {
-            
+            sendEffects();
+            sendAnim();
         }
     }
     
