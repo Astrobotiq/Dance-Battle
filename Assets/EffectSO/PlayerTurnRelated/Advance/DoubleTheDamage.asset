@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
-  m_Name: New Card
+  m_Script: {fileID: 11500000, guid: 0f6f6cf3d134c99419f36cd37fd19eb5, type: 3}
+  m_Name: DoubleTheDamage
   m_EditorClassIdentifier: 
-  CardName: HipHop 1
-  CardType: 
-  animation: {fileID: 7400000, guid: d5bb8cfedeb044945ad57154785ca1c5, type: 2}
-  cardStructure: 3
+  description: 
+  delay: 0
+  multiplyAmount: 2

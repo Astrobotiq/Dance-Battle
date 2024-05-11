@@ -18,7 +18,12 @@ public class EnemyScript : MonoBehaviour
     public List<CardInfo> powerfulDevelopmentCards = new List<CardInfo>();
     public List<CardInfo> powerfulConclusionCards = new List<CardInfo>();
     public List<CardInfo> cardWillBePlayed = new List<CardInfo>();
-    //public GameObject scoreKeeperComponent;  score datasinin cekılecegı component
+
+    [SerializeField] private GameBrain gameBrain;
+    [SerializeField] private AnimationHandler animationHandler;
+    [SerializeField] private ScoreManager scoreManager;
+
+    
     private float score;
 
     public void Awake()
@@ -29,24 +34,19 @@ public class EnemyScript : MonoBehaviour
     private void OnEnable()
     {
         EnemyTurnState.onEnemyTurnStart += chooseCards;
-        EnemyTurnState.onEnemyTurnStart += playSelectedCards;
     }
 
     private void OnDisable()
     {
         EnemyTurnState.onEnemyTurnEnd -= chooseCards;
-        EnemyTurnState.onEnemyTurnEnd -= playSelectedCards;
     }
 
-    public void Update()
-    {
-        //score = scoreKeeperComponent.getScore();
-    }
-
+    
     public void chooseCards()
     {
         //score tutan scripten score'un değerini al ve buradaki score float değerini ona eşitlesin
         //score = scoreKeeperGameobject.GetComponent<>().getScore();
+        score = scoreManager.getLastListIndex();
         if (score <= 20)
         {
             cardWillBePlayed.Add(randomCardSelecter(normalCards[0]));
@@ -54,26 +54,51 @@ public class EnemyScript : MonoBehaviour
             cardWillBePlayed.Add(randomCardSelecter(normalCards[2]));
         }
 
-        if (score<=40)
+        else if (score<=40)
         {
             cardWillBePlayed.Add(randomCardSelecter(normalCards[0]));
             cardWillBePlayed.Add(randomCardSelecter(normalCards[1]));
             cardWillBePlayed.Add(randomCardSelecter(powerfulCards[2]));
         }
 
-        if (score<=60)
+        else if (score<=60)
         {
             cardWillBePlayed.Add(randomCardSelecter(normalCards[0]));
             cardWillBePlayed.Add(randomCardSelecter(powerfulCards[1]));
             cardWillBePlayed.Add(randomCardSelecter(powerfulCards[2]));
         }
 
-        if (score<=80)
+        else if (score<=80)
         {
             cardWillBePlayed.Add(randomCardSelecter(powerfulCards[0]));
             cardWillBePlayed.Add(randomCardSelecter(powerfulCards[1]));
             cardWillBePlayed.Add(randomCardSelecter(powerfulCards[2]));
         }
+        
+        sendSelectedCards();
+    }
+    
+    public CardInfo randomCardSelecter(List<CardInfo> parameterList)
+    {
+        //min inclusive but max exclusive that way it looks like this
+        int randomNum = Random.Range(0, parameterList.Count); 
+        return parameterList[randomNum];
+    }
+    
+    //DİKKAT bunu tamamlamayi unutma
+    public void sendSelectedCards()
+    {
+        List<AnimationClip> animationClips = new List<AnimationClip>();
+        List<List<_Effect>> effects = new List<List<_Effect>>();
+        
+        foreach (CardInfo cardInfo in cardWillBePlayed)
+        {
+            effects.Add(cardInfo.getEffect());
+            animationClips.Add(cardInfo.getAnimation());
+        }
+        
+        animationHandler.addAnimation(animationClips);
+        gameBrain.addEffects(effects);
     }
     
     public void setLists()
@@ -88,21 +113,5 @@ public class EnemyScript : MonoBehaviour
         
         mainList.Add(normalCards);
         mainList.Add(powerfulCards);
-    }
-
-    public CardInfo randomCardSelecter(List<CardInfo> parameterList)
-    {
-        //min inclusive but max exclusive that way it looks like this
-        int randomNum = Random.Range(0, parameterList.Count); 
-        return parameterList[randomNum];
-    }
-    
-    //DİKKAT bunu tamamlamayi unutma
-    public void playSelectedCards()
-    {
-        foreach (CardInfo card in cardWillBePlayed)
-        {
-            //burada seçili kartların CardInfo'ları, score ve effeck olayları için gerekli yere yollanacak
-        }
     }
 }

@@ -41,13 +41,13 @@ public class GameBrain : MonoBehaviour
     {
         foreach (List<_Effect> effectList in effects_input)
         {
-            //Debug.Log(effectList.Count + " naber " + effects_input.Count);
+            Debug.Log(effectList.Count + " naber " + effects_input.Count);
             foreach (_Effect effect in effectList)
             {
-                //Debug.Log(effect.description +" naber naber " + effectList.Count);
+                Debug.Log(" naber naber " + effectList.Count);
                 int effect_delay = effect.getDelay();
-                //Debug.Log("naber naber naber effect" + effect_delay );
-                //Debug.Log("naber naber naber current" + currentTurn);
+                Debug.Log("naber naber naber effect" + effect_delay );
+                Debug.Log("naber naber naber current" + currentTurn);
                 effects[effect_delay + currentTurn].Add(effect);
             }
         }
@@ -91,10 +91,15 @@ public class GameBrain : MonoBehaviour
         if (index + 1 >= battleStates.Count)
         {
             index = 0;
+            currentTurn += 1;
         }
         else
         {
             index++;
+            if (index == 3)
+            {
+                currentTurn += 1;
+            }
         }
         Debug.Log("index: "+index);
     }
@@ -105,6 +110,7 @@ public class GameBrain : MonoBehaviour
         SpecialTurn.onExitSpecial += setBattleState;
         PlayerTurnState.onPlayerTurnEnd += startCoroutine;
         CrowdTurnState.onCrowdExit += setBattleState;
+        EnemyTurnState.onEnemyTurnEnd += startCoroutine;
     }
 
     private void OnDisable()
@@ -112,6 +118,7 @@ public class GameBrain : MonoBehaviour
         SpecialTurn.onExitSpecial -= setBattleState;
         PlayerTurnState.onPlayerTurnEnd -= startCoroutine;
         CrowdTurnState.onCrowdExit -= setBattleState;
+        EnemyTurnState.onEnemyTurnEnd -= startCoroutine;
     }
 
 

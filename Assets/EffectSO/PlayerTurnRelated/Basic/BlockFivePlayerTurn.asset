@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 771e5fca048fa4f4492c0660d56b3fa2, type: 3}
-  m_Name: AddTwoCard
+  m_Script: {fileID: 11500000, guid: b596ddb9ca404874bab4b6586df5c7b0, type: 3}
+  m_Name: BlockFivePlayerTurn
   m_EditorClassIdentifier: 
-  description: Adds two card at next turn
-  delay: 0
-  priority_value: 0
-  additionAmount: 2
+  description: Block five damage
+  delay: 1
+  priorityValue: 2
+  additionAmount: -5

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
+  m_Name: TurnExpectationMinusTen
+  m_EditorClassIdentifier: 
+  CardName: 
+  CardType: 
+  description: Decrease expectation 10 point
+  animation: {fileID: 0}
+  effect:
+  - {fileID: 11400000, guid: b6c7861dafed7b74282b0784b9647715, type: 2}
+  - {fileID: 11400000, guid: ae2f3bc1de8fca9408dec5b8107335ff, type: 2}
+  cardStructure: 0

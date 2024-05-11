@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
-  m_Name: FirstCard 2
+  m_Name: TurnSkipPlayerTurn
   m_EditorClassIdentifier: 
-  CardName: Third Card
-  CardType: Fiesta
-  animation: {fileID: 7400000, guid: 4669c4145d6d96c4c8505c05784e6cc3, type: 2}
+  CardName: 
+  CardType: 
+  description: 
+  animation: {fileID: 0}
   effect:
-  - {fileID: 11400000, guid: 92a1242e21c4347ccb8d1f99ae934427, type: 2}
-  cardStructure: 2
+  - {fileID: 11400000, guid: 8a72a9fb9253c224ab96b4355a60aaac, type: 2}
+  cardStructure: 0

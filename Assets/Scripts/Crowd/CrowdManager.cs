@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,12 @@ public class CrowdManager : MonoBehaviour
 {
     int expectationPoint;
     public List<Crowd> crowds;
+
+    private void Awake()
+    {
+        expectationPoint = 10;
+    }
+
     public int calculatePoint(int score, int expectation)//This function calculate next Turn expectation point according to last point.
     {
         var tempScore = score - expectation;

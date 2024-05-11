@@ -6,11 +6,20 @@ public class EnemyTurnState : BattleState
 {
     public static event StateAction onEnemyTurnStart;
     public static event StateAction onEnemyTurnEnd;
+
+    public bool isSkipping = false;
     public override void EnterState()
     {
-        Debug.Log("Enemy Turn Baþladý. Hurraa");
-        onEnemyTurnStart?.Invoke();
-        
+        Debug.Log("Enemy Turn Baï¿½ladï¿½. Hurraa");
+        if (isSkipping)
+        {
+            isSkipping = false;
+            ExitState();
+        }
+        else
+        {
+            onEnemyTurnStart?.Invoke();
+        }
     }
 
     public override void ExitState()
@@ -26,7 +35,8 @@ public class EnemyTurnState : BattleState
         throw new System.NotImplementedException();
     }
 
-    
-
-
+    public void setIsSkippingTrue()
+    {
+        isSkipping = true;
+    }
 }

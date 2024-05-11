@@ -8,13 +8,11 @@ public class CardInfo : ScriptableObject
 {
     public string CardName;
     public string CardType;
+    public string description;
     [SerializeField]
     private AnimationClip animation;
     [SerializeField]
     private List<_Effect> effect;
-
-    
-
     public CardStructure cardStructure;
 
     public AnimationClip getAnimation()
@@ -26,9 +24,14 @@ public class CardInfo : ScriptableObject
     {
         return effect;
     }
+
+    public CardStructure GetCardStructure()
+    {
+        return cardStructure;
+    }
 }
 
 public enum CardStructure
 {
-    Introduction, Development, Conclusion, Instant
+    Turn, Instant
 }

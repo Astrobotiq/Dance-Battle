@@ -7,16 +7,26 @@ public class PlayerTurnState : BattleState
 
     public static event StateAction onPlayerTurnStart;
     public static event StateAction onPlayerTurnEnd;
+    
+    public bool isSkipping = false;
     public override void EnterState()
     {
-        Debug.Log("Playerýn turn'ü þimdi");
-        onPlayerTurnStart?.Invoke();
+        Debug.Log("Playerï¿½n turn'ï¿½ ï¿½imdi");
+        if (isSkipping)
+        {
+            isSkipping = false;
+            ExitState();
+        }
+        else
+        {
+            onPlayerTurnStart?.Invoke();
+        }
             //UI'da player turn yazar
-            //ýþýklar player'a döner
-            //Ekrandaki 3 kart oynama noktasý aktive olur
-            //player kart oynayana kadar geçme
-            //player butona basýnca animasyon oynar
-            //animasyon bitince seyirci state'ine geçer
+            //ï¿½ï¿½ï¿½klar player'a dï¿½ner
+            //Ekrandaki 3 kart oynama noktasï¿½ aktive olur
+            //player kart oynayana kadar geï¿½me
+            //player butona basï¿½nca animasyon oynar
+            //animasyon bitince seyirci state'ine geï¿½er
     }
 
     public override void ExitState()
@@ -31,7 +41,8 @@ public class PlayerTurnState : BattleState
         
     }
 
-    
-
-
+    public void setIsSkippingTrue()
+    {
+        isSkipping = true;
+    }
 }

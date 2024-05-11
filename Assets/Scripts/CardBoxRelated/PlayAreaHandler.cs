@@ -130,7 +130,6 @@ public class PlayAreaHandler : MonoBehaviour
         {
             sendAnim();
             sendEffects();
-            
         }
     }
     

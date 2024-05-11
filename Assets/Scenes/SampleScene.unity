@@ -608,6 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef2197b160cc1240ba22fe55c2657dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkipping: 0
 --- !u!114 &292369724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e4a775de97e344395dbe42139528c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkipping: 0
 --- !u!114 &292369725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,6 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92309946238c6141aa4c0da90ff1ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
 --- !u!4 &519445508
 Transform:
   m_ObjectHideFlags: 0
@@ -986,7 +989,7 @@ GameObject:
   - component: {fileID: 588419927}
   m_Layer: 0
   m_Name: Dancer2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1019,13 +1022,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14dcefd01a8914a47a88b041ab57db00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalIntroductionCards: []
-  normalDevelopmentCards: []
-  normalConclusionCards: []
-  powerfulIntroductionCards: []
-  powerfulDevelopmentCards: []
-  powerfulConclusionCards: []
+  normalIntroductionCards:
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  normalDevelopmentCards:
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  normalConclusionCards:
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  powerfulIntroductionCards:
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  powerfulDevelopmentCards:
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  powerfulConclusionCards:
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
   cardWillBePlayed: []
+  gameBrain: {fileID: 292369722}
+  animationHandler: {fileID: 702145297}
+  scoreManager: {fileID: 519445507}
 --- !u!1 &629289713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,7 +1355,7 @@ MonoBehaviour:
   playAreaHandler: {fileID: 520517050}
   index: 2
   handHolder: {fileID: 196120955}
-  cardStructure: 2
+  cardStructure: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,7 +1885,7 @@ MonoBehaviour:
   playAreaHandler: {fileID: 520517050}
   index: 1
   handHolder: {fileID: 196120955}
-  cardStructure: 1
+  cardStructure: 0
 --- !u!1 &1479955775
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,10 +2116,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cards:
   - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
-  - {fileID: 11400000, guid: 22d4bae09c84ecb4da6bda60c0646362, type: 2}
-  - {fileID: 11400000, guid: ad900c70fcf442d4c9ce0b568d241f31, type: 2}
-  - {fileID: 11400000, guid: ad900c70fcf442d4c9ce0b568d241f31, type: 2}
-  - {fileID: 11400000, guid: ad900c70fcf442d4c9ce0b568d241f31, type: 2}
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
   discardHolder: {fileID: 1778957041}
 --- !u!4 &1778957043
 Transform:

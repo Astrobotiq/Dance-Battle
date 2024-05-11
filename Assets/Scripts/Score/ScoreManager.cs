@@ -62,7 +62,10 @@ public class ScoreManager : MonoBehaviour
         allMultiplier = multiplier;
     }
 
-
+    public int getLastListIndex()
+    {
+        return scoreList[scoreList.Count - 1];
+    }
 
     private void OnEnable()
     {
