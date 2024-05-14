@@ -6,6 +6,7 @@ using UnityEngine;
 public class BattleSystem : MonoBehaviour
 {
     BattleState currentState;
+    [SerializeField] private UIManager UIManagerInstance;
     public void enterState()
     {
         Debug.Log("current state'e giriyom");
@@ -20,8 +21,14 @@ public class BattleSystem : MonoBehaviour
     public void stateTransition(BattleState newState)
     {
         
-        Debug.Log("current state boþ " + newState.name);
+        Debug.Log("current state boï¿½ " + newState.name);
         currentState = newState;
+        UIManagerInstance.updateUI();
         enterState();
+    }
+
+    public BattleState getState()
+    {
+        return currentState;
     }
 }

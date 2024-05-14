@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -19,9 +21,13 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreList = new List<int>();
         nextMultiplier = 1;
         allMultiplier = 1;
+    }
+
+    public void Awake()
+    {
+        scoreList = new List<int>();
     }
 
     public void addToScore(int point)
@@ -67,6 +73,16 @@ public class ScoreManager : MonoBehaviour
         return scoreList[scoreList.Count - 1];
     }
 
+    public bool isScoreListEmpty()
+    {
+        if (scoreList.Count == 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     private void OnEnable()
     {
         CrowdTurnState.onCrowdEnter += sendTotalPoint;
@@ -76,5 +92,6 @@ public class ScoreManager : MonoBehaviour
     {
         CrowdTurnState.onCrowdEnter -= sendTotalPoint;
     }
+    
 
 }

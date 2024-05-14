@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BattleState : MonoBehaviour
 {
-    //Add Týmer UI class for timer
+    //Add TÄ±mer UI class for timer
     public delegate void StateAction();
 
     
