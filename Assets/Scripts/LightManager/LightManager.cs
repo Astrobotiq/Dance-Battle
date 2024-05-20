@@ -6,14 +6,19 @@ using UnityEngine;
 public class LightManager : MonoBehaviour
 {
 
-    public List<GameObject> lights;
+    public List<GameObject> lightsMiddle;
+    public List<GameObject> lightsBack;
     public int angle;
+    public int angle2;
     public GameObject player;
     public GameObject enemy;
     public GameObject ceiling;
+    private int startRot;
     private void Awake()
     {
+        startRot = 50;
         rotateGO();
+        backLightIdle();
     }
 
     public void rotateGO()
@@ -25,12 +30,12 @@ public class LightManager : MonoBehaviour
     public void rotateLight()
     {
         angle = -angle;
-        lights[0].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear);
-        changeColor(lights[0]);
-        lights[1].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear);
-        changeColor(lights[1]);
-        lights[2].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(lookAtPlayer);
-        changeColor(lights[2]);
+        lightsMiddle[0].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear);
+        changeColor(lightsMiddle[0]);
+        lightsMiddle[1].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear);
+        changeColor(lightsMiddle[1]);
+        lightsMiddle[2].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(lookAtPlayer);
+        changeColor(lightsMiddle[2]);
 
     }
 
@@ -41,12 +46,27 @@ public class LightManager : MonoBehaviour
 
     public void lookAtPlayer()
     {
-        lights[2].transform.DOLookAt(player.transform.position, 2f).OnComplete(lookAtEnemy);
+        lightsMiddle[2].transform.DOLookAt(player.transform.position, 2f).OnComplete(lookAtEnemy);
     }
 
     public void lookAtEnemy()
     {
-        lights[1].transform.DOLookAt(enemy.transform.position, 2f).OnComplete(rotateLight);
+        lightsMiddle[1].transform.DOLookAt(enemy.transform.position, 2f).OnComplete(rotateLight);
+    }
+
+    public void backLightIdle()
+    {
+        startRot += startRot + angle2;
+        angle2 = -angle2;
+        for (int i = 0;i<lightsBack.Count;i++)
+        {
+            var rotation = lightsBack[i].transform.rotation;
+            if (i == lightsBack.Count - 1)
+            {
+                lightsBack[i].transform.DORotate(new Vector3(startRot, rotation.y, rotation.z),1f).OnComplete(backLightIdle);
+            }
+            lightsBack[i].transform.DORotate(new Vector3(startRot, rotation.y, rotation.z), 1f);
+        }
     }
 
 }
