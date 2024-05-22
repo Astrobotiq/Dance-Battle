@@ -21,11 +21,8 @@ public class PlayAreaHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("On Enable 1");
         SpecialTurn.onExitSpecial += disableEnemyTurnCardArea;
-        Debug.Log("On Enable 2");
         SpecialTurn.onEnterSpecial += enableEnemyTurnCardArea;
-        Debug.Log("On Enable 3");
     }
 
     private void OnDisable()
@@ -42,7 +39,7 @@ public class PlayAreaHandler : MonoBehaviour
 
     public void enablePlayerTurnCardArea()
     {
-        playerTurnBox.SetActive(true);
+        playerTurnBox.gameObject.SetActive(true);
     }
 
     public void enableEnemyTurnCardArea()
@@ -55,7 +52,8 @@ public class PlayAreaHandler : MonoBehaviour
 
     public void disablePlayerTurnCardArea()
     {
-        playerTurnBox.SetActive(false);
+        removeCards();
+        playerTurnBox.gameObject.SetActive(false);
     }
 
     public void disableEnemyTurnCardArea()
@@ -64,6 +62,16 @@ public class PlayAreaHandler : MonoBehaviour
         Debug.Log("Box deaktive edilecek");
         enemyTurnBox.gameObject.SetActive(false);
         playerTurnBox.gameObject.SetActive(true);
+    }
+
+    public void removeCards()
+    {
+        Debug.Log("Kartlar silinecek");
+        CardBoxOnScreen[] cardGO = playerTurnBox.GetComponentsInChildren<CardBoxOnScreen>();
+        foreach(CardBoxOnScreen box in cardGO)
+        {
+            Destroy(box.getTheCardInBox());
+        } 
     }
 
     public void addAnim(AnimationClip clip, int index)

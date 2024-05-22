@@ -27,7 +27,7 @@ public class CrowdTurnState : BattleState
     IEnumerator delay()
     {
         Debug.Log("delay içi");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         ExitState();
     }
 }

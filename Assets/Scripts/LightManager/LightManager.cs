@@ -14,29 +14,54 @@ public class LightManager : MonoBehaviour
     public GameObject enemy;
     public GameObject ceiling;
     private int startRot;
+    private int rotateCount;
     private void Awake()
     {
+        rotateCount = 0;
         startRot = 50;
-        rotateGO();
         backLightIdle();
     }
 
     public void rotateGO()
     {
 
-        ceiling.transform.DORotate(new Vector3(0, 180, 0), 5f).OnComplete(rotateLight);
+        ceiling.transform.DORotate(new Vector3(0, 180, 0), 5f);
     }
 
-    public void rotateLight()
+    IEnumerator rotateLight()
     {
         angle = -angle;
         lightsMiddle[0].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear);
         changeColor(lightsMiddle[0]);
         lightsMiddle[1].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear);
         changeColor(lightsMiddle[1]);
-        lightsMiddle[2].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(lookAtPlayer);
+        lightsMiddle[2].transform.DORotate(new Vector3(90 + angle, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(restart);
         changeColor(lightsMiddle[2]);
+        yield return null;
+    }
 
+    private void restart()
+    {
+        if (rotateCount<4)
+        {
+            lightsMiddle[0].transform.DORotate(new Vector3(90, 0, 0), 0.5f).SetEase(Ease.Linear);
+            changeColor(lightsMiddle[0]);
+            lightsMiddle[1].transform.DORotate(new Vector3(90, 0, 0), 0.5f).SetEase(Ease.Linear);
+            changeColor(lightsMiddle[1]);
+            lightsMiddle[2].transform.DORotate(new Vector3(90, 0, 0), 0.5f).SetEase(Ease.Linear).OnComplete(caller);
+            changeColor(lightsMiddle[2]);
+        }
+        else if (rotateCount>=4)
+        {
+            rotateCount = 0;
+        }
+        
+    }
+
+    private void caller()
+    {
+        rotateCount++;
+        StartCoroutine(rotateLight());
     }
 
     public void changeColor(GameObject light)
@@ -46,12 +71,12 @@ public class LightManager : MonoBehaviour
 
     public void lookAtPlayer()
     {
-        lightsMiddle[2].transform.DOLookAt(player.transform.position, 2f).OnComplete(lookAtEnemy);
+        lightsMiddle[2].transform.DOLookAt(player.transform.position, 2f);
     }
 
     public void lookAtEnemy()
     {
-        lightsMiddle[1].transform.DOLookAt(enemy.transform.position, 2f).OnComplete(rotateLight);
+        lightsMiddle[1].transform.DOLookAt(enemy.transform.position, 2f);
     }
 
     public void backLightIdle()
@@ -67,6 +92,29 @@ public class LightManager : MonoBehaviour
             }
             lightsBack[i].transform.DORotate(new Vector3(startRot, rotation.y, rotation.z), 1f);
         }
+    }
+
+    public void frontIdle()
+    {
+        StopCoroutine(rotateLight());
+        lightsMiddle[0].transform.DORotate(new Vector3(90, 0, 0), 0.5f).SetEase(Ease.Linear);
+        changeColor(lightsMiddle[0]);
+        lightsMiddle[1].transform.DORotate(new Vector3(90, 0, 0), 0.5f).SetEase(Ease.Linear);
+        changeColor(lightsMiddle[1]);
+        lightsMiddle[2].transform.DORotate(new Vector3(90, 0, 0), 0.5f).SetEase(Ease.Linear);
+        changeColor(lightsMiddle[2]);
+    }
+
+
+    private void OnEnable()
+    {
+        SpecialTurn.onEnterSpecial += rotateGO;
+        PlayerTurnState.onPlayerTurnStart += lookAtPlayer;
+        PlayerTurnState.onPlayerTurnEnd += frontIdle;
+        EnemyTurnState.onEnemyTurnStart += lookAtEnemy;
+        EnemyTurnState.onEnemyTurnEnd += frontIdle;
+        CrowdTurnState.onCrowdEnter += restart;
+        CrowdTurnState.onCrowdExit += frontIdle;
     }
 
 }

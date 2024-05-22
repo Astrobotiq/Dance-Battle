@@ -21,7 +21,7 @@ public class BattleSystem : MonoBehaviour
     public void stateTransition(BattleState newState)
     {
         
-        Debug.Log("current state bo� " + newState.name);
+        Debug.Log("current state bos " + newState.name);
         currentState = newState;
         UIManagerInstance.updateUI();
         enterState();

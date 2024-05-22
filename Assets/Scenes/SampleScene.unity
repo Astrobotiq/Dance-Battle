@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 157943551}
   m_Layer: 0
   m_Name: Dancer1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2250,7 +2250,7 @@ GameObject:
   - component: {fileID: 520517050}
   m_Layer: 0
   m_Name: CardPlayArea
-  m_TagString: Untagged
+  m_TagString: PlayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3085,6 +3085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 702145296}
+  parent: {fileID: 588419925}
 --- !u!1001 &732840161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3902,6 +3903,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4002,6 +4004,18 @@ MonoBehaviour:
   selectedObject: {fileID: 0}
   correctDistanceForZ: 3.95
   box_ref: {fileID: 0}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65052ab538d3d54cabdf0760785e6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &972512374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4229,8 +4243,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crowds:
-  - {fileID: 0}
   - {fileID: 262063115}
+  - {fileID: 420730156}
+  - {fileID: 1912370450}
+  - {fileID: 1365136504}
 --- !u!4 &1070979915
 Transform:
   m_ObjectHideFlags: 0
@@ -8118,6 +8134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1972848659}
+  parent: {fileID: 157943550}
 --- !u!1001 &2005182503
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -30,10 +30,14 @@ public class PlayerTurnState : BattleState
     }
 
     public override void ExitState()
-    {   
-       
-         onPlayerTurnEnd?.Invoke();
-        
+    {
+        GameObject cardBox = GameObject.FindWithTag("PlayArea");
+        PlayAreaHandler playArea = cardBox.GetComponent<PlayAreaHandler>();
+        if (playArea != null)
+        {
+            playArea.disablePlayerTurnCardArea();
+        }
+        onPlayerTurnEnd?.Invoke();
     }
 
     public override void updateState()

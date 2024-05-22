@@ -8,7 +8,8 @@ public class AnimationHandler : MonoBehaviour
     AnimatorOverrideController controller;
     public Animator animator;
     public AnimationClipOverrides clipOverrides;
-    private GameBrain gameBrain;
+    private GameObject gameBrain;
+    public GameObject parent;
     float animationTotalLength;
     // Start is called before the first frame update
     void Start()
@@ -19,12 +20,8 @@ public class AnimationHandler : MonoBehaviour
         clipOverrides = new AnimationClipOverrides(controller.overridesCount);
         controller.GetOverrides(clipOverrides);
 
-        GameObject ob = GameObject.FindGameObjectWithTag("GameBrain");
-        if (ob != null)
-        {
-            gameBrain = ob.GetComponent<GameBrain>();
-            Debug.Log("GameBrain found");
-        }
+       gameBrain = GameObject.FindGameObjectWithTag("GameBrain");
+        
     }
 
     
@@ -69,7 +66,17 @@ public class AnimationHandler : MonoBehaviour
 
     public void endTurn()
     {
-        gameBrain.startCoroutine();
+        BattleState state;
+        if(parent.gameObject.tag == "Enemy")
+        {
+            state = gameBrain.GetComponent<EnemyTurnState>();
+            state.ExitState();
+        }
+        else if (parent.gameObject.tag == "Player")
+        {
+            state = gameBrain.GetComponent<PlayerTurnState>();
+            state.ExitState();
+        }
         
     }
 
