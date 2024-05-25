@@ -20,6 +20,10 @@ public class ShuffleHolder : _CardHolder
 
     public override CardInfo Draw()
     {
+        if(_cards.Count == 0)
+        {
+            getAllCards();
+        }
         CardInfo tempCard = _cards[0];
         Remove(tempCard);
         return tempCard;
@@ -27,6 +31,11 @@ public class ShuffleHolder : _CardHolder
 
     public void getAllCards()
     {
-        _cards = discardHolder.giveAllCards();
+        List<CardInfo> cards = discardHolder.giveAllCards();
+        foreach(CardInfo card in cards)
+        {
+            Add(card);
+        }
+        Debug.Log("Card's cound "+_cards.Count);
     }
 }

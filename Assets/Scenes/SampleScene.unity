@@ -2060,6 +2060,7 @@ MonoBehaviour:
   animations: []
   animationHandler: {fileID: 1972848660}
   gameBrain: {fileID: 292369722}
+  discardHolder: {fileID: 1778957041}
 --- !u!4 &520517051
 Transform:
   m_ObjectHideFlags: 0
@@ -5802,10 +5803,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cards:
   - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  - {fileID: 11400000, guid: bf8057646eed6bd47a14ed6e5c5fa0d4, type: 2}
   - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  - {fileID: 11400000, guid: bf8057646eed6bd47a14ed6e5c5fa0d4, type: 2}
   - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
-  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
-  - {fileID: 11400000, guid: 626e3f6808098044ca9d38faf9f10dc3, type: 2}
+  - {fileID: 11400000, guid: bf8057646eed6bd47a14ed6e5c5fa0d4, type: 2}
   discardHolder: {fileID: 1778957041}
 --- !u!4 &1778957043
 Transform:
@@ -7273,11 +7275,19 @@ MonoBehaviour:
   shuffleHolder: {fileID: 1778957042}
   handHolder: {fileID: 196120955}
   BornPos: {fileID: 287303964}
-  redMaterials: []
+  redMaterials:
+  - {fileID: 2100000, guid: 6a8d061f05938b54da2b92ceb8e5fc4f, type: 2}
+  - {fileID: 2100000, guid: 3df546f6e9c3a5542a958a7ba2ea8ab9, type: 2}
+  - {fileID: 2100000, guid: 37ac774e2a02be348abb99036d320a22, type: 2}
   purpleMaterials:
+  - {fileID: 2100000, guid: 14c25d81ce00c9441b1508b8cd221574, type: 2}
+  - {fileID: 2100000, guid: f9e99d8e268f0614b83553bb8e7882c8, type: 2}
+  - {fileID: 2100000, guid: f7f0db5af5a0651498defeb5187db78a, type: 2}
+  pinkMaterials:
   - {fileID: 2100000, guid: 9b54f78ba873b804e991d9aba2365ff0, type: 2}
   - {fileID: 2100000, guid: e4fa581e61462e340a7b76b51292b3ef, type: 2}
-  pinkMaterials:
+  - {fileID: 2100000, guid: 9bf8fb777297eca45b8d127d6e02f7d8, type: 2}
+  instanceMaterials:
   - {fileID: 2100000, guid: 82415b349a0dc3e409af98989141b8fa, type: 2}
 --- !u!4 &2008819568
 Transform:

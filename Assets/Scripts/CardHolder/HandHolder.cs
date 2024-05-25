@@ -60,6 +60,7 @@ public class HandHolder : MonoBehaviour
 
     public void drawCard()
     {
+        Debug.Log("special turn kart çekmek için event yolladý");
         StartCoroutine(drawTimer());
     }
 
@@ -154,6 +155,7 @@ public class HandHolder : MonoBehaviour
     {
         while (cards.Count < maxCard)
         {
+            Debug.Log("Kart çekiliyor");
             cardFactory.getCard();
             yield return new WaitForSeconds(0.5f);
         }

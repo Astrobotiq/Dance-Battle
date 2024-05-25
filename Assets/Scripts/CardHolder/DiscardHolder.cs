@@ -24,8 +24,15 @@ public class DiscardHolder : _CardHolder
     public List<CardInfo> giveAllCards()
     {
         Shuffle();
-        List<CardInfo> temp = _cards;
-        _cards.Clear();
+        List<CardInfo> temp = new List<CardInfo>();
+        foreach(CardInfo card in _cards)
+        {
+            temp.Add(card);
+        }
+        if (temp != null)
+        {
+            _cards.Clear();
+        }
         return temp;
     }
 }

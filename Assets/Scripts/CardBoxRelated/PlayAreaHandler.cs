@@ -12,6 +12,7 @@ public class PlayAreaHandler : MonoBehaviour
     [SerializeField] private AnimationHandler animationHandler;
     [SerializeField]
     private GameBrain gameBrain;
+    [SerializeField]  DiscardHolder discardHolder;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,8 +71,15 @@ public class PlayAreaHandler : MonoBehaviour
         CardBoxOnScreen[] cardGO = playerTurnBox.GetComponentsInChildren<CardBoxOnScreen>();
         foreach(CardBoxOnScreen box in cardGO)
         {
+            CardInfo cardInfo = box.getTheCardInBox().GetComponent<Card>().GetCardInfo();
+            sendCardToDiscard(cardInfo);
             Destroy(box.getTheCardInBox());
         } 
+    }
+
+    public void sendCardToDiscard(CardInfo info)
+    {
+        discardHolder.Add(info);
     }
 
     public void addAnim(AnimationClip clip, int index)

@@ -14,12 +14,18 @@ public class Crowd : MonoBehaviour
 
     public void getExited()
     {
-        spriteRenderer.sprite = sprites[1];
+        StartCoroutine(setSprites(1));
     }
 
     public void getBored()
     {
-        spriteRenderer.sprite = sprites[0];
+        StartCoroutine(setSprites(0));
+    }
+
+    IEnumerator setSprites(int i )
+    {
+        yield return new WaitForSeconds(3);
+        spriteRenderer.sprite = sprites[i];
     }
 
 

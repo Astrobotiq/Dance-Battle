@@ -17,6 +17,7 @@ public class CardFactory : MonoBehaviour
     public List<Material> redMaterials;
     public List<Material> purpleMaterials;
     public List<Material> pinkMaterials;
+    public List<Material> instanceMaterials;
 
     private void Awake()
     {
