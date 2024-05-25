@@ -14,6 +14,9 @@ public class CardFactory : MonoBehaviour
     [SerializeField]
     private HandHolder handHolder;
     public Transform BornPos;
+    public List<Material> redMaterials;
+    public List<Material> purpleMaterials;
+    public List<Material> pinkMaterials;
 
     private void Awake()
     {
@@ -28,12 +31,13 @@ public class CardFactory : MonoBehaviour
         if (card != null && cardPrefab != null)
         {
             GameObject cardObject = Instantiate(cardPrefab, BornPos.position, Quaternion.identity);
-            cardObject.transform.localEulerAngles = new Vector3(-90,0,0);
+            cardObject.transform.localEulerAngles = new Vector3(90,180,0);
 
             if (cardObject != null)
             {
                 cardObject.GetComponent<Card>().setCardInfo(card);
             }
+            cardObject.GetComponent<MeshRenderer>().material = getCardMaterial(card);
             handHolder.Add(cardObject.GetComponent<Card>());
         }
     }
@@ -46,5 +50,25 @@ public class CardFactory : MonoBehaviour
             Debug.Log("Card taken");
             build(card);
         }
+    }
+
+    public Material getCardMaterial(CardInfo cardInfo)
+    {
+        Material material = null;
+        if (cardInfo.GetCardColor() == CardColor.RED)
+        {
+            material = redMaterials[0];
+        }
+        else if (cardInfo.GetCardColor() == CardColor.PURPLE)
+        {
+            material = purpleMaterials[0];
+        }
+        else
+        {
+
+            material = pinkMaterials[0];
+
+        }
+        return material;
     }
 }

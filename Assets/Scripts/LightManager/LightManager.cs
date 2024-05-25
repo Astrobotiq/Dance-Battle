@@ -19,7 +19,6 @@ public class LightManager : MonoBehaviour
     {
         rotateCount = 0;
         startRot = 50;
-        backLightIdle();
     }
 
     public void rotateGO()
@@ -77,21 +76,6 @@ public class LightManager : MonoBehaviour
     public void lookAtEnemy()
     {
         lightsMiddle[1].transform.DOLookAt(enemy.transform.position, 2f);
-    }
-
-    public void backLightIdle()
-    {
-        startRot += startRot + angle2;
-        angle2 = -angle2;
-        for (int i = 0;i<lightsBack.Count;i++)
-        {
-            var rotation = lightsBack[i].transform.rotation;
-            if (i == lightsBack.Count - 1)
-            {
-                lightsBack[i].transform.DORotate(new Vector3(startRot, rotation.y, rotation.z),1f).OnComplete(backLightIdle);
-            }
-            lightsBack[i].transform.DORotate(new Vector3(startRot, rotation.y, rotation.z), 1f);
-        }
     }
 
     public void frontIdle()

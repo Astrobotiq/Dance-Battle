@@ -6,15 +6,12 @@ using UnityEngine;
 public class CardInfoDisplayer : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshPro name;
+    private TextMeshProUGUI name;
 
-    [SerializeField]
-    private TextMeshPro type;
 
-    public void display(string name, string type)
+    public void display(string name)
     {
         this.name.text = name;
-        this.type.text = type;
 
     }
 

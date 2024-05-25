@@ -14,6 +14,7 @@ public class CardInfo : ScriptableObject
     [SerializeField]
     private List<_Effect> effect;
     public CardStructure cardStructure;
+    public CardColor cardColor;
 
     public AnimationClip getAnimation()
     {
@@ -29,9 +30,16 @@ public class CardInfo : ScriptableObject
     {
         return cardStructure;
     }
+
+    public CardColor GetCardColor() { return cardColor; }
 }
 
 public enum CardStructure
 {
     Turn, Instant
+}
+
+public enum CardColor
+{
+    PINK,PURPLE,RED,COLORCHANGER
 }

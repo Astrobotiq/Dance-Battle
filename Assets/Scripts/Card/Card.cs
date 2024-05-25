@@ -33,7 +33,7 @@ public class Card : MonoBehaviour
 
         cardInfo = card;
 
-        cardDisplayer.display(cardInfo.CardName, cardInfo.CardType);
+        cardDisplayer.display(cardInfo.CardName);
 
     }
 
@@ -56,9 +56,9 @@ public class Card : MonoBehaviour
     {
         return cardInfo.getEffect();
     }
-    
 
     
+
 
     //tamamlanacak
 }
