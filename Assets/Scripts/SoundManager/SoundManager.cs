@@ -7,11 +7,21 @@ public class SoundManager : MonoBehaviour
 {
     public delegate void ChangeColor();
     public event ChangeColor onColorChange;
+<<<<<<< Updated upstream
     public CardColor musicColor;
     [SerializeField] List<AudioClip> redClips;
     [SerializeField] List<AudioClip> purpleClips;
     [SerializeField] List<AudioClip> pinkClips;
     public Dictionary<CardColor, List<AudioClip>> musics;
+=======
+    public MusicColor musicColor;
+    [SerializeField] private AudioClip defaultMusic;
+    [SerializeField] List<AudioClip> redClips;
+    [SerializeField] List<AudioClip> blueClips;
+    [SerializeField] List<AudioClip> greenClips;
+    public Dictionary<MusicColor, List<AudioClip>> musics;
+    public float duration;
+>>>>>>> Stashed changes
 
     [SerializeField] private AudioSource source;
     private void Awake()
@@ -52,6 +62,22 @@ public class SoundManager : MonoBehaviour
             onColorChange?.Invoke();
             source.Play();
         }
+    }
+
+    public void crowdSoundEffectCall(AudioClip audioClip)
+    {
+        StartCoroutine(changeSoundForCrowd(audioClip,duration));
+    }
+
+    IEnumerator changeSoundForCrowd(AudioClip audioClip, float duration)
+    {
+        AudioClip previousSound = source.clip;
+        source.clip = audioClip;
+        yield return new WaitForSeconds(duration);
+        source.Play();
+        yield return new WaitForSeconds(source.clip.length);
+        source.clip = defaultMusic;
+        source.Play();
     }
 
 }

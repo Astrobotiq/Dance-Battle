@@ -4500,6 +4500,9 @@ MonoBehaviour:
   - {fileID: 420730156}
   - {fileID: 1912370450}
   - {fileID: 1365136504}
+  soundManager: {fileID: 1320939277}
+  bored: {fileID: 8300000, guid: d80ecde2dc2036a4eba084291ffb8c59, type: 3}
+  exited: {fileID: 8300000, guid: a3cbce6d34468784eb821739d59f4e34, type: 3}
 --- !u!4 &1070979915
 Transform:
   m_ObjectHideFlags: 0
@@ -4993,9 +4996,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicColor: 2
+  defaultMusic: {fileID: 8300000, guid: 1930bd9f69f158b44acb54d6942850ea, type: 3}
   redClips: []
+<<<<<<< Updated upstream
   purpleClips: []
   pinkClips: []
+=======
+  blueClips: []
+  greenClips: []
+  duration: 3
+>>>>>>> Stashed changes
   source: {fileID: 1320939278}
 --- !u!82 &1320939278
 AudioSource:
@@ -5007,9 +5017,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1930bd9f69f158b44acb54d6942850ea, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
