@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class CrowdManager : MonoBehaviour
 {
     int expectationPoint;
     public List<Crowd> crowds;
+    [SerializeField] private SoundManager soundManager;
+    [SerializeField] private AudioClip bored;
+    [SerializeField] private AudioClip exited;
 
     private void Awake()
     {
@@ -35,6 +39,7 @@ public class CrowdManager : MonoBehaviour
             foreach (var crowd in crowds)
             {
                 crowd.getBored();
+                soundManager.crowdSoundEffectCall(bored);
             }
         }
         else if (score > expectationPoint)
@@ -43,6 +48,7 @@ public class CrowdManager : MonoBehaviour
             foreach (var crowd in crowds)
             {
                 crowd.getExited();
+                soundManager.crowdSoundEffectCall(exited);
             }
         }
         expectationPoint = calculatePoint(score, expectationPoint);

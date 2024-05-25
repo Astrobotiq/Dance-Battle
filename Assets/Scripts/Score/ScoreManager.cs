@@ -60,7 +60,7 @@ public class ScoreManager : MonoBehaviour
 
     public void checkColorCombo()
     {
-        List<CardColor> colorsFromCard = 
+        //List<CardColor> colorsFromCard = 
     }
 
     public void setIsNext(float multiplier)

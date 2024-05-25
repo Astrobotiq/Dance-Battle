@@ -6,6 +6,7 @@ public class Crowd : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     public List<Sprite> sprites;
+    
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class Crowd : MonoBehaviour
     {
         StartCoroutine(setSprites(0));
     }
-
+    
     IEnumerator setSprites(int i )
     {
         yield return new WaitForSeconds(3);
