@@ -7,21 +7,21 @@ public class SoundManager : MonoBehaviour
 {
     public delegate void ChangeColor();
     public event ChangeColor onColorChange;
-    public MusicColor musicColor;
+    public CardColor musicColor;
     [SerializeField] List<AudioClip> redClips;
-    [SerializeField] List<AudioClip> blueClips;
-    [SerializeField] List<AudioClip> greenClips;
-    public Dictionary<MusicColor, List<AudioClip>> musics;
+    [SerializeField] List<AudioClip> purpleClips;
+    [SerializeField] List<AudioClip> pinkClips;
+    public Dictionary<CardColor, List<AudioClip>> musics;
 
     [SerializeField] private AudioSource source;
     private void Awake()
     {
-        musics.Add(MusicColor.RED, redClips);
-        musics.Add(MusicColor.BLUE, blueClips);
-        musics.Add(MusicColor.GREEN, greenClips);
+        musics.Add(CardColor.RED, redClips);
+        musics.Add(CardColor.PURPLE, purpleClips);
+        musics.Add(CardColor.PINK, pinkClips);
         if(musicColor == null)
         {
-            musicColor = MusicColor.RED;
+            musicColor = CardColor.RED;
         }
 
     }
@@ -30,14 +30,14 @@ public class SoundManager : MonoBehaviour
     {
         if(index == 1)
         {
-            musicColor = MusicColor.RED;
+            musicColor = CardColor.RED;
         }
         else if(index == 2)
         {
-            musicColor = MusicColor.BLUE;
+            musicColor = CardColor.PURPLE;
         }else if (index == 3)
         {
-            musicColor=MusicColor.GREEN;
+            musicColor=CardColor.PINK;
         }
         changeMusic();
     }
@@ -56,7 +56,4 @@ public class SoundManager : MonoBehaviour
 
 }
 
-public enum MusicColor
-{
-    RED,GREEN,BLUE
-}
+

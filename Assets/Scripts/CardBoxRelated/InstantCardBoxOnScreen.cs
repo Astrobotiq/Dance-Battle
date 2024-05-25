@@ -11,6 +11,7 @@ public class InstantCardBoxOnScreen : MonoBehaviour
     [SerializeField]
     private int index;
     public HandHolder handHolder;
+    public DiscardHolder discardHolder;
     private void OnTriggerEnter(Collider other)
     {
         theCardInBox = other.gameObject;
@@ -18,9 +19,22 @@ public class InstantCardBoxOnScreen : MonoBehaviour
 
         if (playAreaHandler != null && card != null && structure.Equals(card.GetCardStructure()))
         {
-            handHolder.Remove(card);
-            playAreaHandler.addAnim(card.GetAnimationClip());
-            Destroy(card);
+            StartCoroutine(delayCardEffect(card));
         }
+    }
+
+    IEnumerator delayCardEffect(Card card)
+    {
+        yield return new WaitForSeconds(1f); 
+        handHolder.Remove(card);
+        //playAreaHandler.addAnim(card.GetAnimationClip());
+        CardInfo cardInfo = card.GetCardInfo();
+        List<_Effect> effects = cardInfo.getEffect();
+        foreach (_Effect effect in effects)
+        {
+            effect.PlayEffect();
+        }
+        discardHolder.Add(cardInfo);
+        Destroy(theCardInBox);
     }
 }

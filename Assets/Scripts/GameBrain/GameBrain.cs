@@ -10,6 +10,7 @@ public class GameBrain : MonoBehaviour
     public List<BattleState> battleStates;
     [SerializeField]
     private Dictionary <int,List<_Effect>> effects;
+    public List<CardColor> cardColors;
     public int currentTurn;
     int index;
     public int howManyTurn;
@@ -22,6 +23,7 @@ public class GameBrain : MonoBehaviour
         setBattleState();
         currentTurn = 0;
         effects = new Dictionary<int, List<_Effect>>();
+        cardColors = new List<CardColor>();
         FillDictionary();
     }
 
@@ -52,6 +54,13 @@ public class GameBrain : MonoBehaviour
             }
         }
     }
+
+    public void addColors(List<CardColor> colors)
+    {
+        cardColors = colors; 
+    }
+
+    public List<CardColor> GetCardColors() { return cardColors; }
 
     IEnumerator effectSender()
     {
@@ -104,6 +113,16 @@ public class GameBrain : MonoBehaviour
         Debug.Log("index: "+index);
     }
 
+    public void stopGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void continueGame()
+    {
+        Time.timeScale = 1;
+    }
+
 
     private void OnEnable()
     {
@@ -111,6 +130,8 @@ public class GameBrain : MonoBehaviour
         PlayerTurnState.onPlayerTurnEnd += startCoroutine;
         CrowdTurnState.onCrowdExit += setBattleState;
         EnemyTurnState.onEnemyTurnEnd += startCoroutine;
+        UIManager.onColorChangerActivate += stopGame;
+        UIManager.onColorChangerDeactivate += continueGame;
     }
 
     private void OnDisable()
@@ -119,6 +140,8 @@ public class GameBrain : MonoBehaviour
         PlayerTurnState.onPlayerTurnEnd -= startCoroutine;
         CrowdTurnState.onCrowdExit -= setBattleState;
         EnemyTurnState.onEnemyTurnEnd -= startCoroutine;
+        UIManager.onColorChangerActivate -= stopGame;
+        UIManager.onColorChangerDeactivate -= continueGame;
     }
 
 

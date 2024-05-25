@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     private float nextMultiplier;
     private float allMultiplier;
     [SerializeField] private int score;
+    GameBrain gameBrain;
 
     public delegate void isNextPlayed(bool isNext);
     public static event isNextPlayed onIsNext;
@@ -21,6 +22,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //GameObject brainObject = Ga
         nextMultiplier = 1;
         allMultiplier = 1;
     }
@@ -52,7 +54,13 @@ public class ScoreManager : MonoBehaviour
         }
         Debug.Log("score:" + score);
         scoreList.Add(score);
-        onSendTotal?.Invoke(score);
+        onSendTotal?.Invoke(score); 
+        score = 0;
+    }
+
+    public void checkColorCombo()
+    {
+        List<CardColor> colorsFromCard = 
     }
 
     public void setIsNext(float multiplier)

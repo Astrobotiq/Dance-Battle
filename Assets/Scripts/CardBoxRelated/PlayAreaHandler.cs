@@ -8,6 +8,7 @@ public class PlayAreaHandler : MonoBehaviour
     public GameObject playerTurnBox;
     public GameObject enemyTurnBox;
     public List<AnimationClip> animations;
+    public List<CardColor> cardColors;
     public List<List<_Effect>> effects;
     [SerializeField] private AnimationHandler animationHandler;
     [SerializeField]
@@ -122,10 +123,30 @@ public class PlayAreaHandler : MonoBehaviour
         }
     }
 
+    public void addCardColor(CardColor color, int index)
+    {
+        Debug.Log("from player area handler " + cardColors.Count);
+        cardColors.Insert(index, color);
+        Debug.Log("from player area handler effects len : " + effects.Count);
+    }
+
+    public void removeCardColor(CardColor color)
+    {
+        if (cardColors.Contains(color))
+        {
+            cardColors.Remove(color);
+        }
+    }
+
     public void sendEffects()
     {
         gameBrain.addEffects(effects);
         effects.Clear();
+    }
+
+    public void sendColors()
+    {
+
     }
 
     public Boolean CanPlay()
@@ -146,6 +167,7 @@ public class PlayAreaHandler : MonoBehaviour
         {
             sendAnim();
             sendEffects();
+            sendColors();
         }
     }
     

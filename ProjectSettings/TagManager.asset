@@ -12,6 +12,7 @@ TagManager:
   - SoundManager
   - Enemy
   - PlayArea
+  - Canvas Manager
   layers:
   - Default
   - TransparentFX

@@ -7,8 +7,8 @@ public class ChangeColor : _Effect
 {
     public override void PlayEffect()
     {
-        GameObject go = GameObject.FindWithTag("CanvaManager");
-        CanvasManager manager = go.GetComponent<CanvasManager>();
+        GameObject go = GameObject.FindWithTag("Canvas Manager");
+        UIManager manager = go.GetComponent<UIManager>();
         manager.activateColorChanger();
     }
 }

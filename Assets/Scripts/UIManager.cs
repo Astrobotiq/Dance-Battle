@@ -14,6 +14,27 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoreTextBox;
     public TextMeshProUGUI turnTextBox;
     public TextMeshProUGUI expectationTextBox;
+
+    public delegate void UIEvents();
+    //this will be using when color change card played
+    public static event UIEvents onColorChangerActivate;
+    public static event UIEvents onColorChangerDeactivate;
+    public GameObject colorChange;
+
+
+    public void activateColorChanger()
+    {
+        colorChange.SetActive(true);
+        onColorChangerActivate?.Invoke(); // yakalayan scriptleri yaz. Mesela gameBrain oyunu durdursun. ses efekti oynansın. 
+        
+    }
+
+    public void deactivateColorChanger()
+    {
+        colorChange.SetActive(false);
+        onColorChangerDeactivate?.Invoke();// yakalayan scriptleri yaz. Mesela gameBrain oyunu devam ettirsin. ses efekti oynansın. 
+        
+    }
     public void setTheScoreText()
     {
         if (!scoreManager.isScoreListEmpty())

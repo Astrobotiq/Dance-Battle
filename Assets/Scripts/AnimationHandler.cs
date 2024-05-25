@@ -11,9 +11,11 @@ public class AnimationHandler : MonoBehaviour
     private GameObject gameBrain;
     public GameObject parent;
     float animationTotalLength;
+    Vector3 startPos;
     // Start is called before the first frame update
     void Start()
     {
+        startPos = transform.position;
         animations = new List<AnimationClip>();
         controller = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = controller;
@@ -24,7 +26,23 @@ public class AnimationHandler : MonoBehaviour
         
     }
 
-    
+    private void OnEnable()
+    {
+        CrowdTurnState.onCrowdEnter += resetStarter;
+    }
+
+    IEnumerator resetPosition()
+    {
+        yield return new WaitForSeconds(5);
+        transform.position = startPos;
+    }
+
+    public void resetStarter()
+    {
+        StartCoroutine(resetPosition());
+    }
+
+
 
     public void addAnimation( List<AnimationClip> animationClips)
     {
