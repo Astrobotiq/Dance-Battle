@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoreTextBox;
     public TextMeshProUGUI turnTextBox;
     public TextMeshProUGUI expectationTextBox;
+    public Slider slider;
+    public int playerAndEnemyTurnCount = 0;
 
     public delegate void UIEvents();
     //this will be using when color change card played
@@ -39,8 +42,43 @@ public class UIManager : MonoBehaviour
     {
         if (!scoreManager.isScoreListEmpty())
         {
-            //Debug.Log(scoreManager.getLastListIndex() + " nasilsin");
             scoreTextBox.text = "Score: " + scoreManager.getLastListIndex();
+            /*Debug.Log(scoreManager.getLastListIndex() + " nasilsin");
+            BattleState temp_state = battleSystem.getPreviousState();
+            Debug.Log("PreviousState is " + temp_state);
+            if (temp_state.GetType().Name=="PlayerTurnState")
+            {
+                slider.value += scoreManager.getLastListIndex(); 
+            }
+            else if (temp_state.GetType().Name == "EnemyTurnState")
+            {
+                slider.value -= scoreManager.getLastListIndex(); 
+            }*/
+            
+            if (playerAndEnemyTurnCount % 2 == 0)  //sikintili cozulecek
+            {
+                Debug.Log("Geldim gordum gittim");
+                float temp = slider.value;
+                slider.value = temp + scoreManager.getLastListIndex(); 
+            }
+            else
+            {
+                Debug.Log("Geldim gordum gittim v2");
+                float temp = slider.value;
+                slider.value = temp - scoreManager.getLastListIndex();
+            }
+
+            if (slider.value > 100)
+            {
+                slider.value = 100;
+            }
+            
+            BattleState temp_state = battleSystem.getState();
+            
+            if (temp_state.GetType().Name != "CrowdTurnState")
+            {
+                playerAndEnemyTurnCount++;
+            }
         }
     }
 

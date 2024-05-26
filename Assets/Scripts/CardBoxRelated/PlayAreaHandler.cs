@@ -112,6 +112,10 @@ public class PlayAreaHandler : MonoBehaviour
     {
         Debug.Log("from player area handler " + effect.Count);
         effects.Insert(index, effect);
+        foreach (_Effect naber in effect)
+        {
+            Debug.Log("from index " + index + " the effect is " + naber.name);
+        }
         Debug.Log("from player area handler effects len : " + effects.Count);
     }
 
