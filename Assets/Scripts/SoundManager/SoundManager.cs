@@ -14,8 +14,15 @@ public class SoundManager : MonoBehaviour
     public Dictionary<CardColor, List<AudioClip>> musics;
 
     [SerializeField] private AudioSource source;
+    
+    [SerializeField] private AudioClip defaultMusic;
+    public float duration;
     private void Awake()
     {
+        //Debug.Log("red length" + redClips.Count);
+        //Debug.Log("purple length" + purpleClips.Count);
+        //Debug.Log("pink length" + pinkClips.Count);
+        musics = new Dictionary<CardColor, List<AudioClip>>();
         musics.Add(CardColor.RED, redClips);
         musics.Add(CardColor.PURPLE, purpleClips);
         musics.Add(CardColor.PINK, pinkClips);
@@ -23,7 +30,10 @@ public class SoundManager : MonoBehaviour
         {
             musicColor = CardColor.RED;
         }
-
+        
+        //changeColor(1); denemek için koydum o kadar
+        //changeColor(2); 
+        //changeColor(3); 
     }
 
     public void changeColor(int index)
@@ -53,6 +63,23 @@ public class SoundManager : MonoBehaviour
             source.Play();
         }
     }
+    
+    public void crowdSoundEffectCall(AudioClip audioClip)
+    {
+        StartCoroutine(changeSoundForCrowd(audioClip,duration));
+    }
+
+    IEnumerator changeSoundForCrowd(AudioClip audioClip, float duration)
+    {
+        AudioClip previousSound = source.clip;
+        source.clip = audioClip;
+        yield return new WaitForSeconds(duration);
+        source.Play();
+        yield return new WaitForSeconds(source.clip.length);
+        source.clip = defaultMusic;
+        source.Play();
+    }
+
 
 }
 

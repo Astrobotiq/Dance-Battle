@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
 
     public void setExpectationTextBox()
     {
-        expectationTextBox.text = ("Expectation is " + crowdManager.getExpectationPoint());
+        expectationTextBox.text = ("Expectation: " + crowdManager.getExpectationPoint());
     }
 
     public void updateUI()
