@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
+  m_Name: PurpleNextDamageMultiplyTwo
+  m_EditorClassIdentifier: 
+  CardName: Next DMG x2
+  CardType: 
+  description: 
+  animation: {fileID: -203655887218126122, guid: a340cff5a782c134d8aa9f78ad01a0d1, type: 3}
+  effect:
+  - {fileID: 11400000, guid: 92a1242e21c4347ccb8d1f99ae934427, type: 2}
+  cardStructure: 0
+  cardColor: 1

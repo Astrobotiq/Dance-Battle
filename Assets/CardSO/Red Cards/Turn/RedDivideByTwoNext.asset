@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
+  m_Name: RedDivideByTwoNext
+  m_EditorClassIdentifier: 
+  CardName: "Next DMG \xF7 2"
+  CardType: 
+  description: 
+  animation: {fileID: 7400000, guid: 617f7968df7b3844bbd2fce3e9540397, type: 2}
+  effect:
+  - {fileID: 11400000, guid: 4abe6d54d0541f340ac55f892644b6b8, type: 2}
+  cardStructure: 0
+  cardColor: 2

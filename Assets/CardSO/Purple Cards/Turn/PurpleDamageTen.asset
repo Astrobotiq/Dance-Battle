@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
+  m_Name: PurpleDamageTen
+  m_EditorClassIdentifier: 
+  CardName: 10 DMG
+  CardType: 
+  description: 
+  animation: {fileID: 7400000, guid: b5662255f545cf24db769613392e0d44, type: 2}
+  effect:
+  - {fileID: 11400000, guid: f7279e86b87b34bbaa1dd12c00cf8f59, type: 2}
+  cardStructure: 0
+  cardColor: 1

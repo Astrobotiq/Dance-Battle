@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
+  m_Name: PurpleConAllDMG
+  m_EditorClassIdentifier: 
+  CardName: x2 All
+  CardType: 
+  description: 
+  animation: {fileID: 7400000, guid: 5ccdf7a9d24b6434a910c0f2bec11131, type: 2}
+  effect:
+  - {fileID: 11400000, guid: ee3fc5669b5857343bd797261cb837a6, type: 2}
+  cardStructure: 0
+  cardColor: 1

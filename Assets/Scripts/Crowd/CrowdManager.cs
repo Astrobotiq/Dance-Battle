@@ -7,6 +7,7 @@ using UnityEngine;
 public class CrowdManager : MonoBehaviour
 {
     int expectationPoint;
+    int tempExpectationPoint;
     public List<Crowd> crowds;
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip bored;
@@ -15,6 +16,7 @@ public class CrowdManager : MonoBehaviour
     private void Awake()
     {
         expectationPoint = 10;
+        tempExpectationPoint = expectationPoint;
     }
 
     public int calculatePoint(int score, int expectation)//This function calculate next Turn expectation point according to last point.
@@ -33,7 +35,7 @@ public class CrowdManager : MonoBehaviour
 
     public void handleExpectation(int score) //This function take total score made in a turn and change the crowd behavior.
     {
-        if (score < expectationPoint)
+        if (score < tempExpectationPoint)
         {
             //You are failure
             foreach (var crowd in crowds)
@@ -42,7 +44,7 @@ public class CrowdManager : MonoBehaviour
                 soundManager.crowdSoundEffectCall(bored);
             }
         }
-        else if (score > expectationPoint)
+        else if (score > tempExpectationPoint)
         {
             //You are successfull
             foreach (var crowd in crowds)
@@ -51,17 +53,17 @@ public class CrowdManager : MonoBehaviour
                 soundManager.crowdSoundEffectCall(exited);
             }
         }
-        expectationPoint = calculatePoint(score, expectationPoint);
+        expectationPoint = calculatePoint(score, tempExpectationPoint);
     }
 
     public int getExpectationPoint()
     {
-        return expectationPoint;
+        return tempExpectationPoint;
     }
 
     public void setExpectationPoint(int point) // this function can be used in a card. For example:
     {                                          // crowdManager.setExpectationPoint(crowdManager.getExpectationPoint()+10)
-        expectationPoint = point;
+        tempExpectationPoint = point;
     }
 
     private void OnEnable()

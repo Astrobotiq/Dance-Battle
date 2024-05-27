@@ -150,7 +150,7 @@ public class PlayAreaHandler : MonoBehaviour
 
     public void sendColors()
     {
-
+        gameBrain.addColors(cardColors);
     }
 
     public Boolean CanPlay()

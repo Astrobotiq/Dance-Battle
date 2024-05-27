@@ -30,4 +30,13 @@ public class Crowd : MonoBehaviour
     }
 
 
+    public void resetSprite()
+    {
+        //will be implement
+    }
+
+    private void OnEnable()
+    {
+        CrowdTurnState.onCrowdExit += resetSprite;
+    }
 }
