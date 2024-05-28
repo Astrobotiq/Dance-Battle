@@ -50,8 +50,6 @@ public class UIManager : MonoBehaviour
     {
         if (!scoreManager.isScoreListEmpty())
         {
-            scoreTextBox.text = "Score: " + scoreManager.getLastListIndex();
-            
             if (GameBrainRef.getCurrentTurn()%2==1 && enteredToSliderUp)
             {
                 Debug.Log("Geldim gordum gittim");

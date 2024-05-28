@@ -12,7 +12,7 @@ public class EPMultiplier : _Effect
         CrowdManager cm = go.GetComponent<CrowdManager>();
         if (cm != null)
         {
-
+            cm.setMultiplier(multiplier);
         }
     }
 }

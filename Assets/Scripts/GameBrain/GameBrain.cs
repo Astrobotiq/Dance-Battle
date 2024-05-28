@@ -10,6 +10,7 @@ public class GameBrain : MonoBehaviour
     public List<BattleState> battleStates;
     [SerializeField]
     private Dictionary <int,List<_Effect>> effects;
+    private Dictionary <int,List<_Effect>> additionalEffects;
     public List<CardColor> cardColors;
     public int currentTurn;
     int index;
@@ -23,8 +24,10 @@ public class GameBrain : MonoBehaviour
         setBattleState();
         currentTurn = 0;
         effects = new Dictionary<int, List<_Effect>>();
+        additionalEffects = new Dictionary<int, List<_Effect>>();
         cardColors = new List<CardColor>();
-        FillDictionary();
+        FillDictionary(effects);
+        FillDictionary(additionalEffects);
     }
 
     public void setBattleState()
@@ -57,8 +60,9 @@ public class GameBrain : MonoBehaviour
 
     public void addEffect(_Effect effect)
     {
-        int delay = effect.getDelay();
-        effects[currentTurn+delay].Add(effect);
+        int turn = effect.getDelay()+ currentTurn;
+        additionalEffects[turn].Add(effect);
+        Debug.Log("Effect added to " +  turn +".turn and name :" + effect.name);
     }
 
     public void addColors(List<CardColor> colors)
@@ -72,16 +76,23 @@ public class GameBrain : MonoBehaviour
     {
         if (effects != null)
         {
-            List<_Effect> tempEffects = effects[currentTurn];
+            //List<_Effect> tempEffects = effects[currentTurn];
 
 
-            foreach (var effect in tempEffects)
+            foreach (_Effect effect in effects[currentTurn])
             {
-                Debug.Log("naber size " + tempEffects.Count);
-                effect.PlayEffect();
                 Debug.Log("effect sender ici " + effect.name);
+                effect.PlayEffect();
+                yield return new WaitForSeconds(1f);
+                Debug.Log("effect sender kart efekti oynandı");
+            }
+
+            foreach(_Effect effect in additionalEffects[currentTurn])
+            {
+                effect.PlayEffect();
                 yield return new WaitForSeconds(1f);
             }
+            Debug.Log("effect sender bütün efekter oynandı");
         }
         Debug.Log("Game Brain i�i state transition ba�lat�lacak");
         setBattleState();
@@ -93,12 +104,12 @@ public class GameBrain : MonoBehaviour
         return tempEffects;
     }
 
-    public void FillDictionary()
+    public void FillDictionary(Dictionary<int,List<_Effect>> turns)
     {
         for (int i = 0; i < howManyTurn; i++)
         {
             List<_Effect> temp = new List<_Effect>();
-            effects[i] = temp;
+            turns[i] = temp;
         }
     }
 

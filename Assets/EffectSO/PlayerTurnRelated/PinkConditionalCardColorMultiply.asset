@@ -15,4 +15,4 @@ MonoBehaviour:
   type: 0
   delay: 0
   checkColor: 0
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: 16288064dbe06624c9f69fb3f3bbb546, type: 2}
