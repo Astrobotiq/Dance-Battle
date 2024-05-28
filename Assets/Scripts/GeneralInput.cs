@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -94,10 +95,17 @@ public class GeneralInput : MonoBehaviour
         }
         //Debug.Log(selectedObject.GetComponent<Card>().isInBox);
         
-        //konsolda kırmızı hata veriyor oyun yeni başlayıp henüz hiçbir kart seçilmediğinde
-        if (selectedObject.gameObject.GetComponent<Card>().isInBox && !isDragging) {   //mouse sol click bırakılmış ve kutu içindeyse ortala
-            selectedObject.transform.position = box_ref.transform.position;
+        
+        
+
+        try
+        {
+            //konsolda kırmızı hata veriyor oyun yeni başlayıp henüz hiçbir kart seçilmediğinde
+            if (selectedObject.gameObject.GetComponent<Card>().isInBox && !isDragging) {   //mouse sol click bırakılmış ve kutu içindeyse ortala
+                selectedObject.transform.position = box_ref.transform.position;
+            }
         }
+        catch (Exception e) { }
         
         if (isDragging) 
         {          //mouse sol click basılı sürüklüyoruz

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class BattleSystem : MonoBehaviour
 {
-    BattleState currentState;
-    //BattleState previousState;
+    private BattleState currentState;
     [SerializeField] private UIManager UIManagerInstance;
     public void enterState()
     {
@@ -23,7 +22,6 @@ public class BattleSystem : MonoBehaviour
     {
         
         Debug.Log("current state bos " + newState.name);
-        //previousState = currentState;
         currentState = newState;
         UIManagerInstance.updateUI();
         enterState();
@@ -33,9 +31,4 @@ public class BattleSystem : MonoBehaviour
     {
         return currentState;
     }
-
-    /*public BattleState getPreviousState()
-    {
-        return previousState;
-    }*/
 }

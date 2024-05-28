@@ -10,13 +10,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private BattleSystem battleSystem;
     [SerializeField] private CrowdManager crowdManager;
+    [SerializeField] private GameBrain GameBrainRef;
+
+    public bool enteredToSliderUp;
+    public bool enteredToSliderDown;
     //[SerializeField] private AnimationHandler enemyAnimationHandler; sonradan enemynin ne oynadığını gösterirsek diye koydum
 
     public TextMeshProUGUI scoreTextBox;
     public TextMeshProUGUI turnTextBox;
     public TextMeshProUGUI expectationTextBox;
     public Slider slider;
-    public int playerAndEnemyTurnCount = 0;
 
     public delegate void UIEvents();
     //this will be using when color change card played
@@ -24,6 +27,11 @@ public class UIManager : MonoBehaviour
     public static event UIEvents onColorChangerDeactivate;
     public GameObject colorChange;
 
+    private void Awake()
+    {
+        enteredToSliderUp = true;
+        enteredToSliderDown = true;
+    }
 
     public void activateColorChanger()
     {
@@ -43,41 +51,27 @@ public class UIManager : MonoBehaviour
         if (!scoreManager.isScoreListEmpty())
         {
             scoreTextBox.text = "Score: " + scoreManager.getLastListIndex();
-            /*Debug.Log(scoreManager.getLastListIndex() + " nasilsin");
-            BattleState temp_state = battleSystem.getPreviousState();
-            Debug.Log("PreviousState is " + temp_state);
-            if (temp_state.GetType().Name=="PlayerTurnState")
-            {
-                slider.value += scoreManager.getLastListIndex(); 
-            }
-            else if (temp_state.GetType().Name == "EnemyTurnState")
-            {
-                slider.value -= scoreManager.getLastListIndex(); 
-            }*/
             
-            if (playerAndEnemyTurnCount % 2 == 0)  //sikintili cozulecek
+            if (GameBrainRef.getCurrentTurn()%2==1 && enteredToSliderUp)
             {
                 Debug.Log("Geldim gordum gittim");
+                enteredToSliderUp = false;
+                enteredToSliderDown = true;
                 float temp = slider.value;
                 slider.value = temp + scoreManager.getLastListIndex(); 
             }
-            else
+            else if (GameBrainRef.getCurrentTurn()%2==0 && enteredToSliderDown)
             {
                 Debug.Log("Geldim gordum gittim v2");
+                enteredToSliderDown = false;
+                enteredToSliderUp = true;
                 float temp = slider.value;
                 slider.value = temp - scoreManager.getLastListIndex();
             }
-
+            
             if (slider.value > 100)
             {
                 slider.value = 100;
-            }
-            
-            BattleState temp_state = battleSystem.getState();
-            
-            if (temp_state.GetType().Name != "CrowdTurnState")
-            {
-                playerAndEnemyTurnCount++;
             }
         }
     }
