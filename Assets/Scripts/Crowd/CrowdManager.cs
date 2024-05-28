@@ -54,6 +54,7 @@ public class CrowdManager : MonoBehaviour
             }
         }
         expectationPoint = calculatePoint(score, tempExpectationPoint);
+        tempExpectationPoint = expectationPoint;
     }
 
     public int getExpectationPoint()
@@ -64,6 +65,11 @@ public class CrowdManager : MonoBehaviour
     public void setExpectationPoint(int point) // this function can be used in a card. For example:
     {                                          // crowdManager.setExpectationPoint(crowdManager.getExpectationPoint()+10)
         tempExpectationPoint = point;
+    }
+
+    public void setMultiplier(float value)
+    {
+        tempExpectationPoint = (int)(tempExpectationPoint* value);
     }
 
     private void OnEnable()

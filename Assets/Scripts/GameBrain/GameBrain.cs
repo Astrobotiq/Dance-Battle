@@ -55,6 +55,12 @@ public class GameBrain : MonoBehaviour
         }
     }
 
+    public void addEffect(_Effect effect)
+    {
+        int delay = effect.getDelay();
+        effects[currentTurn+delay].Add(effect);
+    }
+
     public void addColors(List<CardColor> colors)
     {
         cardColors = colors; 

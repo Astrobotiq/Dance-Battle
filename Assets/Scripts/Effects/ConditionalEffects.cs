@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Effect", menuName = "Effects/Conditional /Check Card Color")]
@@ -18,7 +19,8 @@ public class ConditionalEffect : _Effect
             bool isMatched = compareCardCol(checkColor, colors);
             if (isMatched)
             {
-                effect.PlayEffect();
+                gb.addEffect(effect);
+                Debug.Log("Effect added to gamebrain from conditional Card");
             }
         }
     }
