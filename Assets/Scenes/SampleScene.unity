@@ -7095,16 +7095,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cards:
+  - {fileID: 11400000, guid: 35db69b659f2b27458c15cb7cf9870e9, type: 2}
+  - {fileID: 11400000, guid: 2400e4c10f642ee40a841ab6cfd05b01, type: 2}
+  - {fileID: 11400000, guid: 0eecf266bc9b5dc41a4e4545fd5f89ea, type: 2}
+  - {fileID: 11400000, guid: dafb2d09fe67d664ba6340a2a638e5fb, type: 2}
   - {fileID: 11400000, guid: 1b95b543edca0cc4c896ae257706330b, type: 2}
   - {fileID: 11400000, guid: 655eee6e54303434fb5fc45312330254, type: 2}
-  - {fileID: 11400000, guid: 2400e4c10f642ee40a841ab6cfd05b01, type: 2}
   - {fileID: 11400000, guid: c4a9bbfdac0dbda429949a142d60e75e, type: 2}
   - {fileID: 11400000, guid: 7525f1d6ec5a73d4b8a57d45ba6dd738, type: 2}
-  - {fileID: 11400000, guid: 35db69b659f2b27458c15cb7cf9870e9, type: 2}
   - {fileID: 11400000, guid: 3f0014978b2356646bf42bea30dbbe36, type: 2}
-  - {fileID: 11400000, guid: 0eecf266bc9b5dc41a4e4545fd5f89ea, type: 2}
   - {fileID: 11400000, guid: a2a401ff66e3d914fbe0febf224873e4, type: 2}
-  - {fileID: 11400000, guid: dafb2d09fe67d664ba6340a2a638e5fb, type: 2}
   discardHolder: {fileID: 1778957041}
 --- !u!4 &1778957043
 Transform:

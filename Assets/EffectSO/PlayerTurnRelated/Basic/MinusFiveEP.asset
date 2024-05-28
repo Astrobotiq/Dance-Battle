@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149c92f9ed1d6844ea99fdfc55bba7b4, type: 3}
   m_Name: MinusFiveEP
   m_EditorClassIdentifier: 
+  type: 2
   delay: 0
   expectationIncreaseOrDecreaseValue: -5

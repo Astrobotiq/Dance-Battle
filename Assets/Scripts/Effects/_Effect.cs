@@ -6,7 +6,7 @@ using UnityEngine;
 
 public abstract class _Effect : ScriptableObject
 {
-    
+    public EffectType type;
     public int delay;
     
     public abstract void PlayEffect();
@@ -15,7 +15,17 @@ public abstract class _Effect : ScriptableObject
     {
         return delay;
     }
+
+    public virtual int getMultiplier()
+    {
+        return 0;
+    }
     
+}
+
+public enum EffectType
+{
+    DMG,BLCK,EP,ChangeColor,Conditional,Multiplier
 }
 /*
  * multiply eden kartlar,

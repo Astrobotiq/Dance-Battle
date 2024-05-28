@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fd69c5c44563a47923031a7ca487f9, type: 3}
   m_Name: PurpleConditionalBLCK
   m_EditorClassIdentifier: 
+  type: 4
   delay: 0
   checkColor: 1
   effect: {fileID: 11400000, guid: b47e4fde1515dd64c9028b7ee68a5917, type: 2}

@@ -36,6 +36,11 @@ public class SoundManager : MonoBehaviour
         //changeColor(3); 
     }
 
+    public CardColor getMusicColor()
+    {
+        return musicColor;
+    }
+
     public void changeColor(int index)
     {
         if(index == 1)

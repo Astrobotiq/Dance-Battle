@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771e5fca048fa4f4492c0660d56b3fa2, type: 3}
   m_Name: MinusTwoCard
   m_EditorClassIdentifier: 
-  description: "gelecek seferki ele gelicek kartlar\u0131 2 azalt"
+  type: 3
   delay: 2
-  priorityValue: 0
   additionAmount: -2

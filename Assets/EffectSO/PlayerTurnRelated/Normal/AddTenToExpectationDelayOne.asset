@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149c92f9ed1d6844ea99fdfc55bba7b4, type: 3}
   m_Name: AddTenToExpectationDelayOne
   m_EditorClassIdentifier: 
-  description: the negative effect of decreasing it 10  in a turn
+  type: 2
   delay: 1
   expectationIncreaseOrDecreaseValue: 10

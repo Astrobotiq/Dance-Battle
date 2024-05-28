@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6f6cf3d134c99419f36cd37fd19eb5, type: 3}
   m_Name: DivideByTwoAll
   m_EditorClassIdentifier: 
+  type: 5
   delay: 1
   multiplyAmount: 0.5

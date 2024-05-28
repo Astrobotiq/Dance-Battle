@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5caa48cfb7f1c4e4ba974b99c867afd1, type: 3}
   m_Name: InstantChangeColor
   m_EditorClassIdentifier: 
+  type: 3
   delay: 0

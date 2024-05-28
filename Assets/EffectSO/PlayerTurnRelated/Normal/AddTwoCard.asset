@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771e5fca048fa4f4492c0660d56b3fa2, type: 3}
   m_Name: AddTwoCard
   m_EditorClassIdentifier: 
-  description: Adds two card at next turn
+  type: 3
   delay: 1
-  priorityValue: 0
   additionAmount: 2

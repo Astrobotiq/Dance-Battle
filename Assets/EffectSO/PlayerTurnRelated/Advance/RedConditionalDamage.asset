@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fd69c5c44563a47923031a7ca487f9, type: 3}
   m_Name: RedConditionalDamage
   m_EditorClassIdentifier: 
+  type: 4
   delay: 0
   checkColor: 2
   effect: {fileID: 11400000, guid: d3354b14727451441ab804869ee7c1c6, type: 2}

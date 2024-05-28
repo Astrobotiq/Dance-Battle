@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b596ddb9ca404874bab4b6586df5c7b0, type: 3}
   m_Name: BlockFivePlayerTurn
   m_EditorClassIdentifier: 
-  description: Block five damage
+  type: 1
   delay: 1
-  priorityValue: 2
   additionAmount: -5

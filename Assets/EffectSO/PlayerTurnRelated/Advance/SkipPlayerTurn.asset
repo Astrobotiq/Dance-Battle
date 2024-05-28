@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae3421384395074ba362fd38e40600b, type: 3}
   m_Name: SkipPlayerTurn
   m_EditorClassIdentifier: 
+  type: 3
   delay: 0

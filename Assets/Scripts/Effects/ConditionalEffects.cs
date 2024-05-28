@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Effect", menuName = "Effects/Conditional Effect")]
+[CreateAssetMenu(fileName = "New Effect", menuName = "Effects/Conditional /Check Card Color")]
 public class ConditionalEffect : _Effect
 {
     public CardColor checkColor;

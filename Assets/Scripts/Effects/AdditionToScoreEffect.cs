@@ -18,4 +18,9 @@ public class AdditionToScoreEffect : _Effect
         }
         
     }
+
+    public override int getMultiplier()
+    {
+        return additionAmount;
+    }
 }

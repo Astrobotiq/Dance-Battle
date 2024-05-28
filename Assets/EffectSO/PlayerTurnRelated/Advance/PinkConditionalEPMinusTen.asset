@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fd69c5c44563a47923031a7ca487f9, type: 3}
   m_Name: PinkConditionalEPMinusTen
   m_EditorClassIdentifier: 
+  type: 4
   delay: 0
   checkColor: 0
   effect: {fileID: 11400000, guid: ea810dd4c00a54f46b69fc7cca717dbc, type: 2}

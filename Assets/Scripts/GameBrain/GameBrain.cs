@@ -81,6 +81,12 @@ public class GameBrain : MonoBehaviour
         setBattleState();
     }
 
+    public List<_Effect> GetEffects(int addTurn)
+    {
+        List<_Effect> tempEffects = effects[currentTurn + addTurn];
+        return tempEffects;
+    }
+
     public void FillDictionary()
     {
         for (int i = 0; i < howManyTurn; i++)

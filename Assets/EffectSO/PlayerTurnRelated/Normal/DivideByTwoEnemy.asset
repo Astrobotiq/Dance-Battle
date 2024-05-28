@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b842a5ac5ec178c419a8681074ed68fa, type: 3}
   m_Name: DivideByTwoEnemy
   m_EditorClassIdentifier: 
+  type: 5
   delay: 1
   multiplyAmount: 0.5
