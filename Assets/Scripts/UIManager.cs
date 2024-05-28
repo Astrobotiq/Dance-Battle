@@ -110,6 +110,8 @@ public class UIManager : MonoBehaviour
         expectationTextBox.text = ("Expectation: " + crowdManager.getExpectationPoint());
     }
 
+    
+
     public void updateUI()
     {
         setTheScoreText();

@@ -128,7 +128,11 @@ public class GameBrain : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
+    
+    public int getCurrentTurn()
+    {
+        return currentTurn;
+    }
 
     private void OnEnable()
     {
