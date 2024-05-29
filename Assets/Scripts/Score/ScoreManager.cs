@@ -137,14 +137,25 @@ public class ScoreManager : MonoBehaviour
         return false;
     }
 
+    public void onWin()
+    {
+        nextMultiplier = 1;
+        allMultiplier = 1;
+        nextDivider = 1;
+        isNextDivide = false;
+        isNext = false; isAll = false;
+    }
+
     private void OnEnable()
     {
         CrowdTurnState.onCrowdEnter += sendTotalPoint;
+        UIManager.onWin += onWin;
     }
 
     private void OnDisable()
     {
         CrowdTurnState.onCrowdEnter -= sendTotalPoint;
+        UIManager.onWin -= onWin;
     }
     
 

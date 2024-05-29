@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
     //this will be using when color change card played
     public static event UIEvents onColorChangerActivate;
     public static event UIEvents onColorChangerDeactivate;
+    public static event UIEvents onWin;
+    public static event UIEvents onLose;
     public GameObject colorChange;
 
     private void Awake()
@@ -65,6 +67,15 @@ public class UIManager : MonoBehaviour
                 enteredToSliderUp = true;
                 float temp = slider.value;
                 slider.value = temp - scoreManager.getLastListIndex();
+            }
+            if (GameBrainRef.winPoint < slider.value)
+            {
+                onWin?.Invoke();
+                slider.value = 50;
+                //Open win window
+            }else if (GameBrainRef.winPoint > slider.value)
+            {
+                onLose?.Invoke();
             }
             
             if (slider.value > 100)

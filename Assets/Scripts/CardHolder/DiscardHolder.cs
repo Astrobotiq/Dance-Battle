@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DiscardHolder : _CardHolder
 {
+    public ShuffleHolder ShuffleHolder;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,5 +35,17 @@ public class DiscardHolder : _CardHolder
             _cards.Clear();
         }
         return temp;
+    }
+
+    public void onWin()
+    {
+        foreach(CardInfo card in _cards)
+        {
+            ShuffleHolder.Add(card);
+        }
+    }
+    private void OnEnable()
+    {
+        UIManager.onWin += onWin;
     }
 }

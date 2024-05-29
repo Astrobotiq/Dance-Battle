@@ -18,6 +18,7 @@ public class HandHolder : MonoBehaviour
     [SerializeField]
     private List<Card> cards;
     private int maxCard;
+    public ShuffleHolder shuffleHolder;
 
     
 
@@ -45,11 +46,13 @@ public class HandHolder : MonoBehaviour
     private void OnEnable()
     {
         SpecialTurn.onEnterSpecial += drawCard;
+        UIManager.onWin += onWin;
     }
 
     private void OnDisable()
     {
         SpecialTurn.onEnterSpecial -= drawCard;
+        UIManager.onWin -= onWin;
     }
 
     public void Add(Card card)
@@ -73,7 +76,6 @@ public class HandHolder : MonoBehaviour
         calculatePos() ;
         return card;
     }
-
     public void calculatePos()
     {
         int cardNum = cards.Count;
@@ -158,6 +160,15 @@ public class HandHolder : MonoBehaviour
             Debug.Log("Kart çekiliyor");
             cardFactory.getCard();
             yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    public void onWin()
+    {
+        foreach(Card card in cards)
+        {
+            shuffleHolder.Add(card.GetCardInfo());
+            Destroy(card);
         }
     }
 }

@@ -72,9 +72,24 @@ public class CrowdManager : MonoBehaviour
         tempExpectationPoint = (int)(tempExpectationPoint* value);
     }
 
+    public void onWin()
+    {
+        expectationPoint = 15;
+    }
+
     private void OnEnable()
     {
         ScoreManager.onSendTotal += handleExpectation;
+        UIManager.onWin += onWin;
     }
+
+    private void OnDisable()
+    {
+        ScoreManager.onSendTotal -= handleExpectation;
+        UIManager.onWin += onWin;
+    }
+
+
+
 
 }

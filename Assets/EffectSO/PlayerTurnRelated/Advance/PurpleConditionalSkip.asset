@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97fd69c5c44563a47923031a7ca487f9, type: 3}
-  m_Name: RedConditionalSkip
+  m_Name: PurpleConditionalSkip
   m_EditorClassIdentifier: 
   type: 4
   delay: 0
-  checkColor: 2
+  checkColor: 1
   effect: {fileID: 11400000, guid: 96a168b7a55160247bee6d4b3fd0e599, type: 2}
