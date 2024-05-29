@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 544089272303944312}
   - component: {fileID: -8594625840775609693}
   - component: {fileID: 3330903250403674937}
+  - component: {fileID: 1840507382732438914}
   m_Layer: 7
   m_Name: CardPrefab
   m_TagString: Card
@@ -280,6 +281,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1840507382732438914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745666847732854965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45735fedc0d3f2d418ca37fb51ffe080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: 
+  header: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8386390400680812988
 GameObject:
   m_ObjectHideFlags: 0
