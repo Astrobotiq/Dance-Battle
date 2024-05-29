@@ -129,17 +129,18 @@ public class PlayAreaHandler : MonoBehaviour
 
     public void addCardColor(CardColor color, int index)
     {
-        Debug.Log("from player area handler " + cardColors.Count);
+        Debug.Log("from player area handler card color : " + cardColors.Count);
         cardColors.Insert(index, color);
-        Debug.Log("from player area handler effects len : " + effects.Count);
+        Debug.Log("from player area handler card color len : " + effects.Count);
     }
 
-    public void removeCardColor(CardColor color)
+    public void removeCardColor(int index)
     {
-        if (cardColors.Contains(color))
+        if (cardColors[index] != null)
         {
-            cardColors.Remove(color);
-        }
+            cardColors.RemoveAt(index);
+        } 
+        
     }
 
     public void sendEffects()
@@ -156,7 +157,8 @@ public class PlayAreaHandler : MonoBehaviour
     public Boolean CanPlay()
     {
         Debug.Log("Effects length in Can Play:" + effects.Count);
-        if (effects.Count == 3 && animations.Count == 3)
+        Debug.Log("card colors length in Can Play:" + cardColors.Count);
+        if (effects.Count == 3 && animations.Count == 3 && cardColors.Count == 3)
         {
             return true;
         }

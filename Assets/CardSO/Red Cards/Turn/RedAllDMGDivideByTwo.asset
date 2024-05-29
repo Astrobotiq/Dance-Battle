@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: "All DMG \xF7 2 Enemy Turn"
   CardType: 
-  description: 
+  description: Next Turn All DMG will Divide By Two
   animation: {fileID: 7400000, guid: 853476aee406aff4f8a97fa3038d82ad, type: 2}
   effect:
   - {fileID: 11400000, guid: a1de37b4f137c0742bacc2af03e56ec5, type: 2}

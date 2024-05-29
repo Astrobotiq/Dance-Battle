@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: InstantExpectationPlusTen
   m_EditorClassIdentifier: 
-  CardName: 
+  CardName: (I) +10 EP
   CardType: 
   description: Increase expectation 10 points
   animation: {fileID: 0}
   effect:
   - {fileID: 11400000, guid: 40ab9a97c6c434c499f2254faffb8ee2, type: 2}
   cardStructure: 1
+  cardColor: 0

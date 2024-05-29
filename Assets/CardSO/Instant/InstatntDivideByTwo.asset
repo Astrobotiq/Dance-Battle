@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: InstatntDivideByTwo
   m_EditorClassIdentifier: 
-  CardName: 
-  CardType: 
+  CardName: '(I) Divide Next '
+  CardType: Divide Next DMG By Two
   description: Divide enemy's next score by two
   animation: {fileID: 0}
   effect:
   - {fileID: 11400000, guid: 4abe6d54d0541f340ac55f892644b6b8, type: 2}
   cardStructure: 1
+  cardColor: 2

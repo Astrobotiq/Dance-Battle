@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: +2 Card Next Turn
   CardType: 
-  description: 
+  description: Adds Two Additional Card in Your Hand Next Turn
   animation: {fileID: 7400000, guid: c1315635539f1cd43b1b371c9f3c835c, type: 2}
   effect:
   - {fileID: 11400000, guid: 7b83db652405803439787fc688bb493f, type: 2}

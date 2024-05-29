@@ -23,6 +23,7 @@ public class CardBoxOnScreen : MonoBehaviour
             handHolder.Remove(card);
             playAreaHandler.addAnim(card.GetAnimationClip(),index);//for animation
             playAreaHandler.addEffect(card.getEffect(), index); //for effect
+            playAreaHandler.addCardColor(card.GetCardInfo().GetCardColor(),index);
         }
     }
 
@@ -35,6 +36,7 @@ public class CardBoxOnScreen : MonoBehaviour
         {
             playAreaHandler.removeAnim(card.GetAnimationClip()); //for animation
             playAreaHandler.removeEffect(card.getEffect()); //for effect
+            playAreaHandler.removeCardColor(index);
             handHolder.Add(card);
         }
         theCardInBox = null;

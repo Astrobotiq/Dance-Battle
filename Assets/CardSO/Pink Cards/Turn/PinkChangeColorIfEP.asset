@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: PinkChangeColorIfEP
   m_EditorClassIdentifier: 
-  CardName: Chenge Color if EP<25
+  CardName: (C) Chenge Color
   CardType: 
-  description: 
+  description: Change Color if Expectation Point is Less Than 25
   animation: {fileID: 0}
   effect:
   - {fileID: 11400000, guid: 082f8f241fa29e342a7239010c85f3a0, type: 2}

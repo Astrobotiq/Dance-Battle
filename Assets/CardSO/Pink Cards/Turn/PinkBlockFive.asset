@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: 5 BLCK
   CardType: 
-  description: 
+  description: BLCK 5 DMG on Enemy Turn
   animation: {fileID: 7400000, guid: d525665498b44bd46937fafc57425a85, type: 2}
   effect:
   - {fileID: 11400000, guid: b47e4fde1515dd64c9028b7ee68a5917, type: 2}

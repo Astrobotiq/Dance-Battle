@@ -71,10 +71,14 @@ public class GameBrain : MonoBehaviour
 
     public void addColors(List<CardColor> colors)
     {
-        cardColors = colors; 
+        foreach(CardColor color in colors)
+        {
+            Debug.Log("CardColor:" + color);
+            cardColors.Add(color);
+        }
     }
 
-    public List<CardColor> GetCardColors() { return cardColors; }
+    public CardColor GetCardColors(int index) { return cardColors[index]; }
 
     IEnumerator effectSender()
     {
@@ -124,7 +128,7 @@ public class GameBrain : MonoBehaviour
 
     void getNextIndex()
     {
-        if (index + 1 >= battleStates.Count)
+        if (index + 1 >= battleStates.Count-1)
         {
             index = 0;
             currentTurn += 1;
@@ -140,12 +144,12 @@ public class GameBrain : MonoBehaviour
         Debug.Log("index: "+index);
     }
 
-    public void stopGame()
+    public void stopGame(int i)
     {
         Time.timeScale = 0f;
     }
 
-    public void continueGame()
+    public void continueGame(int i)
     {
         Time.timeScale = 1;
     }
@@ -160,6 +164,7 @@ public class GameBrain : MonoBehaviour
         //Should set new state in battle
         currentTurn = 0;
         winPoint += 2;
+        LosePoint += 2;
         effects = new Dictionary<int, List<_Effect>>();
         FillDictionary(effects);
         additionalEffects = new Dictionary<int, List<_Effect>>();

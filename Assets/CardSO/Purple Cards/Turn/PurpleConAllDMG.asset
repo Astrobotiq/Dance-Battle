@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: PurpleConAllDMG
   m_EditorClassIdentifier: 
-  CardName: x2 All
+  CardName: (C) x2 All
   CardType: 
-  description: 
+  description: If All Played Card is Purple Then Multiply All DMG By 2
   animation: {fileID: 7400000, guid: 5ccdf7a9d24b6434a910c0f2bec11131, type: 2}
   effect:
   - {fileID: 11400000, guid: ee3fc5669b5857343bd797261cb837a6, type: 2}

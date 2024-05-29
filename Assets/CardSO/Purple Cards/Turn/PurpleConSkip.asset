@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: PurpleConSkip
   m_EditorClassIdentifier: 
-  CardName: Skip Enemy Turn
+  CardName: (C) Skip Enemy Turn
   CardType: 
-  description: 
+  description: If All Played Card is Purple Then Skip Enemy Turn
   animation: {fileID: 7400000, guid: ba10717cbf984244ba70df812e4bce6b, type: 2}
   effect:
   - {fileID: 11400000, guid: 9925b9a5b6f8d2047b0a2d7a54edbcab, type: 2}

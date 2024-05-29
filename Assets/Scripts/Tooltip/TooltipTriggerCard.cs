@@ -12,18 +12,7 @@ public class TooltipTriggerCard : MonoBehaviour, IPointerEnterHandler, IPointerE
     private RaycastHit[] _raycastHits;
     private GameObject tempCardGameObject;
     private Card tempCard;
-    private void Update()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        _raycastHits = Physics.RaycastAll(ray.origin, ray.direction, Mathf.Infinity, layerMask);
-        if (_raycastHits.Length > 0)
-        {
-            tempCardGameObject = _raycastHits[0].transform.gameObject;
-            tempCard = tempCardGameObject.GetComponent<Card>();
-            content = tempCard.GetComponent<CardInfo>().description;
-            header = tempCard.GetComponent<CardInfo>().CardName;
-        }
-    }
+    
 
     public void OnPointerEnter(PointerEventData eventData){
         TooltipSystem.Show(content,header);
@@ -32,5 +21,15 @@ public class TooltipTriggerCard : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void OnPointerExit(PointerEventData eventData){
         TooltipSystem.Hide();
     }
-    
+
+    public void display(string name, string description)
+    {
+        this.header = "Name:" + name;
+        if (description != null)
+        {
+            this.content = "Description: " + description;
+        }
+        
+
+    }
 }

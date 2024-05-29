@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: Next DMG x2
   CardType: 
-  description: 
+  description: Multiply Next Damage By 2
   animation: {fileID: -203655887218126122, guid: a340cff5a782c134d8aa9f78ad01a0d1, type: 3}
   effect:
   - {fileID: 11400000, guid: 92a1242e21c4347ccb8d1f99ae934427, type: 2}

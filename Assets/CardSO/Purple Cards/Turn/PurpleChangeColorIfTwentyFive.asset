@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: PurpleChangeColorIfTwentyFive
   m_EditorClassIdentifier: 
-  CardName: Change Color if DMG > 25
+  CardName: (C)Change Color
   CardType: 
-  description: 
+  description: Change Color if Raw DMG is Greater Than 25
   animation: {fileID: 0}
   effect:
   - {fileID: 11400000, guid: fb2a33b8028546544a181d7eba6ded18, type: 2}

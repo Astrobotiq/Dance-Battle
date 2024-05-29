@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: +10 EP Enemy Turn
   CardType: 
-  description: 
+  description: On The Next Turn Expectation Point will Increase by 10
   animation: {fileID: 7400000, guid: 44c5d93b38b797a4b869ec25d5f3fa30, type: 2}
   effect:
   - {fileID: 11400000, guid: 0460c5b40b8048341aa2aa4b202fee60, type: 2}

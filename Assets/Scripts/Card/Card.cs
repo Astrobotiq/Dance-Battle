@@ -12,6 +12,7 @@ public class Card : MonoBehaviour
     public Boolean isInBox = false; // kutu içinde dışında kontrol edip general ınput yollamak için
     public GameObject forBox; // collide eden kutunun referansını yollamak için
     public CardInfoDisplayer cardDisplayer;
+    public TooltipTriggerCard triggerCard;
 
 
     private void OnTriggerEnter(Collider other)
@@ -34,6 +35,7 @@ public class Card : MonoBehaviour
         cardInfo = card;
 
         cardDisplayer.display(cardInfo.CardName);
+        triggerCard.display(cardInfo.name,cardInfo.description);
 
     }
 

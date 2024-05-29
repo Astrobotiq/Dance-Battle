@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: "Next DMG \xF7 2"
   CardType: 
-  description: 
+  description: Divide Next Damage By 2
   animation: {fileID: 7400000, guid: cd8774c739f273c4d99754e0d1abf93e, type: 2}
   effect:
   - {fileID: 11400000, guid: 4abe6d54d0541f340ac55f892644b6b8, type: 2}

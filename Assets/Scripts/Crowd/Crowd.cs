@@ -37,6 +37,6 @@ public class Crowd : MonoBehaviour
 
     private void OnEnable()
     {
-        CrowdTurnState.onCrowdExit += resetSprite;
+        CrowdTurnState.onCrowdExit += getBored;
     }
 }

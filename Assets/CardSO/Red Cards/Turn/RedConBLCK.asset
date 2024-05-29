@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: RedConBLCK
   m_EditorClassIdentifier: 
-  CardName: 5 BLCK + Conditional
+  CardName: 5 BLCK + (C)
   CardType: 
-  description: 
+  description: BLCK 5 and If All Played Cards is Red Apply 10 DMG
   animation: {fileID: 7400000, guid: b9acdd4e9984ce84fbc3f3f70807c0e2, type: 2}
   effect:
   - {fileID: 11400000, guid: b47e4fde1515dd64c9028b7ee68a5917, type: 2}

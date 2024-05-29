@@ -22,11 +22,13 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI turnTextBox;
     public TextMeshProUGUI expectationTextBox;
     public Slider slider;
+    public TooltipTrigger sliderTrigger; 
 
     public delegate void UIEvents();
+    public delegate void ColorChange(int index);
     //this will be using when color change card played
-    public static event UIEvents onColorChangerActivate;
-    public static event UIEvents onColorChangerDeactivate;
+    public static event ColorChange onColorChangerActivate;
+    public static event ColorChange onColorChangerDeactivate;
     public static event UIEvents onWin;
     public static event UIEvents onLose;
     public GameObject colorChange;
@@ -38,23 +40,31 @@ public class UIManager : MonoBehaviour
     private List<CardInfo> cardsToSelect;
     public GameObject cardSelectionUI;
 
+    public SceneLoader sceneLoader;
+    public GameObject winPanel;
+    public GameObject losePanel;
+
     private void Awake()
     {
         enteredToSliderUp = true;
         enteredToSliderDown = true;
+        Debug.Log("Slider " + slider.value.ToString());
+        string s = slider.value.ToString();
+        Debug.Log(s);
+        sliderTrigger.display( "EP", s);
     }
 
     public void activateColorChanger()
     {
         colorChange.SetActive(true);
-        onColorChangerActivate?.Invoke(); // yakalayan scriptleri yaz. Mesela gameBrain oyunu durdursun. ses efekti oynansın. 
+        //onColorChangerActivate?.Invoke(); // yakalayan scriptleri yaz. Mesela gameBrain oyunu durdursun. ses efekti oynansın. 
         
     }
 
-    public void deactivateColorChanger()
+    public void deactivateColorChanger(int index)
     {
         colorChange.SetActive(false);
-        onColorChangerDeactivate?.Invoke();// yakalayan scriptleri yaz. Mesela gameBrain oyunu devam ettirsin. ses efekti oynansın. 
+        onColorChangerDeactivate?.Invoke(index);// yakalayan scriptleri yaz. Mesela gameBrain oyunu devam ettirsin. ses efekti oynansın. 
         
     }
 
@@ -62,31 +72,41 @@ public class UIManager : MonoBehaviour
     {
         if (!scoreManager.isScoreListEmpty())
         {
+            Debug.Log("Curretn Turn :" + GameBrainRef.getCurrentTurn());
+            Debug.Log("enter to slider up : " + enteredToSliderUp);
+            Debug.Log("enter to slider down : " + enteredToSliderDown);
             if (GameBrainRef.getCurrentTurn()%2==0 && enteredToSliderUp)
             {
-                
+                Debug.Log("Slider yukarı gidecek");
                 enteredToSliderUp = false;
                 enteredToSliderDown = true;
                 float temp = slider.value;
-                slider.value = temp + scoreManager.getLastListIndex(); 
+                slider.value = temp + scoreManager.getLastListIndex();
+                temp = slider.value;
+                
+
             }
             else if (GameBrainRef.getCurrentTurn()%2==1 && enteredToSliderDown)
             {
-                
+                Debug.Log("Slider aşağı gidecek");
                 enteredToSliderDown = false;
                 enteredToSliderUp = true;
                 float temp = slider.value;
                 slider.value = temp - scoreManager.getLastListIndex();
             }
+            Debug.Log("to win " +GameBrainRef.winPoint);
+            Debug.Log("current " + slider.value);
+            Debug.Log("to lose " + GameBrainRef.LosePoint);
             if (GameBrainRef.winPoint < slider.value)
             {
-                Debug.Log("I winn");
-                onWin?.Invoke();
-                slider.value = 50;
                 //Open win window
+                winPanel.SetActive(true);
+                StartCoroutine(winDelay());
             }else if (GameBrainRef.LosePoint > slider.value)
             {
-                onLose?.Invoke();
+                losePanel.SetActive(true);
+                StartCoroutine (loseDelay());
+                
             }
             else
             {
@@ -138,6 +158,7 @@ public class UIManager : MonoBehaviour
     {
         setTheTurnText();
         setExpectationTextBox();
+        sliderTrigger.display("" + slider.value.ToString(), null);
     }
 
     public void openFetchCards()
@@ -157,7 +178,7 @@ public class UIManager : MonoBehaviour
         }
         Debug.Log("Cards displayed");
         cardSelectionUI.SetActive(true);
-        GameBrainRef.stopGame();
+        GameBrainRef.stopGame(0);
     }
 
     public void sendCards(int index)
@@ -165,6 +186,24 @@ public class UIManager : MonoBehaviour
         cardSelectionUI.SetActive(false);
         shuffleHolder.Add(cardsToSelect[index]);
     }
+
+    IEnumerator winDelay()
+    {
+        yield return new WaitForSeconds(3);
+        winPanel.SetActive(false);
+        Debug.Log("I winn");
+        onWin?.Invoke();
+        slider.value = 50;
+    }
+
+    IEnumerator loseDelay()
+    {
+        yield return new WaitForSeconds(3);
+        losePanel.SetActive(false);
+        sceneLoader.changeScene(0);
+    }
+
+
 
     private void OnEnable()
     {

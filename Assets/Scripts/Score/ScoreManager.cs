@@ -87,11 +87,15 @@ public class ScoreManager : MonoBehaviour
 
     public bool isAllPurple()
     {
-        List<CardColor> cardColors = gameBrain.GetCardColors();
+        List<CardColor> cardColors = new List<CardColor>();
+        cardColors.Add(gameBrain.GetCardColors(0));
+        cardColors.Add(gameBrain.GetCardColors(1));
+        cardColors.Add(gameBrain.GetCardColors(2));
         foreach (CardColor color in cardColors)
         {
-            if (!color.Equals(CardColor.PURPLE))
+            if (!(color == CardColor.PURPLE))
             {
+                Debug.Log("Card Color is " + color);
                 return false;
             }
         }
@@ -144,6 +148,7 @@ public class ScoreManager : MonoBehaviour
         nextDivider = 1;
         isNextDivide = false;
         isNext = false; isAll = false;
+        scoreList = new List<int>();
     }
 
     private void OnEnable()

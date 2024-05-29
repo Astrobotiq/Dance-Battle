@@ -14,7 +14,10 @@ public class ConditionalEffect : _Effect
         GameBrain gb = go.GetComponent<GameBrain>();
         if (gb != null )
         {
-            List<CardColor> colors = gb.GetCardColors();
+            List<CardColor> colors = new List<CardColor>();
+            colors.Add(gb.GetCardColors(0));
+            colors.Add(gb.GetCardColors(1));
+            colors.Add(gb.GetCardColors(2));
 
             bool isMatched = compareCardCol(checkColor, colors);
             if (isMatched)

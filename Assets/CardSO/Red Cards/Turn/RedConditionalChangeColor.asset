@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: RedConditionalChangeColor
   m_EditorClassIdentifier: 
-  CardName: Change Color if block <15
+  CardName: (C) + Change Color if block <-15
   CardType: 
-  description: 
+  description: If Played Card's Block Value Less Than -15, Change Color
   animation: {fileID: 0}
   effect:
   - {fileID: 11400000, guid: 1d6926c5ad9a1a94eb4d2efd7ffe814b, type: 2}

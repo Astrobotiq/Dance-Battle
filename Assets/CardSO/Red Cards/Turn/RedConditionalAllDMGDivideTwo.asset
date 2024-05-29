@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: RedConditionalAllDMGDivideTwo
   m_EditorClassIdentifier: 
-  CardName: 'Conditional '
+  CardName: "(C) All DMG \xF7 2 Enemy Turn"
   CardType: 
-  description: 
+  description: If Music Color, All Played Card Colors is Equals to Red Then All DMG
+    will Be Divide By Two On The Next Turn
   animation: {fileID: -203655887218126122, guid: bd80fc7bd242b1444b4445b04298f499, type: 3}
   effect:
   - {fileID: 11400000, guid: 3cd47796ab954284d85eedfb0443f22b, type: 2}

@@ -23,4 +23,15 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerExit(PointerEventData eventData){
        TooltipSystem.Hide();
     }
+
+    public void display(string name, string description)
+    {
+        this.header =  name;
+        if (description != null)
+        {
+            this.content = description;
+        }
+
+
+    }
 }

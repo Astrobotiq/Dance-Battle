@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: RedConDMG
   m_EditorClassIdentifier: 
-  CardName: 10 DMG + Conditional
+  CardName: 10 DMG + (C)
   CardType: 
-  description: 
+  description: Apply 10 DMG and If All Played Card is Red Then Multiply All Damage
+    By 2
   animation: {fileID: 7400000, guid: 233ec41e907ef8249b669e982daa743e, type: 2}
   effect:
   - {fileID: 11400000, guid: b47e4fde1515dd64c9028b7ee68a5917, type: 2}
-  - {fileID: 11400000, guid: 458aa4f81f839f647a31c2a8af3664b3, type: 2}
+  - {fileID: 11400000, guid: ee3fc5669b5857343bd797261cb837a6, type: 2}
   cardStructure: 0
   cardColor: 2

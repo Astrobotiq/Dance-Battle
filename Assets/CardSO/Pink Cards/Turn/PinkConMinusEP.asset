@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: PinkConMinusEP
   m_EditorClassIdentifier: 
-  CardName: Five DMG + Conditional
+  CardName: Five DMG + (C)
   CardType: 
-  description: 
+  description: Apply 5 DMG and If All Played Cards is Pink Then -10 EP
   animation: {fileID: 7400000, guid: f94d51dfa387e1141a1eb8595b299586, type: 2}
   effect:
   - {fileID: 11400000, guid: 61a39e6ced93f0a4aaf57b96b7513ea3, type: 2}

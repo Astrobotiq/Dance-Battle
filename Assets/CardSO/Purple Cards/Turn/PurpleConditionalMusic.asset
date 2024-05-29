@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: PurpleConditionalMusic
   m_EditorClassIdentifier: 
-  CardName: 20
+  CardName: (C) 20 DMG
   CardType: 
-  description: 
+  description: If Music Color, All Played Card Colors is Equals to Purple Then Apply
+    Additional 20 DMG
   animation: {fileID: 7400000, guid: 4669c4145d6d96c4c8505c05784e6cc3, type: 2}
   effect:
   - {fileID: 11400000, guid: 919730a3e1981f446964fb42ace94e42, type: 2}

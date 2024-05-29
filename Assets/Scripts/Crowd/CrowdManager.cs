@@ -12,6 +12,7 @@ public class CrowdManager : MonoBehaviour
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip bored;
     [SerializeField] private AudioClip exited;
+    public GameBrain gameBrain;
 
     private void Awake()
     {
@@ -35,6 +36,11 @@ public class CrowdManager : MonoBehaviour
 
     public void handleExpectation(int score) //This function take total score made in a turn and change the crowd behavior.
     {
+        bool allPink = isAllPink();
+        if (allPink)
+        {
+            tempExpectationPoint -= 5;
+        }
         if (score < tempExpectationPoint)
         {
             //You are failure
@@ -70,6 +76,22 @@ public class CrowdManager : MonoBehaviour
     public void setMultiplier(float value)
     {
         tempExpectationPoint = (int)(tempExpectationPoint* value);
+    }
+
+    public bool isAllPink()
+    {
+        List<CardColor> cardColors = new List<CardColor>();
+        cardColors.Add(gameBrain.GetCardColors(0));
+        cardColors.Add(gameBrain.GetCardColors(1));
+        cardColors.Add(gameBrain.GetCardColors(2));
+        foreach (CardColor color in cardColors)
+        {
+            if (!(color == CardColor.PINK))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void onWin()

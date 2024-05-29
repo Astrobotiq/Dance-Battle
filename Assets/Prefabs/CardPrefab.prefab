@@ -254,6 +254,7 @@ MonoBehaviour:
   isInBox: 0
   forBox: {fileID: 0}
   cardDisplayer: {fileID: 8615225539102466683}
+  triggerCard: {fileID: 1840507382732438914}
 --- !u!54 &3330903250403674937
 Rigidbody:
   m_ObjectHideFlags: 0

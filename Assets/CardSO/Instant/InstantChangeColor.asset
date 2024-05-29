@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ef95d03cfa0d048b84384cfc2ff015, type: 3}
   m_Name: InstantChangeColor
   m_EditorClassIdentifier: 
-  CardName: Change Color
+  CardName: (I) Change Color
   CardType: 
   description: 
   animation: {fileID: 0}
