@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CrowdManager crowdManager;
     [SerializeField] private GameBrain GameBrainRef;
 
+    
+
     public bool enteredToSliderUp;
     public bool enteredToSliderDown;
     //[SerializeField] private AnimationHandler enemyAnimationHandler; sonradan enemynin ne oynadığını gösterirsek diye koydum
@@ -28,6 +30,13 @@ public class UIManager : MonoBehaviour
     public static event UIEvents onWin;
     public static event UIEvents onLose;
     public GameObject colorChange;
+
+    //Win Card Selection
+    public List<TextMeshProUGUI> cardInfos;
+    [SerializeField] private CardBaseHolder cardBaseHolder;
+    [SerializeField] private ShuffleHolder shuffleHolder;
+    private List<CardInfo> cardsToSelect;
+    public GameObject cardSelectionUI;
 
     private void Awake()
     {
@@ -48,21 +57,22 @@ public class UIManager : MonoBehaviour
         onColorChangerDeactivate?.Invoke();// yakalayan scriptleri yaz. Mesela gameBrain oyunu devam ettirsin. ses efekti oynansın. 
         
     }
+
     public void setTheScoreText()
     {
         if (!scoreManager.isScoreListEmpty())
         {
-            if (GameBrainRef.getCurrentTurn()%2==1 && enteredToSliderUp)
+            if (GameBrainRef.getCurrentTurn()%2==0 && enteredToSliderUp)
             {
-                Debug.Log("Geldim gordum gittim");
+                
                 enteredToSliderUp = false;
                 enteredToSliderDown = true;
                 float temp = slider.value;
                 slider.value = temp + scoreManager.getLastListIndex(); 
             }
-            else if (GameBrainRef.getCurrentTurn()%2==0 && enteredToSliderDown)
+            else if (GameBrainRef.getCurrentTurn()%2==1 && enteredToSliderDown)
             {
-                Debug.Log("Geldim gordum gittim v2");
+                
                 enteredToSliderDown = false;
                 enteredToSliderUp = true;
                 float temp = slider.value;
@@ -70,12 +80,17 @@ public class UIManager : MonoBehaviour
             }
             if (GameBrainRef.winPoint < slider.value)
             {
+                Debug.Log("I winn");
                 onWin?.Invoke();
                 slider.value = 50;
                 //Open win window
-            }else if (GameBrainRef.winPoint > slider.value)
+            }else if (GameBrainRef.LosePoint > slider.value)
             {
                 onLose?.Invoke();
+            }
+            else
+            {
+                GameBrainRef.setBattleState();
             }
             
             if (slider.value > 100)
@@ -119,12 +134,47 @@ public class UIManager : MonoBehaviour
         expectationTextBox.text = ("Expectation: " + crowdManager.getExpectationPoint());
     }
 
-    
-
     public void updateUI()
     {
-        setTheScoreText();
         setTheTurnText();
         setExpectationTextBox();
+    }
+
+    public void openFetchCards()
+    {
+        Debug.Log("Card will be select");
+        cardsToSelect = new List<CardInfo> ();
+        for(int i = 0; i<3; i++)
+        {
+            cardsToSelect.Add(cardBaseHolder.Draw());
+        }
+        Debug.Log("Cards selected");
+        int index = 0;
+        foreach(CardInfo cardInfo in cardsToSelect)
+        {
+            cardInfos[index++].text = "Name: " + cardInfo.name;
+            cardInfos[index++].text = "Description: " + cardInfo.description;
+        }
+        Debug.Log("Cards displayed");
+        cardSelectionUI.SetActive(true);
+        GameBrainRef.stopGame();
+    }
+
+    public void sendCards(int index)
+    {
+        cardSelectionUI.SetActive(false);
+        shuffleHolder.Add(cardsToSelect[index]);
+    }
+
+    private void OnEnable()
+    {
+        WinState.onEnter += openFetchCards;
+        CrowdTurnState.onCrowdExit += setTheScoreText;
+    }
+
+    private void OnDisable()
+    {
+        WinState.onEnter -= openFetchCards;
+        CrowdTurnState.onCrowdExit -= setTheScoreText;
     }
 }

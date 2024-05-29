@@ -164,9 +164,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1897.1427, y: 2211.4285}
+  m_AnchoredPosition: {x: 707.4866, y: 653.5829}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 1.4880953, y: 2.5497882}
+  m_Pivot: {x: 0.8684826, y: 1.1051693}
 --- !u!114 &1734060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2233,6 +2233,7 @@ GameObject:
   - component: {fileID: 292369724}
   - component: {fileID: 292369723}
   - component: {fileID: 292369726}
+  - component: {fileID: 292369727}
   m_Layer: 0
   m_Name: GameBrain
   m_TagString: GameBrain
@@ -2267,6 +2268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d89c8f33b9a9d4a95b443e3ebea91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: {fileID: 0}
   UIManagerInstance: {fileID: 568569532}
 --- !u!114 &292369722
 MonoBehaviour:
@@ -2286,6 +2288,7 @@ MonoBehaviour:
   - {fileID: 292369726}
   - {fileID: 292369723}
   - {fileID: 292369726}
+  - {fileID: 292369727}
   cardColors: 
   currentTurn: 0
   howManyTurn: 20
@@ -2338,6 +2341,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9477d7a2696a97b4a9272cf54026c169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &292369727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292369719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060f6f4aa7df0ea4db8b540a80daa946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &323130796 stripped
@@ -3572,6 +3587,16 @@ MonoBehaviour:
   expectationTextBox: {fileID: 631337562}
   slider: {fileID: 1052648649}
   colorChange: {fileID: 1579313426}
+  cardInfos:
+  - {fileID: 534220248}
+  - {fileID: 1651897538}
+  - {fileID: 1407046569}
+  - {fileID: 2119582218}
+  - {fileID: 1359524481}
+  - {fileID: 183571655}
+  cardBaseHolder: {fileID: 1778957044}
+  shuffleHolder: {fileID: 1778957042}
+  cardSelectionUI: {fileID: 386815290}
 --- !u!1 &588419925
 GameObject:
   m_ObjectHideFlags: 0
@@ -5001,7 +5026,55 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 849327835}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 292369722}
+        m_TargetAssemblyTypeName: GameBrain, Assembly-CSharp
+        m_MethodName: continueGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 568569532}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: sendCards
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 963194230}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 292369722}
+        m_TargetAssemblyTypeName: GameBrain, Assembly-CSharp
+        m_MethodName: setBattleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &849327835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6180,7 +6253,55 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1187410535}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 292369722}
+        m_TargetAssemblyTypeName: GameBrain, Assembly-CSharp
+        m_MethodName: continueGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 568569532}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: sendCards
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 963194230}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 292369722}
+        m_TargetAssemblyTypeName: GameBrain, Assembly-CSharp
+        m_MethodName: setBattleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1187410535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7893,7 +8014,55 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1478580847}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 292369722}
+        m_TargetAssemblyTypeName: GameBrain, Assembly-CSharp
+        m_MethodName: continueGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 568569532}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: sendCards
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 963194230}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 292369722}
+        m_TargetAssemblyTypeName: GameBrain, Assembly-CSharp
+        m_MethodName: setBattleState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1478580847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8998,6 +9167,7 @@ GameObject:
   - component: {fileID: 1778957043}
   - component: {fileID: 1778957042}
   - component: {fileID: 1778957041}
+  - component: {fileID: 1778957044}
   m_Layer: 0
   m_Name: CardHolder
   m_TagString: Untagged
@@ -9059,6 +9229,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1778957044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778957040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ceabea824466b4dbef6afd37783922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cards:
+  - {fileID: 11400000, guid: 95153df974473f741a60cce82f5eed6e, type: 2}
+  - {fileID: 11400000, guid: dafb2d09fe67d664ba6340a2a638e5fb, type: 2}
+  - {fileID: 11400000, guid: 782d1012e73bc394ab8b88b382dfa295, type: 2}
+  - {fileID: 11400000, guid: f23f516c2da3cf54ba4d99cbe9f2ad26, type: 2}
+  - {fileID: 11400000, guid: f4725ad78f72dc547ad71b0fc6247251, type: 2}
+  red:
+  - {fileID: 11400000, guid: fb2449db2d0112b4abe828bfd09e2033, type: 2}
+  - {fileID: 11400000, guid: c2fc4a3d8cf1b4246bb9d5d99469d19f, type: 2}
+  - {fileID: 11400000, guid: c4a9bbfdac0dbda429949a142d60e75e, type: 2}
+  - {fileID: 11400000, guid: 346daee302367ac4784b9d8d9d640e4b, type: 2}
+  - {fileID: 11400000, guid: ee40bdf33488536449e94ae98ca85b73, type: 2}
+  - {fileID: 11400000, guid: 53402f7cbbd6fa04fb8f66bd7de3142f, type: 2}
+  - {fileID: 11400000, guid: 168f364e3d79e9a46b1b89b77e668a03, type: 2}
+  - {fileID: 11400000, guid: 3d0bd2b9e08334840b5924b56d128b7d, type: 2}
+  - {fileID: 11400000, guid: 3f0014978b2356646bf42bea30dbbe36, type: 2}
+  - {fileID: 11400000, guid: 1b95b543edca0cc4c896ae257706330b, type: 2}
+  - {fileID: 11400000, guid: 5dcc40fcd43a5f949bde9cbedde874dd, type: 2}
+  - {fileID: 11400000, guid: c76443e7c2d8b0d42a10cb3e95d16e90, type: 2}
+  purple:
+  - {fileID: 11400000, guid: c71a2ec07b0da604f925b81155855212, type: 2}
+  - {fileID: 11400000, guid: 35db69b659f2b27458c15cb7cf9870e9, type: 2}
+  - {fileID: 11400000, guid: 4f87c6aad8b5fed4887978bae5822afa, type: 2}
+  - {fileID: 11400000, guid: 01fb3d5ac6fa1fc4fac7d0dc0cc84a8d, type: 2}
+  - {fileID: 11400000, guid: fae7d38416f1b3644956ba054b6ea6ea, type: 2}
+  - {fileID: 11400000, guid: ce3efbbc0226d4b449c28819ba9b8037, type: 2}
+  - {fileID: 11400000, guid: b9dd2d49951844a4996c0d304c7db185, type: 2}
+  - {fileID: 11400000, guid: 0eecf266bc9b5dc41a4e4545fd5f89ea, type: 2}
+  - {fileID: 11400000, guid: 2400e4c10f642ee40a841ab6cfd05b01, type: 2}
+  - {fileID: 11400000, guid: 52ee146a33bf5d14da812cc5c5f28820, type: 2}
+  - {fileID: 11400000, guid: 05329ec105f1c0a4cab3ffa9ff45da74, type: 2}
+  - {fileID: 11400000, guid: f5acbe203ae18ba49bb882c150f63c67, type: 2}
+  pink:
+  - {fileID: 11400000, guid: 292e2fb0df76df1469fa9d4bd208c5d5, type: 2}
+  - {fileID: 11400000, guid: a2a401ff66e3d914fbe0febf224873e4, type: 2}
+  - {fileID: 11400000, guid: a69c437850b8c0d42a07773c407d06d0, type: 2}
+  - {fileID: 11400000, guid: a937160f9c903fb45b846c1af8029259, type: 2}
+  - {fileID: 11400000, guid: ab1ff962886f9ca46a797515794fdbb6, type: 2}
+  - {fileID: 11400000, guid: 6163a895b36dca44297343c47123da4f, type: 2}
+  - {fileID: 11400000, guid: 7525f1d6ec5a73d4b8a57d45ba6dd738, type: 2}
+  - {fileID: 11400000, guid: 655eee6e54303434fb5fc45312330254, type: 2}
+  - {fileID: 11400000, guid: b41687925a9516448b7389ac35837c5e, type: 2}
+  - {fileID: 11400000, guid: c8d8e85144452e74b8c8b16b87fb6d5a, type: 2}
+  - {fileID: 11400000, guid: b59f3dffeb66cc747bd565719f9efda3, type: 2}
 --- !u!1 &1786414183
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class BattleSystem : MonoBehaviour
 {
-    private BattleState currentState;
+    [SerializeField]private BattleState currentState;
     [SerializeField] private UIManager UIManagerInstance;
     public void enterState()
     {
-        Debug.Log("current state'e giriyom");
+        
         currentState.EnterState();
     }
 

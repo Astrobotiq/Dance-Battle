@@ -16,11 +16,13 @@ public class GameBrain : MonoBehaviour
     int index;
     public int howManyTurn;
     public int winPoint;
+    public int LosePoint;
 
     
     private void Start()
     {
         winPoint = 75;
+        LosePoint = 25;
         battleSystem = GetComponent<BattleSystem>();
         index = -1;
         setBattleState();
@@ -34,7 +36,7 @@ public class GameBrain : MonoBehaviour
 
     public void setBattleState()
     {
-        Debug.Log("State Ba�lad�");
+        Debug.Log("Entering new state");
         getNextIndex();
         battleSystem.stateTransition(GetState());
     }
@@ -162,17 +164,15 @@ public class GameBrain : MonoBehaviour
         FillDictionary(effects);
         additionalEffects = new Dictionary<int, List<_Effect>>();
         FillDictionary(additionalEffects);
-        currentTurn = 0;
-        index = 0;
+        index = -1;
         Debug.Log("You winn");
-        //battleSystem.stateTransition(battleStates[5]);
+        battleSystem.stateTransition(battleStates[5]);
     }
 
     private void OnEnable()
     {
         SpecialTurn.onExitSpecial += setBattleState;
         PlayerTurnState.onPlayerTurnEnd += startCoroutine;
-        CrowdTurnState.onCrowdExit += setBattleState;
         EnemyTurnState.onEnemyTurnEnd += startCoroutine;
         UIManager.onColorChangerActivate += stopGame;
         UIManager.onColorChangerDeactivate += continueGame;
@@ -183,7 +183,6 @@ public class GameBrain : MonoBehaviour
     {
         SpecialTurn.onExitSpecial -= setBattleState;
         PlayerTurnState.onPlayerTurnEnd -= startCoroutine;
-        CrowdTurnState.onCrowdExit -= setBattleState;
         EnemyTurnState.onEnemyTurnEnd -= startCoroutine;
         UIManager.onColorChangerActivate -= stopGame;
         UIManager.onColorChangerDeactivate -= continueGame;

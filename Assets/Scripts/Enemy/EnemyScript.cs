@@ -46,6 +46,7 @@ public class EnemyScript : MonoBehaviour
     {
         //score tutan scripten score'un değerini al ve buradaki score float değerini ona eşitlesin
         //score = scoreKeeperGameobject.GetComponent<>().getScore();
+        Debug.Log("Chose Card is Entered");
         score = scoreManager.getLastListIndex();
         if (score <= 20)
         {

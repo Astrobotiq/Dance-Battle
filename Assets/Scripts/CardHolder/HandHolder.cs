@@ -46,13 +46,14 @@ public class HandHolder : MonoBehaviour
     private void OnEnable()
     {
         SpecialTurn.onEnterSpecial += drawCard;
-        UIManager.onWin += onWin;
+        WinState.onEnter += onWin;
     }
 
     private void OnDisable()
     {
         SpecialTurn.onEnterSpecial -= drawCard;
-        UIManager.onWin -= onWin;
+        WinState.onEnter += onWin;
+
     }
 
     public void Add(Card card)
@@ -168,7 +169,10 @@ public class HandHolder : MonoBehaviour
         foreach(Card card in cards)
         {
             shuffleHolder.Add(card.GetCardInfo());
-            Destroy(card);
+            Destroy(card.gameObject);
         }
+        cards.Clear();
+        cards = new List<Card>();
+        Debug.Log("Cardlar silindi");
     }
 }
