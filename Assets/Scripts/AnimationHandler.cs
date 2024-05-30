@@ -12,10 +12,12 @@ public class AnimationHandler : MonoBehaviour
     public GameObject parent;
     float animationTotalLength;
     Vector3 startPos;
+    Quaternion rot;
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
+        rot = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
         animations = new List<AnimationClip>();
         controller = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = controller;
@@ -35,6 +37,7 @@ public class AnimationHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         transform.position = startPos;
+        transform.rotation = rot;
     }
 
     public void resetStarter()

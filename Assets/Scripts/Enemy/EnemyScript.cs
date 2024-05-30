@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class EnemyScript : MonoBehaviour
 {
     //hem normal hem de powerfull listeleri tekte dondurmek istersek diye bir tane de mainList var
-    private List<List<List<CardInfo>>> mainList = new List<List<List<CardInfo>>>(); 
+    /*private List<List<List<CardInfo>>> mainList = new List<List<List<CardInfo>>>(); 
     public List<List<CardInfo>> normalCards = new List<List<CardInfo>>();
     public List<List<CardInfo>> powerfulCards = new List<List<CardInfo>>();
     public List<CardInfo> normalIntroductionCards = new List<CardInfo>();
@@ -16,33 +16,46 @@ public class EnemyScript : MonoBehaviour
     public List<CardInfo> normalConclusionCards = new List<CardInfo>();
     public List<CardInfo> powerfulIntroductionCards = new List<CardInfo>();
     public List<CardInfo> powerfulDevelopmentCards = new List<CardInfo>();
-    public List<CardInfo> powerfulConclusionCards = new List<CardInfo>();
+    public List<CardInfo> powerfulConclusionCards = new List<CardInfo>();*/
     public List<CardInfo> cardWillBePlayed = new List<CardInfo>();
+
+    public List<CardInfo> cards;
 
     [SerializeField] private GameBrain gameBrain;
     [SerializeField] private AnimationHandler animationHandler;
     [SerializeField] private ScoreManager scoreManager;
 
+
+    public List<Card> cardss; 
     
     private float score;
 
     public void Awake()
     {
-        setLists();
+        //setLists();
     }
     
     private void OnEnable()
     {
-        EnemyTurnState.onEnemyTurnStart += chooseCards;
+        SpecialTurn.onEnterSpecial += chooseCards;
+        EnemyTurnState.onEnemyTurnStart += sendSelectedCards;
     }
 
     private void OnDisable()
     {
-        EnemyTurnState.onEnemyTurnEnd -= chooseCards;
+        SpecialTurn.onEnterSpecial -= chooseCards;
+        EnemyTurnState.onEnemyTurnEnd -= sendSelectedCards;
     }
 
-    
     public void chooseCards()
+    {
+        cardWillBePlayed.Add(randomCardSelecter(cards));
+        cardWillBePlayed.Add(randomCardSelecter(cards));
+        cardWillBePlayed.Add(randomCardSelecter(cards));
+        disPlayCards();
+    }
+
+    /*public void chooseCards()
     {
         //score tutan scripten score'un değerini al ve buradaki score float değerini ona eşitlesin
         //score = scoreKeeperGameobject.GetComponent<>().getScore();
@@ -75,10 +88,19 @@ public class EnemyScript : MonoBehaviour
             cardWillBePlayed.Add(randomCardSelecter(powerfulCards[1]));
             cardWillBePlayed.Add(randomCardSelecter(powerfulCards[2]));
         }
-        
-        sendSelectedCards();
+
+        disPlayCards();
+        //sendSelectedCards();
+    }*/
+
+    private void disPlayCards()
+    {
+       for (int i = 0; i < cardWillBePlayed.Count; i++)
+        {
+            cardss[i].setCardInfo(cardWillBePlayed[i]);
+        }
     }
-    
+
     public CardInfo randomCardSelecter(List<CardInfo> parameterList)
     {
         //min inclusive but max exclusive that way it looks like this
@@ -102,7 +124,7 @@ public class EnemyScript : MonoBehaviour
         gameBrain.addEffects(effects);
     }
     
-    public void setLists()
+   /* public void setLists()
     {
         normalCards.Add(normalIntroductionCards);
         normalCards.Add(normalDevelopmentCards);
@@ -114,5 +136,5 @@ public class EnemyScript : MonoBehaviour
         
         mainList.Add(normalCards);
         mainList.Add(powerfulCards);
-    }
+    }*/
 }
