@@ -16,7 +16,7 @@ MonoBehaviour:
   CardType: 
   description: If Music Color, All Played Card Colors is Equals to Pink Then Expectation
     Point Will be Multiplied By Two On The Next Turn
-  animation: {fileID: 0}
+  animation: {fileID: 7400000, guid: e6a63ac47af069f47bcdae7108d91d30, type: 2}
   effect:
   - {fileID: 11400000, guid: 1a743c8cbc61ffa4aad798e816593ea5, type: 2}
   cardStructure: 0

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class CardBaseHolder : _CardHolder
 {
-    public List<List<CardInfo>> allCards;
+    
     public List<CardInfo> red;
     public List<CardInfo> purple;
     public List<CardInfo> pink;
+    public List<List<CardInfo>> allCards;
 
     private void Start()
     {
-        allCards = new List<List<CardInfo>>();
-        allCards.Add(red); allCards.Add(pink); allCards.Add(purple); allCards.Add(_cards);
+        allCards = new List<List<CardInfo>>
+        {
+            red,
+            pink,
+            purple,
+            _cards
+        };
     }
     public override CardInfo Draw()
     {

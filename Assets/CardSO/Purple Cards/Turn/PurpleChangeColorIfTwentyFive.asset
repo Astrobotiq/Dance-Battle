@@ -15,7 +15,7 @@ MonoBehaviour:
   CardName: (C)Change Color
   CardType: 
   description: Change Color if Raw DMG is Greater Than 25
-  animation: {fileID: 0}
+  animation: {fileID: -203655887218126122, guid: a340cff5a782c134d8aa9f78ad01a0d1, type: 3}
   effect:
   - {fileID: 11400000, guid: fb2a33b8028546544a181d7eba6ded18, type: 2}
   cardStructure: 0

@@ -156,6 +156,7 @@ public class HandHolder : MonoBehaviour
 
     IEnumerator drawTimer()
     {
+        yield return new WaitForSeconds(1);
         while (cards.Count < maxCard)
         {
             Debug.Log("Kart çekiliyor");

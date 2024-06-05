@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class ShuffleHolder : _CardHolder
 {
+    [SerializeField] private CardBaseHolder holder;
     [SerializeField]
     private DiscardHolder discardHolder;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        StartCoroutine(delayCardDraw());
+    }
+
+    IEnumerator delayCardDraw()
+    {
+        yield return new  WaitForSeconds(0.5f);
+        for (int i = 0; i < 10; i++)
+        {
+            _cards.Add(holder.Draw());
+        }
     }
 
     // Update is called once per frame

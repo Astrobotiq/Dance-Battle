@@ -49,6 +49,7 @@ public class EnemyScript : MonoBehaviour
 
     public void chooseCards()
     {
+        cardWillBePlayed = new List<CardInfo>();
         cardWillBePlayed.Add(randomCardSelecter(cards));
         cardWillBePlayed.Add(randomCardSelecter(cards));
         cardWillBePlayed.Add(randomCardSelecter(cards));

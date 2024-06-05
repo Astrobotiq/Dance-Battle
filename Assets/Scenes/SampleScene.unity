@@ -4840,6 +4840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 702145296}
   parent: {fileID: 588419925}
+  lightManager: {fileID: 0}
 --- !u!1 &727857695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,7 +5582,7 @@ MonoBehaviour:
       - m_Target: {fileID: 292369722}
         m_TargetAssemblyTypeName: GameBrain, Assembly-CSharp
         m_MethodName: continueGame
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6498,7 +6499,7 @@ GameObject:
   - component: {fileID: 1070979914}
   m_Layer: 0
   m_Name: CrowdManager
-  m_TagString: Untagged
+  m_TagString: CrowdManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6909,7 +6910,7 @@ MonoBehaviour:
       - m_Target: {fileID: 292369722}
         m_TargetAssemblyTypeName: GameBrain, Assembly-CSharp
         m_MethodName: continueGame
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7428,7 +7429,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1930bd9f69f158b44acb54d6942850ea, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_Volume: 0.055
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8674,7 +8675,7 @@ MonoBehaviour:
       - m_Target: {fileID: 292369722}
         m_TargetAssemblyTypeName: GameBrain, Assembly-CSharp
         m_MethodName: continueGame
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9715,7 +9716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1757369651
 Transform:
   m_ObjectHideFlags: 0
@@ -9881,9 +9882,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1778957043}
+  - component: {fileID: 1778957044}
   - component: {fileID: 1778957042}
   - component: {fileID: 1778957041}
-  - component: {fileID: 1778957044}
   m_Layer: 0
   m_Name: CardHolder
   m_TagString: Untagged
@@ -9917,18 +9918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4c001e47b7fa84db90e57c89753147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cards:
-  - {fileID: 11400000, guid: 35db69b659f2b27458c15cb7cf9870e9, type: 2}
-  - {fileID: 11400000, guid: 2400e4c10f642ee40a841ab6cfd05b01, type: 2}
-  - {fileID: 11400000, guid: 0eecf266bc9b5dc41a4e4545fd5f89ea, type: 2}
-  - {fileID: 11400000, guid: dafb2d09fe67d664ba6340a2a638e5fb, type: 2}
-  - {fileID: 11400000, guid: 1b95b543edca0cc4c896ae257706330b, type: 2}
-  - {fileID: 11400000, guid: 655eee6e54303434fb5fc45312330254, type: 2}
-  - {fileID: 11400000, guid: c4a9bbfdac0dbda429949a142d60e75e, type: 2}
-  - {fileID: 11400000, guid: fae7d38416f1b3644956ba054b6ea6ea, type: 2}
-  - {fileID: 11400000, guid: 7525f1d6ec5a73d4b8a57d45ba6dd738, type: 2}
-  - {fileID: 11400000, guid: 3f0014978b2356646bf42bea30dbbe36, type: 2}
-  - {fileID: 11400000, guid: a2a401ff66e3d914fbe0febf224873e4, type: 2}
+  _cards: []
+  holder: {fileID: 1778957044}
   discardHolder: {fileID: 1778957041}
 --- !u!4 &1778957043
 Transform:
@@ -11313,6 +11304,10 @@ MonoBehaviour:
   player: {fileID: 157943550}
   enemy: {fileID: 588419925}
   ceiling: {fileID: 855762019}
+  cubes:
+  - {fileID: 252520065}
+  - {fileID: 1367604312}
+  - {fileID: 906262626}
 --- !u!1 &1972848657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bd80fc7bd242b1444b4445b04298f499, type: 3}
@@ -11358,6 +11353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1972848659}
   parent: {fileID: 157943550}
+  lightManager: {fileID: 1958075761}
 --- !u!1001 &2005182503
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class LightManager : MonoBehaviour
     public GameObject ceiling;
     private int startRot;
     private int rotateCount;
+    public List<Transform> cubes;
     private void Awake()
     {
         rotateCount = 0;
@@ -55,6 +56,15 @@ public class LightManager : MonoBehaviour
             rotateCount = 0;
         }
         
+    }
+
+    public void lookAtCards(List<float> list)
+    {
+        lightsMiddle[1].transform.DOLookAt(cubes[0].position, list[0]).SetEase(Ease.Linear).OnComplete( () =>
+            lightsMiddle[1].transform.DOLookAt(cubes[1].position, list[1]).SetEase(Ease.Linear).OnComplete(() =>
+                lightsMiddle[2].transform.DOLookAt(cubes[2].position, list[2]).SetEase(Ease.Linear)
+            )
+        );
     }
 
     private void caller()

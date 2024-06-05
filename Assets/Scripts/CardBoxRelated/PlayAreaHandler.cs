@@ -25,12 +25,18 @@ public class PlayAreaHandler : MonoBehaviour
     {
         SpecialTurn.onExitSpecial += disableEnemyTurnCardArea;
         SpecialTurn.onEnterSpecial += enableEnemyTurnCardArea;
+        EnemyTurnState.onEnemyTurnStart += enableEnemyTurnCardArea;
+        EnemyTurnState.onEnemyTurnEnd += disableEnemyTurnCardArea;
+        PlayerTurnState.onPlayerTurnStart += enablePlayerTurnCardArea;
+        PlayerTurnState.onPlayerTurnEnd += disablePlayerTurnCardArea;
     }
 
     private void OnDisable()
     {
         SpecialTurn.onEnterSpecial -= enableEnemyTurnCardArea;
         SpecialTurn.onExitSpecial -= disableEnemyTurnCardArea;
+        EnemyTurnState.onEnemyTurnStart += enableEnemyTurnCardArea;
+        EnemyTurnState.onEnemyTurnEnd += disableEnemyTurnCardArea;
     }
 
     // Update is called once per frame
@@ -46,9 +52,6 @@ public class PlayAreaHandler : MonoBehaviour
 
     public void enableEnemyTurnCardArea()
     {
-        Debug.Log("Box aktive edilecek");
-        
-        playerTurnBox.gameObject.SetActive(false);
         enemyTurnBox.gameObject.SetActive(true) ;
     }
 
@@ -60,10 +63,7 @@ public class PlayAreaHandler : MonoBehaviour
 
     public void disableEnemyTurnCardArea()
     {
-
-        Debug.Log("Box deaktive edilecek");
         enemyTurnBox.gameObject.SetActive(false);
-        playerTurnBox.gameObject.SetActive(true);
     }
 
     public void removeCards()
@@ -152,6 +152,7 @@ public class PlayAreaHandler : MonoBehaviour
     public void sendColors()
     {
         gameBrain.addColors(cardColors);
+        cardColors.Clear();
     }
 
     public Boolean CanPlay()

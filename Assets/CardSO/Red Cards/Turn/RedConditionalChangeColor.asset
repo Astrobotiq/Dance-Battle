@@ -15,7 +15,7 @@ MonoBehaviour:
   CardName: (C) + Change Color if block <-15
   CardType: 
   description: If Played Card's Block Value Less Than -15, Change Color
-  animation: {fileID: 0}
+  animation: {fileID: 7400000, guid: 669abfd327d38444a9d2ba3a8cba44c4, type: 2}
   effect:
   - {fileID: 11400000, guid: 1d6926c5ad9a1a94eb4d2efd7ffe814b, type: 2}
   cardStructure: 0

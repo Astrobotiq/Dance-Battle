@@ -15,7 +15,7 @@ MonoBehaviour:
   CardName: (C) Chenge Color
   CardType: 
   description: Change Color if Expectation Point is Less Than 25
-  animation: {fileID: 0}
+  animation: {fileID: 7400000, guid: 44c5d93b38b797a4b869ec25d5f3fa30, type: 2}
   effect:
   - {fileID: 11400000, guid: 082f8f241fa29e342a7239010c85f3a0, type: 2}
   cardStructure: 0

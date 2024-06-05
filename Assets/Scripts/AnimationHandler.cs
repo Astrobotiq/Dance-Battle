@@ -13,6 +13,7 @@ public class AnimationHandler : MonoBehaviour
     float animationTotalLength;
     Vector3 startPos;
     Quaternion rot;
+    public LightManager lightManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,20 +63,23 @@ public class AnimationHandler : MonoBehaviour
         controller.ApplyOverrides(clipOverrides);
         Debug.Log("I am at the end of fun");
         calculateTime();
-        playAnim();
     }
 
     void calculateTime()
     {
+        List<float> times = new List<float>();
         foreach (AnimationClip clip in animations)
         {
             animationTotalLength += clip.length;
+            times.Add(clip.length);
         }
+        playAnim(times);
     }
 
-    void playAnim()
+    void playAnim(List<float> list)
     {
         animator.SetTrigger("isDancing");
+        lightManager.lookAtCards(list);
         StartCoroutine(AnimationTimer());
     }
 
