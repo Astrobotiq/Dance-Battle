@@ -7,15 +7,14 @@ public class SpecialTurn : BattleState
 {
 
     public static event StateAction onEnterSpecial;
-    public static event StateAction onExitSpecial;
+    public static event StateAction onExitSpecial; 
+    public static event UIAction onUIOpened;
+    public static event UIAction onUIClosed;
 
     public override void EnterState()
     {
-       
-        StartCoroutine(timer());
-        onEnterSpecial?.Invoke();
-        
-        
+        onUIOpened?.Invoke("SPECÝAL");
+        StartCoroutine(enterStateDelay());
     }
 
     public override void ExitState()
@@ -33,5 +32,13 @@ public class SpecialTurn : BattleState
     {
         yield return new WaitForSeconds(10);
         ExitState();
+    }
+
+    IEnumerator enterStateDelay()
+    {
+        yield return new WaitForSeconds(2);
+        onUIClosed?.Invoke("SPECIAL");
+        StartCoroutine(timer());
+        onEnterSpecial?.Invoke();
     }
 }

@@ -6,11 +6,13 @@ public class CrowdTurnState : BattleState
 {
     public static event StateAction onCrowdEnter;
     public static event StateAction onCrowdExit;
+    public static event UIAction onUIOpened;
+    public static event UIAction onUIClosed;
     public override void EnterState()
     {
         Debug.Log("Croed Turn State baþladý");
-        onCrowdEnter?.Invoke();//UI will show total point we have in that turn
-        StartCoroutine(delay());
+        onUIOpened?.Invoke("CROWD");
+        StartCoroutine(enterStateDelay());
     }
 
     public override void ExitState()
@@ -22,6 +24,14 @@ public class CrowdTurnState : BattleState
     public override void updateState()
     {
         throw new System.NotImplementedException();
+    }
+
+    IEnumerator enterStateDelay()
+    {
+        yield return new WaitForSeconds(2);
+        onUIClosed?.Invoke("CROWD");
+        onCrowdEnter?.Invoke();//UI will show total point we have in that turn
+        StartCoroutine(delay());
     }
 
     IEnumerator delay()

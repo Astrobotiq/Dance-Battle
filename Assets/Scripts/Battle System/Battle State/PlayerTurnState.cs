@@ -7,20 +7,15 @@ public class PlayerTurnState : BattleState
 
     public static event StateAction onPlayerTurnStart;
     public static event StateAction onPlayerTurnEnd;
-    
+    public static event UIAction onUIOpened;
+    public static event UIAction onUIClosed;
+
     public bool isSkipping = false;
     public override void EnterState()
     {
         Debug.Log("Player�n turn'� �imdi");
-        if (isSkipping)
-        {
-            isSkipping = false;
-            ExitState();
-        }
-        else
-        {
-            onPlayerTurnStart?.Invoke();
-        }
+        onUIOpened?.Invoke("PLAYER");
+        StartCoroutine(enterStateDelay());
             //UI'da player turn yazar
             //���klar player'a d�ner
             //Ekrandaki 3 kart oynama noktas� aktive olur
@@ -49,4 +44,20 @@ public class PlayerTurnState : BattleState
     {
         isSkipping = true;
     }
+
+    IEnumerator enterStateDelay()
+    {
+        yield return new WaitForSeconds(2);
+        onUIClosed?.Invoke("CROWD");
+        if (isSkipping)
+        {
+            isSkipping = false;
+            ExitState();
+        }
+        else
+        {
+            onPlayerTurnStart?.Invoke();
+        }
+    }
+
 }

@@ -9,8 +9,8 @@ public class AdditionalCardEffect : _Effect
     
     public override void PlayEffect()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<HandHolder>().setMaxCard(additionAmount);
-        
+        GameObject player = GameObject.FindWithTag("PlayerHand");
+        HandHolder hh = player.GetComponent<HandHolder>();
+        hh.setMaxCard(additionAmount);
     }
 }

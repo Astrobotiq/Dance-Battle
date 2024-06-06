@@ -44,6 +44,10 @@ public class UIManager : MonoBehaviour
     public GameObject winPanel;
     public GameObject losePanel;
 
+    //Turn Text
+    public GameObject turnTextGO;
+    public TextMeshProUGUI turnText;
+
     private void Awake()
     {
         enteredToSliderUp = true;
@@ -203,17 +207,44 @@ public class UIManager : MonoBehaviour
         sceneLoader.changeScene(0);
     }
 
+    private void openTurnText(string text)
+    {
+        turnText.text = text;
+        turnTextGO.SetActive(true);
+    }
+
+    private void closeTurnText(string text)
+    {
+        turnTextGO.SetActive(false);
+    }
+
 
 
     private void OnEnable()
     {
         WinState.onEnter += openFetchCards;
         CrowdTurnState.onCrowdExit += setTheScoreText;
+        CrowdTurnState.onUIOpened += openTurnText;
+        EnemyTurnState.onUIOpened += openTurnText;
+        PlayerTurnState.onUIOpened += openTurnText;
+        CrowdTurnState.onUIClosed += closeTurnText;
+        EnemyTurnState.onUIClosed += closeTurnText;
+        PlayerTurnState.onUIClosed += closeTurnText;
+        SpecialTurn.onUIOpened += openTurnText;
+        SpecialTurn.onUIClosed += closeTurnText;
     }
 
     private void OnDisable()
     {
         WinState.onEnter -= openFetchCards;
         CrowdTurnState.onCrowdExit -= setTheScoreText;
+        CrowdTurnState.onUIOpened -= openTurnText;
+        EnemyTurnState.onUIOpened -= openTurnText;
+        PlayerTurnState.onUIOpened -= openTurnText;
+        CrowdTurnState.onUIClosed -= closeTurnText;
+        EnemyTurnState.onUIClosed -= closeTurnText;
+        PlayerTurnState.onUIClosed -= closeTurnText;
+        SpecialTurn.onUIOpened -= openTurnText;
+        SpecialTurn.onUIClosed -= closeTurnText;
     }
 }

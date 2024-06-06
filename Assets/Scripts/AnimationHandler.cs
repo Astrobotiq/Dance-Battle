@@ -79,7 +79,12 @@ public class AnimationHandler : MonoBehaviour
     void playAnim(List<float> list)
     {
         animator.SetTrigger("isDancing");
-        lightManager.lookAtCards(list);
+        
+        if (parent.gameObject.tag == "Player")
+        {
+            lightManager.lookAtCards(list);
+        }
+        
         StartCoroutine(AnimationTimer());
     }
 

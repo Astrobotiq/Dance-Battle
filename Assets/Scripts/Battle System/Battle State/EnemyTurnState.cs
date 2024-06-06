@@ -6,20 +6,15 @@ public class EnemyTurnState : BattleState
 {
     public static event StateAction onEnemyTurnStart;
     public static event StateAction onEnemyTurnEnd;
+    public static event UIAction onUIOpened;
+    public static event UIAction onUIClosed;
 
     public bool isSkipping = false;
     public override void EnterState()
     {
         Debug.Log("Enemy Turn Ba�lad�. Hurraa");
-        if (isSkipping)
-        {
-            isSkipping = false;
-            ExitState();
-        }
-        else
-        {
-            onEnemyTurnStart?.Invoke();
-        }
+        onUIOpened?.Invoke("ENEMY");
+        StartCoroutine(enterStateDelay());
     }
 
     public override void ExitState()
@@ -38,5 +33,20 @@ public class EnemyTurnState : BattleState
     public void setIsSkippingTrue()
     {
         isSkipping = true;
+    }
+
+    IEnumerator enterStateDelay()
+    {
+        yield return new WaitForSeconds(2);
+        onUIClosed?.Invoke("ENEMY");
+        if (isSkipping)
+        {
+            isSkipping = false;
+            ExitState();
+        }
+        else
+        {
+            onEnemyTurnStart?.Invoke();
+        }
     }
 }
